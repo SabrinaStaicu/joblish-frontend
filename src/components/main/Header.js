@@ -1,5 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
+import malePhoto from './malePhoto.svg'
+
 
 const Header = () => {
     return (
@@ -7,6 +9,7 @@ const Header = () => {
             <NavBar />
             <h2 className="headerText">Searching for a job?</h2>
             <div className="headerSearchBar">SearchBar</div>
+            <img className="malePhoto" src={malePhoto} />
         </header>
     )
 }

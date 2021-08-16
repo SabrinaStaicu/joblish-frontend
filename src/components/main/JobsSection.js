@@ -1,30 +1,62 @@
 import React, {useEffect, useState} from 'react'
 import JobCard from '../job/JobCard'
 import JobService from "../../service/JobService";
-import SearchBar from "./SearchBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { MDBCol } from "mdbreact";
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+    },
+}));
 
 const JobsSection = () => {
-    const [isLoading, setIsLoading] = useState();
+    const classes = useStyles();
     const [jobs, setJobs] = useState();
+    const [searchInput, setSearchInput] = useState();
 
-    useEffect(() => {
+    const getSearchInput = (event) => {
+        setSearchInput(event.target.value);
+    }
 
-        JobService.getJobs().then(r => {
+    const search = () => {
+        console.log(searchInput)
+        JobService.getJobsBySearchInput(searchInput).then(r => {
             console.log(r.data.jobs)
-            setJobs(r.data.jobs)
+            setJobs(r.data.jobs);
         })
-    }, [])
+    }
 
 
+        return (
+            <div>
+                <MDBCol md="6">
+                    <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={getSearchInput}/>
+                </MDBCol>
+                <div className={classes.root}>
+                    <Button variant="contained" color="primary" onClick={search}>
+                        Primary
+                    </Button>
+                </div>
+                {
+                    jobs ? (
+                        <div>
+                            {
+                                jobs.map(
+                                    job => <JobCard key={job.id} job={job}/>
+                                )
+                            }
+                        </div>
+                    ) : ("")
+                }
 
-    return (
-        <div>
-            <SearchBar />
-            <JobCard />
-        </div>
-    )
+            </div>
+        )
+
 }
 
 export default JobsSection

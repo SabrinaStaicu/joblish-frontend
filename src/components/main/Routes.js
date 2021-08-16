@@ -4,13 +4,13 @@ import HomePage from "./HomePage";
 
 const Routes = () => {
     return (
-        <div>
+        <>
             <Router>
                 <Switch>
                     <Route path={"/"} exact component={HomePage} />
                 </Switch>
             </Router>
-        </div>
+        </>
     );
 };
 

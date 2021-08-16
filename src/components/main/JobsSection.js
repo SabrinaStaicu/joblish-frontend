@@ -33,7 +33,7 @@ const JobsSection = () => {
 
 
         return (
-            <div>
+            <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
                 <MDBCol md="6">
                     <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={getSearchInput}/>
                 </MDBCol>
@@ -41,10 +41,10 @@ const JobsSection = () => {
                     <Button variant="contained" color="primary" onClick={search}>
                         Primary
                     </Button>
-                </div>
+                </div >
                 {
                     jobs ? (
-                        <div>
+                        <div className="jobSection">
                             {
                                 jobs.map(
                                     job => <JobCard key={job.id} job={job}/>

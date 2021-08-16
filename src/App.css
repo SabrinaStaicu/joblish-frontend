@@ -6,35 +6,44 @@
 }
 
 header {
-  border: #ce7209 solid 1px;
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 30px 100px;
   height: 60vh;
   display: flex;
   justify-content: space-between;
   
 }
 
-header::after {
-  width: 70%;
-  background-color: blue;
-}
 
 header .logo {
-  color: rgb(255, 208, 0);
+  display: flex;
+  flex-direction: row;
+  margin-left: 7%;
+  z-index: 2;
+  margin-top: 1%;
+  
+  
+}
+
+.logo a {
+  color: rgb(30, 209, 170);
   font-weight: 700;
   text-decoration: none;
   font-size: 2em;
   text-transform: uppercase;
   letter-spacing: 2px;
-  
+}
+
+.logo img {
+  vertical-align:middle;
 }
 
 header ul {
-  z-index: 20;
+  margin-right: 55%;
+  margin-top: 1.3%;
+  z-index: 3;
   display: flex;
   justify-content: center;
 
@@ -48,28 +57,90 @@ header ul li {
 header ul li a {
   padding: 6px 15px;
   text-decoration: none;
-  color: rgb(255, 208, 0);
+  color: rgb(30, 209, 170);
   border-radius: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  /* box-shadow: black 1px 1px 6px; */
 }
 
 header ul li a:hover,
 header ul li a.active {
-  background: #ffd000;
-  color: #ce7209;
+  background: rgb(30, 209, 170);
+  color: #a062f1;
+
 }
 
 .headerText {
+  font-size: 25px;
+  margin-left: 7%;
+  z-index: 2;
   display: inline;
   position: absolute;
   top: 50%;
 }
 
 .headerSearchBar {
-  display: inline-block;
-  position: absolute;
-  top: 55%;
+display: flex;
+flex-direction: row;
+margin-left: 7%;
+z-index: 2;
+position: absolute;
+top: 70%;
 width: 25%;
 height: 10%;
 border: black solid 1px;
+}
 
+.headerSearchBar > div {
+  display: inline-flex;
+  flex: 1;
+  background-color: white;
+  border-left: grey solid 1px;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+header::after {
+  margin-left: 0;
+  z-index: 1;
+  position: absolute;
+  content: "";
+  width: 60%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.534);
+}
+
+header::before {
+  margin-left: 60%;
+  z-index: 1;
+  position: absolute;
+  content: "";
+  width: 40%;
+  height: 100%;
+  /* transform: translateX(-13.94%); */
+  background-color: rgba(153, 126, 189, 0.644);
+}
+
+.malePhoto {
+  margin-left: 50%;
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  object-fit: cover;
+}
+
+.searchButton {
+  width: 95%;
+  height: 85%;
+  background-color: rgb(30, 209, 170);
+  border-radius: 10px;
+  border: none;
+  color: rgba(0, 0, 255, 0.534);
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: black  0 1px 5px;
 }

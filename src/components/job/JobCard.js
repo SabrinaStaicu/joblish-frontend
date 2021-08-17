@@ -30,6 +30,10 @@ const JobCard = (props) => {
         })
     }
 
+    const apply = () => {
+        history.push(`/apply/${props.job.id}`)
+    }
+
     return (
         <Card className={classes.root}>
             <CardActionArea>
@@ -55,7 +59,7 @@ const JobCard = (props) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={apply}>
                     Apply
                 </Button>
                 <Button size="small" color="primary" onClick={goToJob}>

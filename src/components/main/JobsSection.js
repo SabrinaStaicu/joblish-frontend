@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 const JobsSection = () => {
     const [jobs, setJobs] = useAtom(jobsAtom);
     const classes = useStyles();
-    // const [jobs, setJobs] = useState();
+
 
         return (
             <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>

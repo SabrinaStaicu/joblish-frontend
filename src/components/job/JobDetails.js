@@ -26,15 +26,30 @@ const JobDetails = () => {
     return (
         <div>
             <NavBar color={"rgba(0, 0, 255, 0.534)"} />
-            <div className="container emp-profile">
-
+            <div className="jobDetails">
+                <h1>{job.title}</h1>
+                <h3>{job.company_name}</h3>
+                <p>{job.publication_date}</p>
             </div>
-            {job.title}
-            Company: {job.company_name}
-            Date: {job.publication_date}
-            <br/>
-            Description : <div dangerouslySetInnerHTML={{ __html:job.description}}/>
-            <Button color="primary" variant="contained">Apply</Button>
+            <div style={{display:"flex"}}>
+                <div style={{flex:"2"}}><div className="jobInfo">
+                <div>
+                    <h5>Location : <p style={{display:"inline-block"}}>{job.candidate_required_location}</p></h5>
+                    <h5>Department : <p style={{display:"inline-block"}}>{job.category}</p></h5>
+                </div>
+                <div>
+                    <h5>Job Type : <p style={{display:"inline-block"}}>{job.job_type}</p></h5>
+                    <h5>Salary : <span style={{display:"inline-block"}}>{job.salary}</span></h5>
+                </div>
+            </div>
+            <div className="jobDescription" dangerouslySetInnerHTML={{ __html:job.description}}/>
+            {/* <Button color="primary" variant="contained">Apply</Button> */}</div>
+                <div style={{flex:"0.8", marginTop:"25px"}}>
+                    <div className="ab">asd</div>
+                    <div className="cd">asd</div>
+                    <div className="ef">asd</div>
+                </div>
+            </div>
         </div>
     );
 };

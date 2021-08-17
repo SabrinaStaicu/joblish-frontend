@@ -13,9 +13,7 @@ header {
   height: 60vh;
   display: flex;
   justify-content: space-between;
-  
 }
-
 
 header .logo {
   display: flex;
@@ -23,8 +21,6 @@ header .logo {
   margin-left: 7%;
   z-index: 2;
   margin-top: 1%;
-  
-  
 }
 
 .logo a {
@@ -37,7 +33,7 @@ header .logo {
 }
 
 .logo img {
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
 header ul {
@@ -46,7 +42,6 @@ header ul {
   z-index: 3;
   display: flex;
   justify-content: center;
-
 }
 
 header ul li {
@@ -68,7 +63,6 @@ header ul li a:hover,
 header ul li a.active {
   background: rgb(30, 209, 170);
   color: #a062f1;
-
 }
 
 .headerText {
@@ -81,15 +75,15 @@ header ul li a.active {
 }
 
 .headerSearchBar {
-display: flex;
-flex-direction: row;
-margin-left: 7%;
-z-index: 2;
-position: absolute;
-top: 70%;
-width: 25%;
-height: 10%;
-border: black solid 1px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 7%;
+  z-index: 2;
+  position: absolute;
+  top: 70%;
+  width: 25%;
+  height: 10%;
+  border: black solid 1px;
 }
 
 .headerSearchBar > div {
@@ -99,7 +93,6 @@ border: black solid 1px;
   border-left: grey solid 1px;
   align-items: center;
   justify-content: center;
-  
 }
 
 header::after {
@@ -142,7 +135,7 @@ header::before {
   font-size: 16px;
   font-weight: 650;
   cursor: pointer;
-  box-shadow: black  0 1px 5px;
+  box-shadow: black 0 1px 5px;
 }
 
 .jobSection {
@@ -151,5 +144,4 @@ header::before {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
 }

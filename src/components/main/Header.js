@@ -4,13 +4,16 @@ import malePhoto from './malePhoto.svg'
 import { useState } from 'react';
 import { useAtom } from 'jotai';
 import JobService from "../../service/JobService";
-import {searchAtom, jobsAtom} from './atoms'
+import {searchAtom, jobsAtom, searchCategoryAtom} from './Atoms'
 
 
 const Header = () => {
 
 
     const [searchInput, setSearch] = useAtom(searchAtom);
+    // const [categoryInput, setCategoryInput] = useAtom(searchCategoryAtom)
+    const [categoryInput, setCategoryInput] = useAtom(searchCategoryAtom)
+
 
     const [jobs, setJobs] = useAtom(jobsAtom);
 
@@ -20,10 +23,14 @@ const Header = () => {
 
 
     const search = () => {
-        console.log(searchInput)
-        if(!searchInput) {
+        if(!searchInput && !categoryInput) {
             // if there is no search input - search all jobs
             JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
+        } else if (!searchInput && categoryInput) {
+            // if there is only a category input - search by category
+            JobService.getJobsByCategory(categoryInput).then(response => {
+                setJobs(response.data.jobs)
+            })
         } else {
             JobService.getJobsBySearchInput(searchInput).then(r => {
                 console.log(r.data.jobs)
@@ -31,6 +38,11 @@ const Header = () => {
             })
         }
 
+    }
+
+    const getCategory = (event) => {
+        console.log(event.target.value)
+        setCategoryInput(event.target.value)
     }
 
     return (
@@ -42,11 +54,11 @@ const Header = () => {
                 <input style={{zIndex:"3", border:"none", width:"100%",height:"100%", alignSelf:"center"}} type="text" placeholder="       Search Job" onChange={getSearchInput} />
                 </div>
                 <div>
-                <select style={{border:"none"}}>
-                    <option selected>Category</option>
-                    <option value="1">Marketing</option>
-                    <option value="2">Sales</option>
-                    <option value="3">Web Dev</option>
+                <select style={{border:"none"}} onChange={getCategory}>
+                    {/*<option selected>Category</option>*/}
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Web">Web Dev</option>
                 </select>
                 </div>
                 {/* <div> */}

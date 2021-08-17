@@ -34,7 +34,7 @@ const JobDetails = () => {
             Date: {job.publication_date}
             <br/>
             Description : <div dangerouslySetInnerHTML={{ __html:job.description}}/>
-            <Button color="primary" variant="contained">Apply</Button>
+            <Button color="primary" variant="contained" onClick={apply}>Apply</Button>
         </div>
     );
 };

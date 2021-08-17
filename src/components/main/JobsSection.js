@@ -5,19 +5,19 @@ import { MDBCol } from "mdbreact";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useAtom } from 'jotai';
-import {jobsAtom} from './atoms'
+import {jobsAtom, searchCategoryAtom} from './Atoms'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-}));
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//         '& > *': {
+//             margin: theme.spacing(1),
+//         },
+//     },
+// }));
 
 const JobsSection = () => {
     const [jobs, setJobs] = useAtom(jobsAtom);
-    const classes = useStyles();
+    // const classes = useStyles();
 
 
         return (

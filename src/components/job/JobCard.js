@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -19,7 +20,15 @@ const useStyles = makeStyles({
 });
 
 const JobCard = (props) => {
+    const history = useHistory();
     const classes = useStyles();
+
+    const goToJob = () => {
+        history.push({
+            pathname: `/job/${props.job.id}`,
+            state: {job: props.job}
+        })
+    }
 
     return (
         <Card className={classes.root}>
@@ -34,18 +43,22 @@ const JobCard = (props) => {
                         {props.job.title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {props.job.category}
+                        <strong>{props.job.category}</strong>
                     </Typography>
                     <Typography variant="body2" component="h7">
                         {props.job.company_name}
+                    </Typography>
+                    <br/>
+                    <Typography variant="body2" color="textSecondary" component="h7">
+                        Type: {props.job.job_type}
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
-                    Share
+                    Apply
                 </Button>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={goToJob}>
                     Details
                 </Button>
             </CardActions>

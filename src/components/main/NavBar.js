@@ -11,10 +11,10 @@ const NavBar = () => {
         {/* <Link to="#">jobify</Link> */}
         </div>
             <ul>
-                <li><Link to="#">Jobs</Link></li>
-                <li><Link to="#">CV</Link></li>
-                <li><Link to="#">Chestie</Link></li>
-                <li><Link to="#">Join Now</Link></li>
+                <li><Link to="#">My profile</Link></li>
+                <li><Link to="#">Applications</Link></li>
+                <li><Link to="#">Join now</Link></li>
+                <li><Link to="#">Logout</Link></li>
             </ul>
 
         </>

@@ -7,9 +7,12 @@ export default function UserAvatar({ userAvatar }) {
 }
 
 const avatarStyle = {
-    // textAlign: 'center',
+    display: 'block',
+    marginLeft: '42.5%',
+    marginRigh: 'auto',
     verticalAlign: 'middle',
-    width: '10%',
-    height: '10%',
+    AlignItems: 'center',
+    width: '15%',
+    height: 'auto',
     borderRadius: '50%'
 }

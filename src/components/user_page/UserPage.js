@@ -9,7 +9,7 @@ export default function UserPage() {
         first_name: 'TestFirstName1',
         last_name: 'TestLastName1',
         intro: 'TestIntro1',
-        avatar: '/test_avatar.png',
+        avatar: 'images/test_avatar.png',
         resume: {
             experience: [
                 {

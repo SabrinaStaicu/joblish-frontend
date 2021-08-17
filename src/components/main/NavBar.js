@@ -10,8 +10,8 @@ const NavBar = () => {
         <Link to="/"><img src={logo} style={{zIndex:"2", width:"50px"}}  alt="logo"/>joblish</Link>
         </div>
             <ul>
-                <li><Link to="#">My profile</Link></li>
-                <li><Link to="#">Applications</Link></li>
+                <li><Link to="/account">My profile</Link></li>
+                <li><Link to="/user-applications">Applications</Link></li>
                 <li><Link to="#">Join now</Link></li>
                 <li><Link to="#">Logout</Link></li>
             </ul>

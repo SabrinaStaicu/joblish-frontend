@@ -4,6 +4,7 @@ import HomePage from "./HomePage";
 import JobDetails from "../job/JobDetails";
 import Application from "../application/Application";
 import UserPage from '../user_page/UserPage';
+import UserApplications from "../application/UserApplications";
 
 const Routes = () => {
     return (
@@ -14,6 +15,7 @@ const Routes = () => {
                     <Route path={"/apply/:jobId"} component={Application}/>
                     <Route path={"/job/:id"} component={JobDetails} />
                     <Route path={"/account"} component={UserPage} />
+                    <Route path={"/user-applications"} component={UserApplications}/>
                 </Switch>
             </Router>
         </>

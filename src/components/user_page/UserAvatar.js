@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function UserAvatar({ userAvatar }) {
     return (
-        <img src={userAvatar} alt="user's personal avatar" style={avatarStyle}></img>
+        <img src={userAvatar} alt="user's personal avatar" style={avatarStyle}/>
     )
 }
 

@@ -23,7 +23,7 @@ const JobDetails = () => {
             Company: {job.company_name}
             Date: {job.publication_date}
             <br/>
-            Description : {job.description}
+            Description : <div dangerouslySetInnerHTML={{ __html:job.description}}/>
             <Button color="primary" variant="contained">Apply</Button>
         </div>
     );

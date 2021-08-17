@@ -1,23 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import JobCard from '../job/JobCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCol } from "mdbreact";
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import { useAtom } from 'jotai';
-import {jobsAtom, searchCategoryAtom} from './Atoms'
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         '& > *': {
-//             margin: theme.spacing(1),
-//         },
-//     },
-// }));
+import {jobsAtom} from './Atoms'
 
 const JobsSection = () => {
     const [jobs, setJobs] = useAtom(jobsAtom);
-    // const classes = useStyles();
 
 
         return (

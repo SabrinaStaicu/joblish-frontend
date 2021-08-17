@@ -8,7 +8,6 @@ const NavBar = ({color}) => {
         <nav style={{backgroundColor:"" + color}}>  
         <div className="logo">
         <Link to="/" style={{display:"inline-block"}}><img src={logo} style={{zIndex:"2", width:"50px",display:"inline-block"}} />joblish</Link>
-        {/* <Link to="#">jobify</Link> */}
         </div>
             <ul>
                 <li><Link to="/">Jobs</Link></li>

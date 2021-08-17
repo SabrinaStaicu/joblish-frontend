@@ -4,7 +4,7 @@ import malePhoto from './malePhoto.svg'
 import { useState } from 'react';
 import { useAtom } from 'jotai';
 import JobService from "../../service/JobService";
-import {searchAtom, jobsAtom, searchCategoryAtom} from './Atoms'
+import {searchAtom, jobsAtom} from './Atoms'
 
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
 
     const [searchInput, setSearch] = useAtom(searchAtom);
     // const [categoryInput, setCategoryInput] = useAtom(searchCategoryAtom)
-    const [categoryInput, setCategoryInput] = useAtom(searchCategoryAtom)
+    const [categoryInput, setCategoryInput] = useState();
 
 
     const [jobs, setJobs] = useAtom(jobsAtom);
@@ -33,7 +33,6 @@ const Header = () => {
             })
         } else {
             JobService.getJobsBySearchInput(searchInput).then(r => {
-                console.log(r.data.jobs)
                 setJobs(r.data.jobs);
             })
         }
@@ -55,15 +54,13 @@ const Header = () => {
                 </div>
                 <div>
                 <select style={{border:"none"}} onChange={getCategory}>
-                    {/*<option selected>Category</option>*/}
+                    <option selected></option>
                     <option value="Marketing">Marketing</option>
                     <option value="Sales">Sales</option>
                     <option value="Web">Web Dev</option>
                 </select>
                 </div>
-                {/* <div> */}
                     <button className="searchButton" onClick={search}>Search Job</button>
-                {/* </div> */}
             </div>
             <img className="malePhoto" src={malePhoto} />
         </header>

@@ -24,10 +24,12 @@ const JobsSection = () => {
     }
 
     const search = () => {
-        console.log(searchInput)
         if(!searchInput) {
             // if there is no search input - search all jobs
-            JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
+            JobService.getAllJobs().then(response => {
+                setJobs(response.data.jobs);
+                console.log(response.data.jobs)
+            })
         } else {
             JobService.getJobsBySearchInput(searchInput).then(r => {
                 console.log(r.data.jobs)

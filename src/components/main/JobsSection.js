@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBCol } from "mdbreact";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import JobDetails from "../job/JobDetails";
 
 const useStyles = makeStyles((theme) => ({
     root: {

@@ -7,8 +7,7 @@ const NavBar = () => {
     return (
         <>  
         <div className="logo">
-        <Link to="#"><img src={logo} style={{zIndex:"2", width:"50px"}} />joblish</Link>
-        {/* <Link to="#">jobify</Link> */}
+        <Link to="/"><img src={logo} style={{zIndex:"2", width:"50px"}}  alt="logo"/>joblish</Link>
         </div>
             <ul>
                 <li><Link to="#">My profile</Link></li>

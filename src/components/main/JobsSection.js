@@ -30,7 +30,6 @@ const JobsSection = () => {
             JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
         } else {
             JobService.getJobsBySearchInput(searchInput).then(r => {
-                console.log(r.data.jobs)
                 setJobs(r.data.jobs);
             })
         }

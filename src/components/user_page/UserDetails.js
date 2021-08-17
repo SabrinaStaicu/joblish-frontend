@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap';
 import UserAvatar from './UserAvatar';
 import UserPageNav from './UserPageNav';
+import UserPageContent from './UserPageContent';
 
 export default function UserDetails({ userData }) {
     return (
@@ -14,8 +15,8 @@ export default function UserDetails({ userData }) {
                     <strong>Intro:</strong><br />
                     {userData.intro}
                 </Card.Text>
-
                 <UserPageNav />
+                <UserPageContent />
             </Card.Body>
         </Card>
     )

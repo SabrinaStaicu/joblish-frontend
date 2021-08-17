@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserPageStyleCSS.css';
+// import './UserPageStyleCSS.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import UserDetails from './UserDetails';
 
@@ -53,9 +53,9 @@ export default function UserPage() {
 }
 
 const userPageStyle = {
-    // height: '100%',
-    // width: '100%',
-    // backgroundImage: 'linear-gradient(to right bottom, #46c2ee, #35a2e2, #4681cf, #5e5db2, #6e358b)',
+    height: '100%',
+    width: '100%',
+    backgroundImage: 'linear-gradient(to right bottom, #46c2ee, #35a2e2, #4681cf, #5e5db2, #6e358b)',
     display: 'flex',
     flexDirection: 'row',
 }

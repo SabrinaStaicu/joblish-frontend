@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import JobCard from '../job/JobCard'
-import JobService from "../../service/JobService";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBCol } from "mdbreact";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { useAtom } from 'jotai';
+import {jobsAtom} from './atoms'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,39 +16,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const JobsSection = () => {
+    const [jobs, setJobs] = useAtom(jobsAtom);
     const classes = useStyles();
-    const [jobs, setJobs] = useState();
-    const [searchInput, setSearchInput] = useState();
-
-    const getSearchInput = (event) => {
-        setSearchInput(event.target.value);
-    }
-
-    const search = () => {
-        console.log(searchInput)
-        if(!searchInput) {
-            // if there is no search input - search all jobs
-            JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
-        } else {
-            JobService.getJobsBySearchInput(searchInput).then(r => {
-                console.log(r.data.jobs)
-                setJobs(r.data.jobs);
-            })
-        }
-
-    }
-
+    // const [jobs, setJobs] = useState();
 
         return (
             <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
-                <MDBCol md="6">
-                    <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={getSearchInput}/>
-                </MDBCol>
-                <div className={classes.root}>
-                    <Button variant="contained" color="primary" onClick={search}>
-                        Primary
-                    </Button>
-                </div >
                 {
                     jobs ? (
                         <div className="jobSection">

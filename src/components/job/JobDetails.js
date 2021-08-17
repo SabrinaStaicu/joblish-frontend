@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
 import NavBar from "../main/NavBar";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from "@material-ui/core/Button";
+import Header from "../main/Header"
 
 
 const JobDetails = () => {
@@ -15,7 +16,7 @@ const JobDetails = () => {
 
     return (
         <div>
-            <NavBar />
+            <NavBar color={"rgba(0, 0, 255, 0.534)"} />
             <div className="container emp-profile">
 
             </div>

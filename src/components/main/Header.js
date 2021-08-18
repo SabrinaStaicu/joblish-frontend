@@ -49,9 +49,15 @@ const Header = () => {
                 <div>
                 <select style={{border:"none"}} onChange={getCategory}>
                     <option selected></option>
+                    <option value="Arts">Arts</option>
+                    <option value="Education">Education</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Sales">Sales</option>
-                    <option value="Web">Software</option>
+                    <option value="Software">Software</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Healthcare">Healthcare</option>
+
+
                 </select>
                 </div>
                     <button className="searchButton" onClick={search}>Search Job</button>

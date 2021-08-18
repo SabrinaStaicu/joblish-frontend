@@ -11,17 +11,21 @@ export default function UserPage() {
         first_name: 'TestFirstName1',
         last_name: 'TestLastName1',
         intro: 'TestIntro1',
+        phone_number: '40 551 734 212',
+        email: 'test_email@testdomain.com',
+        country: 'Testuania',
+        county: 'Testland',
         avatar: 'images/test_avatar.png',
         resume: {
             experience: [
                 {
                     id: 1,
-                    title: 'TestJobTitle 1',
+                    name: 'TestJobTitle 1',
                     description: 'TestJobDescription 1'
                 },
                 {
                     id: 2,
-                    title: 'TestJobTitle 2',
+                    name: 'TestJobTitle 2',
                     description: 'TestJobDescription 2'
                 }
             ],
@@ -29,12 +33,12 @@ export default function UserPage() {
             education: [
                 {
                     id: 1,
-                    school_name: 'TestSchoolName 1',
+                    name: 'TestSchoolName 1',
                     description: 'TestSchoolDescription 1'
                 },
                 {
                     id: 2,
-                    school_name: 'TestSchoolTitle 2',
+                    name: 'TestSchoolTitle 2',
                     description: 'TestSchoolDescription 2'
                 }
             ],

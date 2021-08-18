@@ -12,11 +12,12 @@ export default function UserDetails({ userData }) {
             <Card.Body>
                 <Card.Text style={{ textAlign: 'center' }}>
                     <h5>{userData.first_name} {userData.last_name}</h5>
+                    {userData.country}, {userData.county}<br/>
                     <strong>Intro:</strong><br />
                     {userData.intro}
                 </Card.Text>
                 <UserPageNav />
-                <UserPageContent />
+                <UserPageContent userData={userData}/>
             </Card.Body>
         </Card>
     )

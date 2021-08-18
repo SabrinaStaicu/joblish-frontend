@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
 import NavBar from "../main/NavBar";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from "@material-ui/core/Button";
 import Modal from 'react-modal';
 
@@ -91,7 +90,9 @@ const JobDetails = () => {
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <button onClick={closeModal}>close</button>
+                <Button variant="contained" color="secondary" onClick={closeModal}>
+                    X
+                </Button>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Full name</Form.Label>
@@ -104,7 +105,7 @@ const JobDetails = () => {
                             We'll never share your email with anyone else.
                         </Form.Text>
                     </Form.Group>
-                    <Button variant="primary" type="submit" onClick={apply}>
+                    <Button variant="contained" color="primary" type="submit" onClick={apply}>
                         Apply
                     </Button>
                 </Form>

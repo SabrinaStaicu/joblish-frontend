@@ -2,6 +2,7 @@ import React from 'react';
 // import './UserPageStyleCSS.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import UserDetails from './UserDetails';
+import NavBar from "../main/NavBar";
 
 export default function UserPage() {
 

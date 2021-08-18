@@ -28,16 +28,13 @@ const UserApplications = () => {
         date: "14/05/2021",
         location: "Bucharest"
     }])
-
-    useEffect(() => {
-        console.log(applications)
-    })
     
     return (
         <div>
             <NavBar />
             <div className="container mt-5 mb-3">
                 <h3>Current applications</h3>
+                <br/>
                 <div className="row">
                     {
                         applications.map(

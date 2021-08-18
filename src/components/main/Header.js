@@ -51,7 +51,7 @@ const Header = () => {
                     <option selected></option>
                     <option value="Marketing">Marketing</option>
                     <option value="Sales">Sales</option>
-                    <option value="Web">Web Dev</option>
+                    <option value="Web">Software</option>
                 </select>
                 </div>
                     <button className="searchButton" onClick={search}>Search Job</button>

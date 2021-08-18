@@ -4,7 +4,7 @@ import CompanyCard from "./CompanyCard";
 
 const Companies = () => {
     const [companies, setCompanies] = useState([{
-        name: "Codecool",
+        name: "Microsoft",
         category: "IT",
         jobs: [
             {
@@ -36,7 +36,7 @@ const Companies = () => {
                 <div className="jobsSection">
                     {
                         companies.map(
-                            company => <CompanyCard />
+                            company => <CompanyCard company={company}/>
                         )
                     }
                 </div>

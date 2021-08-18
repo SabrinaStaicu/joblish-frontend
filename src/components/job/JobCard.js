@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import {useHistory} from "react-router-dom";
 import {CardMedia} from "@material-ui/core";
 
+
 const useStyles = makeStyles({
     root: {
         width: "250px",

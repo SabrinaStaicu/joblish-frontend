@@ -5,7 +5,7 @@ export default function UserPageNav() {
     return (
         <Navbar bg="primary bg-gradient" variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">Apply to jobs</Navbar.Brand>
+                <Navbar.Brand href="/">Apply to jobs</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

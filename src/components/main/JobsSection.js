@@ -7,7 +7,6 @@ import {jobsAtom} from './Atoms'
 const JobsSection = () => {
     const [jobs, setJobs] = useAtom(jobsAtom);
 
-
         return (
             <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
                 {

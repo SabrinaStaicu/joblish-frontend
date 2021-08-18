@@ -32,12 +32,14 @@ const Companies = () => {
     return (
         <div>
             <NavBar />
-            <div>
-                {
-                    companies.map(
-                        company => <CompanyCard />
-                    )
-                }
+            <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
+                <div className="jobsSection">
+                    {
+                        companies.map(
+                            company => <CompanyCard />
+                        )
+                    }
+                </div>
             </div>
         </div>
     );

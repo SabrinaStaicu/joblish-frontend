@@ -16,7 +16,7 @@ export default function UserDetails({ userData }) {
                     <strong>Intro:</strong><br />
                     {userData.intro}
                 </Card.Text>
-                <UserPageNav />
+                {/*<UserPageNav />*/}
                 <UserPageContent userData={userData}/>
             </Card.Body>
         </Card>

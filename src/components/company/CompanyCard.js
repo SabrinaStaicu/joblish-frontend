@@ -1,35 +1,56 @@
 import React from 'react';
-import "./CompanyCardCSS.css"
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import {CardMedia} from "@material-ui/core";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import CardActions from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button";
+import {makeStyles} from "@material-ui/core/styles";
+
+
+const useStyles = makeStyles({
+    root: {
+        width: "250px",
+        marginLeft:"60px",
+        marginTop:"30px"
+    },
+    media: {
+        height: 140,
+    },
+});
+
 
 const CompanyCard = () => {
-    return (
-        <React.Fragment>
-            <div className="container" style={{marginTop:"50px;"}}>
-                <div className="row">
-                    <div className="col-md-3">
-                        <div className="card-sl">
-                            <div className="card-image">
-                                <img
-                                    src="https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
-                            </div>
+    const classes = useStyles();
 
-                            <a className="card-action" href="#"><i className="fa fa-heart"></i></a>
-                            <div className="card-heading">
-                                Audi Q8
-                            </div>
-                            <div className="card-text">
-                                Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in
-                                2018.
-                            </div>
-                            <div className="card-text">
-                                $67,400
-                            </div>
-                            <a href="#" className="card-button"> Purchase</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </React.Fragment>
+    return (
+            <Card className={classes.root}>
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image="https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {/*{props.job.company_name}*/}
+                            Adobe
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            <strong>IT</strong>
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    {/*<Button size="small" color="primary" onClick={apply}>*/}
+                    {/*    Apply*/}
+                    {/*</Button>*/}
+                    <Button size="small" variant="contained" color="primary">
+                        Jobs
+                    </Button>
+                </CardActions>
+            </Card>
     );
 };
 

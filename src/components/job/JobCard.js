@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {useHistory} from "react-router-dom";
+import {CardMedia} from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
@@ -23,6 +24,10 @@ const JobCard = (props) => {
     const history = useHistory();
     const classes = useStyles();
 
+    useEffect(() => {
+        console.log(props.job)
+    }, [])
+
     const goToJob = () => {
         history.push({
             pathname: `/job/${props.job.id}`,
@@ -37,11 +42,11 @@ const JobCard = (props) => {
     return (
         <Card className={classes.root}>
             <CardActionArea>
-                {/*<CardMedia*/}
-                {/*    className={classes.media}*/}
-                {/*    image="/static/images/cards/contemplative-reptile.jpg"*/}
-                {/*    title="Contemplative Reptile"*/}
-                {/*/>*/}
+                <CardMedia
+                    className={classes.media}
+                    image="https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"
+                    title="Contemplative Reptile"
+                />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.job.title}
@@ -62,7 +67,7 @@ const JobCard = (props) => {
                 {/*<Button size="small" color="primary" onClick={apply}>*/}
                 {/*    Apply*/}
                 {/*</Button>*/}
-                <Button size="small" color="primary" onClick={goToJob}>
+                <Button size="small" variant="contained" color="primary" onClick={goToJob}>
                     Details
                 </Button>
             </CardActions>

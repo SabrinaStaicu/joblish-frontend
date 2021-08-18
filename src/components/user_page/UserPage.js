@@ -1,6 +1,5 @@
 import React from 'react';
 // import './UserPageStyleCSS.css';
-import { BrowserRouter as Router, Route} from "react-router-dom";
 import UserDetails from './UserDetails';
 import NavBar from "../main/NavBar";
 
@@ -52,6 +51,7 @@ export default function UserPage() {
 
     return (
         <div className="user-page" style={userPageStyle}>
+            <NavBar />
             <UserDetails userData={userData} />
         </div>
     )

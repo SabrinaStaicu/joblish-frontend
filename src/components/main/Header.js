@@ -8,13 +8,8 @@ import {searchAtom, jobsAtom} from './Atoms'
 
 
 const Header = () => {
-
-
     const [searchInput, setSearch] = useAtom(searchAtom);
-    // const [categoryInput, setCategoryInput] = useAtom(searchCategoryAtom)
     const [categoryInput, setCategoryInput] = useState();
-
-
     const [jobs, setJobs] = useAtom(jobsAtom);
 
     const getSearchInput = (event) => {
@@ -40,7 +35,6 @@ const Header = () => {
     }
 
     const getCategory = (event) => {
-        console.log(event.target.value)
         setCategoryInput(event.target.value)
     }
 

@@ -59,9 +59,9 @@ const JobCard = (props) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary" onClick={apply}>
-                    Apply
-                </Button>
+                {/*<Button size="small" color="primary" onClick={apply}>*/}
+                {/*    Apply*/}
+                {/*</Button>*/}
                 <Button size="small" color="primary" onClick={goToJob}>
                     Details
                 </Button>

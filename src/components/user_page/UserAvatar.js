@@ -9,7 +9,7 @@ export default function UserAvatar({ userAvatar }) {
 const avatarStyle = {
     display: 'block',
     marginLeft: '42.5%',
-    marginRigh: 'auto',
+    marginRight: 'auto',
     verticalAlign: 'middle',
     AlignItems: 'center',
     width: '15%',

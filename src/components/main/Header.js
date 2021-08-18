@@ -4,14 +4,12 @@ import malePhoto from './malePhoto.svg'
 import { useState } from 'react';
 import { useAtom } from 'jotai';
 import JobService from "../../service/JobService";
-import {searchAtom, jobsAtom} from './atoms'
+import {searchAtom, jobsAtom} from './Atoms'
 
 
 const Header = () => {
-
-
     const [searchInput, setSearch] = useAtom(searchAtom);
-
+    const [categoryInput, setCategoryInput] = useState();
     const [jobs, setJobs] = useAtom(jobsAtom);
 
     const getSearchInput = (event) => {
@@ -20,17 +18,24 @@ const Header = () => {
 
 
     const search = () => {
-        console.log(searchInput)
-        if(!searchInput) {
+        if(!searchInput && !categoryInput) {
             // if there is no search input - search all jobs
             JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
+        } else if (!searchInput && categoryInput) {
+            // if there is only a category input - search by category
+            JobService.getJobsByCategory(categoryInput).then(response => {
+                setJobs(response.data.jobs)
+            })
         } else {
             JobService.getJobsBySearchInput(searchInput).then(r => {
-                console.log(r.data.jobs)
                 setJobs(r.data.jobs);
             })
         }
 
+    }
+
+    const getCategory = (event) => {
+        setCategoryInput(event.target.value)
     }
 
     return (
@@ -39,19 +44,17 @@ const Header = () => {
             <h2 className="headerText">Searching for a job?<br></br>Find the <span style={{color:"rgb(30, 209, 170)", fontSize:"30px"}}>best job</span> <br></br> that fits you!</h2>
             <div className="headerSearchBar">
                 <div>
-                <input style={{zIndex:"3", border:"none", width:"100%",height:"100%", alignSelf:"center"}} type="text" placeholder="       Search Job" onChange={getSearchInput} />
+                <input style={{zIndex:"3", border:"none", width:"100%",height:"100%", alignSelf:"center"}} type="text" placeholder="Looking for a job..." onChange={getSearchInput} />
                 </div>
                 <div>
-                <select style={{border:"none"}}>
-                    <option selected>Category</option>
-                    <option value="1">Marketing</option>
-                    <option value="2">Sales</option>
-                    <option value="3">Web Dev</option>
+                <select style={{border:"none"}} onChange={getCategory}>
+                    <option selected></option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Web">Software</option>
                 </select>
                 </div>
-                {/* <div> */}
                     <button className="searchButton" onClick={search}>Search Job</button>
-                {/* </div> */}
             </div>
             <img className="malePhoto" src={malePhoto} />
         </header>

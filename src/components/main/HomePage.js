@@ -9,7 +9,6 @@ const HomePage = () => {
         <>
             <Header />
             {/* <FilterSection /> */}
-
             <JobsSection />
             <Footer />
         </>

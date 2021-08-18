@@ -33,11 +33,11 @@ const JobDetails = () => {
                 <h1>{job.title}</h1>
                 <h3>{job.company_name}</h3>
                 <p>{job.publication_date}</p>
-                <div className="apply"><SendIcon /><h5>Apply</h5></div>
+                <div onClick={apply} className="apply"><SendIcon /><h5>Apply</h5></div>
 
             </div>
             <div style={{display:"flex"}}>
-                <div style={{flex:"2"}}><div className="jobInfo">
+            <div style={{flex:"2"}}><div className="jobInfo">
                 <div>
                     <h5>Location : <p style={{display:"inline-block"}}>{job.candidate_required_location}</p></h5>
                     <h5>Department : <p style={{display:"inline-block"}}>{job.category}</p></h5>

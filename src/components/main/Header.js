@@ -33,9 +33,11 @@ const Header = () => {
 
     }
 
+    
+
     return (
         <header>
-            <NavBar color={"transparent"}/>
+            <NavBar color={"transparent"} homePosition={"absolute"}/>
             <h2 className="headerText">Searching for a job?<br></br>Find the <span style={{color:"rgb(30, 209, 170)", fontSize:"30px"}}>best job</span> <br></br> that fits you!</h2>
             <div className="headerSearchBar">
                 <div>

@@ -44,7 +44,7 @@ const NavBar = ({ color, homePosition }) => {
     return (
         <nav style={{ backgroundColor: "" + stickyColor, position: "" + position, zIndex: "3" }}>
             {/* <nav style={{ backgroundColor: "transparent", zIndex: "3" }}> */}
-            <div className="logo">
+            <div div className="logo">
                 <Link to="/" style={{ display: "inline-block" }}><img src={logo} style={{ zIndex: "2", width: "50px", display: "inline-block" }} alt="joblish logo" />joblish</Link>
             </div>
             {
@@ -64,7 +64,7 @@ const NavBar = ({ color, homePosition }) => {
                     </ul>
                 )
             }
-        </nav>
+        </nav >
     )
 };
 

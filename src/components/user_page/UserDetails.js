@@ -30,4 +30,5 @@ const cardStyle = {
     height: '90%',
     padding: '2%',
     margin: '5%',
+    backgroundColor: '#f7f5f5'
 }

@@ -6,7 +6,7 @@ import Application from "../application/Application";
 import UserPage from '../user_page/UserPage';
 import UserApplications from "../application/UserApplications";
 
-import Jobs from '../Jobs_page/Jobs';
+import Jobs from '../job/Jobs';
 
 import Login from "../login/Login";
 import Companies from "../company/Companies";

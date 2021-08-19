@@ -28,7 +28,6 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 
-
 const JobDetails = () => {
     const location = useLocation();
     const job = location.state.job;

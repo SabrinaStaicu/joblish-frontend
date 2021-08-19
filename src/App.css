@@ -222,6 +222,7 @@ header::before {
 } */
 
 .jobInfo:hover {
+  box-shadow: 0 2px 6px rgb(0 0 15%);
   box-shadow: 0 2px 6px rgb(0 0 0 / 15%);
 }
 
@@ -232,7 +233,7 @@ header::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 6px rgb(0 0  15%);
   margin-left: 60px;
   width: 40%;
   height: 15%;
@@ -250,7 +251,7 @@ header::before {
 .cd {
   background-color: white;
   border-radius: 7px;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 6px rgb(0 0  15%);
   margin-top: 60px;
   margin-left: 60px;
   width: 40%;
@@ -312,7 +313,8 @@ header::before {
 .ef{
   background-color: white;
   border-radius: 7px;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 6px rgb(0 0  15%);
+
   margin-top: 60px;
   margin-left: 60px;
   width: 40%;
@@ -360,7 +362,7 @@ header::before {
   flex: 1;
   width: 100%;
   border: 1px solid #e0dede;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 7%);
+  box-shadow: 0 2px 6px rgb(0 0  7%);
   height: 30%;
 }
 
@@ -416,6 +418,7 @@ header::before {
 }
 
 .jobsInfo:hover {
+  box-shadow: 0 2px 20px rgb(0 0 15%);
   box-shadow: 0 2px 20px rgb(0 0 0 / 15%);
 }
 

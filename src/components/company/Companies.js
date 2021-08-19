@@ -51,9 +51,9 @@ const Companies = () => {
     }])
     return (
         <div>
-            <NavBar />
-            <div style={{display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", margin: "10px"}}>
-                <h3>Companies with job listings</h3>
+            <NavBar color={"rgba(0, 0, 255, 0.534)"} />
+            <div className="jobsTop">
+                <h1 style={{color:"white"}}>Companies with job listings</h1>
             </div>
                 <div style={{display:"flex",flexWrap: "wrap"}}>
                     {

@@ -33,13 +33,14 @@ a, a:hover {
 
 /* Cards */
 .postcard {
+  
   width: 50%;
   flex-wrap: wrap;
   display: flex;
   
   box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
   border-radius: 10px;
-  margin: 35px 0 2rem 25%;
+  margin: 50px auto;
   overflow: hidden;
   position: relative;
   color: #ffffff;

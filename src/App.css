@@ -462,6 +462,11 @@ option[default] {
 }
 
 .companiesJobsSection {
+  justify-content: center;
+  width: 50%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-left: 23%;
 }

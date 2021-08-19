@@ -49,22 +49,21 @@ const CompanyCard = (props) => {
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt">{props.company.description}</div>
 				<ul class="postcard__tagbox">
-					<li class="tag__item play blue">
-						<a href="#"><i class="fas fa-play mr-2"></i>See Jobs</a>
+					<li class="tag__item play blue" onClick={toggleJobs}>
+						<div style={{cursor:"pointer"}} ><i class="fas fa-play mr-2"></i>See Jobs</div>
 					</li>
 				</ul>
 			</div>
 		</article>
                 <Collapse in={showJobs}>
-                        <div style={{display: "flex", flexDirection: "row"}}>
-                            <h5>Jobs from {props.company.name}</h5>
-                        
-                        {
-                            props.company.jobs.map(
-                                job => <JobCard picture={props.picture} job={job}/>
-                            )
-                        }
-                        </div>
+                    <h4 style={{textAlign:"center"}}>Jobs from {props.company.name}</h4>
+                    <div className="companiesJobsSection">
+                    {
+                        props.company.jobs.map(
+                            job => <JobCard picture={props.picture} job={job}/>
+                        )
+                    }
+                    </div>
                 </Collapse>
             </div>
 

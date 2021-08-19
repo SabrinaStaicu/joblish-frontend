@@ -17,6 +17,19 @@ const Companies = () => {
                 title: "Back-end Engineer",
                 job_type: "full-time",
                 category: "Developer"
+            }, {
+                title: "Back-end Engineer",
+                job_type: "full-time",
+                category: "Developer"
+            }
+            , {
+                title: "Back-end Engineer",
+                job_type: "full-time",
+                category: "Developer"
+            }, {
+                title: "Back-end Engineer",
+                job_type: "full-time",
+                category: "Developer"
             }
         ]
     }, {

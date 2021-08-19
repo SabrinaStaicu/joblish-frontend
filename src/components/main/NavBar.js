@@ -42,11 +42,10 @@ const NavBar = ({ color, homePosition }) => {
     const loggedIn = !!(localStorage.getItem("joblishUser"))
 
     return (
-        <nav style={{ backgroundColor: "" + stickyColor, position: "" + position, zIndex: "3" }}>
-            {/* <nav style={{ backgroundColor: "transparent", zIndex: "3" }}> */}
-            <div div className="logo">
-                <Link to="/" style={{ display: "inline-block" }}><img src={logo} style={{ zIndex: "2", width: "50px", display: "inline-block" }} alt="joblish logo" />joblish</Link>
-            </div>
+        <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3", borderBottom: (stickyColor !== "transparent" ? "1px solid purple" : "none") }}>
+        <div className="logo">
+        <Link to="/" style={{display:"inline-block"}}><img src={logo} style={{zIndex:"2", width:"50px",display:"inline-block"}}  alt="logo image"/>joblish</Link>
+        </div>
             {
                 loggedIn ? (
                     <ul>

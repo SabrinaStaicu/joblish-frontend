@@ -26,7 +26,8 @@ nav {
 
 
 nav .logo {
-    height: 10px;
+  white-space: nowrap;
+  height: 10px;
   display: flex;
   flex-direction: row;
   margin-left: 7%;
@@ -48,15 +49,19 @@ nav .logo {
 }
 
 nav ul {
-    height: 10px;
+  height: 10px;
   margin-right: 55%;
   margin-top: 1.3%;
   z-index: 3;
+  padding: 10px;
   display: flex;
   justify-content: center;
+
 }
 
 nav ul li {
+  white-space: nowrap;
+  /* padding-left: 30px ; */
     display: inline-block;
     height: 10px;
   list-style: none;
@@ -448,3 +453,20 @@ header::before {
   
 }
 
+option[default] {
+  display: none;
+}
+
+.type {
+  margin-bottom: 10px;
+}
+
+.companiesJobsSection {
+  justify-content: center;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-left: 23%;
+}

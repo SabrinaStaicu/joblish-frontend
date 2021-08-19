@@ -60,11 +60,11 @@ const JobCard = (props) => {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
-                {/*<Button size="small" color="primary" onClick={apply}>*/}
-                {/*    Apply*/}
-                {/*</Button>*/}
-                <Button size="small" variant="contained" color="primary" onClick={goToJob}>
+            <CardActions style={{justifyContent: 'center'}}>
+                {/* <Button size="small" color="primary">
+                   Apply
+                </Button> */}
+                <Button size="small" variant="outlined" color="primary" onClick={goToJob}>
                     Details
                 </Button>
             </CardActions>

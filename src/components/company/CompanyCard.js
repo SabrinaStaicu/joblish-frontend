@@ -8,6 +8,8 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import JobCard from "../job/JobCard";
+import './company.scss';
+
 
 
 
@@ -32,42 +34,39 @@ const CompanyCard = (props) => {
     }
 
         return (
-            <React.Fragment>
-                <Card className={classes.root}>
-                    <CardActionArea>
-                        <CardMedia
-                            className={classes.media}
-                            image={props.picture ? props.picture : "https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"}
-                            title="Contemplative Reptile"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                {props.company.name}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                <strong>{props.company.category}</strong>
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" variant="contained" color="primary" onClick={toggleJobs} aria-controls="example-collapse-text" aria-expanded={showJobs}>
-                            Jobs
-                        </Button>
-                    </CardActions>
-                </Card>
+            <div>
+                <article class="postcard light blue">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src={props.company.picture} alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a className="postcard__title blue" href="#">{props.company.name}</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>{props.company.category}
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">{props.company.description}</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-play mr-2"></i>See Jobs</a>
+					</li>
+				</ul>
+			</div>
+		</article>
                 <Collapse in={showJobs}>
-                        <br/>
-                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", margin: "10px"}}>
+                        <div style={{display: "flex", flexDirection: "row"}}>
                             <h5>Jobs from {props.company.name}</h5>
-                        </div>
+                        
                         {
                             props.company.jobs.map(
                                 job => <JobCard picture={props.picture} job={job}/>
                             )
                         }
-
+                        </div>
                 </Collapse>
-            </React.Fragment>
+            </div>
 
         );
 };

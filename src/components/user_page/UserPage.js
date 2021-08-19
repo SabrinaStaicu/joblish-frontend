@@ -51,7 +51,7 @@ export default function UserPage() {
 
     return (
         <div className="user-page" style={userPageStyle}>
-            <NavBar />
+            <NavBar color={"transparent"} />
             <UserDetails userData={userData} />
         </div>
     )

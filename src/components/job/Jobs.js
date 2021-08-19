@@ -13,41 +13,66 @@ import { useState, useEffect } from 'react';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import JobService from '../../service/JobService';
 import JobPageCard from './JobPageCard';
+import Button from '@material-ui/core/Button';
 
 const Jobs = () => {
     const [state, setState] = useState({
-        checkedA: true,
-        checkedB: true,
-        checkedC: true,
-        checkedD: true,
-        checkedE: true,
-        checkedF: true,
+        checkedA: false,
+        checkedB: false,
+        checkedC: false,
+        checkedD: false,
+        checkedE: false,
+        checkedF: false,
       });
 
       const [jobs, setJobs] = useState([])
-    
+
+      const [filterInputs, setFilterInputs] = useState([])
+
       const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
+        setFilterInputs({...filterInputs, [event.target.name]: event.target.checked, [event.target.name + "Value"]: event.target.value })
       };
 
-      const GreenCheckbox = withStyles({
-        root: {
-          color: green[400],
-          '&$checked': {
-            color: green[600],
-          },
-        },
-        checked: {},
-      })((props) => <Checkbox color="default" {...props} />);
+      const handleLocation = (event) => {
+        setFilterInputs({...filterInputs, ["location"]: event.target.value})
+      }
 
-      const search = () => {
-            JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
-    }
+      const handleCategory = (event) => {
+        setFilterInputs({...filterInputs, ["category"]: event.target.value})
+      }
+
+    //   const GreenCheckbox = withStyles({
+    //     root: {
+    //       color: green[400],
+    //       '&$checked': {
+    //         color: green[600],
+    //       },
+    //     },
+    //     checked: {},
+    //   })((props) => <Checkbox color="default" {...props} />);
+
+
 
     useEffect(() => {
-        search()
-
+        JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
     },[])
+
+    const filter = (e) => {
+        setFilterInputs({...filterInputs, ...state})
+        if(!filterInputs.category && !filterInputs.location && !filterInputs.checkedA && !filterInputs.checkedB) {
+            // if there is no filters - search all jobs
+            JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
+        } else if (filterInputs.category && !filterInputs.location && !filterInputs.checkedA && !filterInputs.checkedB) {
+            // if there is only a category input - search by category
+            JobService.getJobsByCategory(filterInputs.category).then(response => {setJobs(response.data.jobs)})
+        } else if ((!filterInputs.category && !filterInputs.location && (filterInputs.checkedA || filterInputs.checkedB))) {
+            JobService.getJobsBySearchInput(filterInputs.checkedA ? filterInputs.checkedA : filterInputs.checkedB).then(r => {setJobs(r.data.jobs);})
+        }
+    }
+
+    console.log(jobs)
+
 
 
 
@@ -66,27 +91,34 @@ const Jobs = () => {
                 <div className="jobsFilter">
                     <div className="category">
                         <h4>Job Category</h4>
-                        <select className="catSelect">
-                            <option>asd</option>
-                            <option>asd</option>
+                        <select onChange={handleCategory} className="catSelect">
+                        <option default selected>Category</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Education">Education</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Software">Software</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Healthcare">Healthcare</option>
                         </select>
                     </div>
                     <div className="type">
                         <h4>Job Type</h4>
                         <FormControlLabel
-                            control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                            control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" value="full_time" />}
                             label="Full time"
                         />
                         <FormControlLabel
-                            control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" />}
+                            control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" value="part_time" />}
                             label="Part time"
                         />
                     </div>
                     <div className="category">
                         <h4>Location</h4>
-                        <select className="catSelect">
-                            <option>asd</option>
-                            <option>asd</option>
+                        <select onChange={handleLocation} className="catSelect">
+                        <option default selected>Location</option>
+                            <option>USA</option>
+                            <option>Anywhere</option>
                         </select>
                     </div>
                     <div className="type">
@@ -108,6 +140,9 @@ const Jobs = () => {
                             label="Manager"
                         />
                     </div>
+                    <Button onClick={filter} variant="contained" color="secondary">
+                        Apply
+                    </Button>
                 </div>
                 <div className="jobsSection">
                     {jobs.map(job => <JobPageCard job={job} />)}

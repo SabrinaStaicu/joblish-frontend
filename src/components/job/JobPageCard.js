@@ -1,7 +1,6 @@
 import React from 'react'
 
 const JobPageCard = ({job}) => {
-    console.log(job)
     return (
         <div className="jobsInfo">
             <div className="jobsLogo">Logo</div>

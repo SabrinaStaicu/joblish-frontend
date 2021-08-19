@@ -48,7 +48,7 @@ const Header = () => {
                 </div>
                 <div>
                 <select style={{border:"none"}} onChange={getCategory}>
-                    <option selected></option>
+                    <option default selected>Category</option>
                     <option value="Arts">Arts</option>
                     <option value="Education">Education</option>
                     <option value="Marketing">Marketing</option>

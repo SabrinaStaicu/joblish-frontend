@@ -31,11 +31,11 @@ const UserApplications = () => {
     
     return (
         <div>
-            <NavBar />
+            <NavBar color={"rgba(0, 0, 255, 0.534)"} />
+            <div className="jobsTop">
+                <h1 style={{color:"white"}}>Current job applications</h1>
+            </div>
             <div className="container mt-5 mb-3">
-                <div style={{display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", margin: "10px"}}>
-                    <h3>Current applications</h3>
-                </div>
                 <br/>
                 <div className="row">
                     {

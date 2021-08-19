@@ -16,7 +16,6 @@ header {
 }
 
 nav {
-  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -72,6 +71,27 @@ nav ul li a {
   font-weight: 500;
   font-size: 16px;
   /* box-shadow: black 1px 1px 6px; */
+}
+
+.apply {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 150px;
+  position:absolute;
+   margin-left:58%;
+   bottom: 100px;
+   /* display: inline-block; */
+   height: 50px;
+   background: rgb(30, 209, 170);
+   border-radius: 5px;
+}
+
+.apply:hover {
+  background-color:rgb(29, 154, 126) ;
+  box-shadow: black 1px 1px 10px;
 }
 
 nav ul li a:hover,
@@ -174,7 +194,7 @@ header::before {
   padding-top: 20px;
   padding-left: 18%;
   width: 100%;
-  height: 25vh;
+  height: 20vh;
   background-color: rgba(0, 0, 255, 0.534);
   margin-bottom: 3vh;
 }
@@ -202,13 +222,25 @@ header::before {
 } */
 
 .jobInfo:hover {
-  box-shadow: 1px 1px 20px -10px;
+  box-shadow: 0 2px 6px rgb(0 0 15%);
 }
 
 .ab {
+  background-color: white;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgb(0 0  15%);
   margin-left: 60px;
   width: 40%;
-  height: 20%;
+  height: 15%;
+}
+
+.ab img {
+  max-width: 130px;
+  max-height: 110px;
 }
 
 .ab:hover {
@@ -216,10 +248,61 @@ header::before {
 }
 
 .cd {
-  margin-top: 25px;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 2px 6px rgb(0 0  15%);
+  margin-top: 60px;
   margin-left: 60px;
   width: 40%;
-  height: 20%;
+  height: 15%;
+  display: inline-block;
+}
+
+.topSection {
+  padding-left: 10px;
+  align-items: center;
+  display: inline-flex;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 12px;
+}
+
+.topSection div {
+  display: inline-block;
+    width: 100%;
+    position: relative;
+    padding-left: 24px;
+    box-sizing: border-box;
+}
+
+.checkimg{
+  display: inline-block;
+  width: 13px;
+  height: auto;
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.checkText {
+  display: inline-block;
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    margin-top: 2px;
+}
+
+.greenCheck {
+  display: inline-block;
+    top: 2px;
+    transform: translateX(-19px);
+    font-size: 16px;
+    color: #00B341;
 }
 
 .cd:hover {
@@ -227,13 +310,139 @@ header::before {
 }
 
 .ef{
-  margin-top: 40px;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 2px 6px rgb(0 0  15%);
+  margin-top: 60px;
   margin-left: 60px;
   width: 40%;
-  height: 20%;
+  height: 15%;
 }
 
 .ef:hover {
   box-shadow: 1px 1px 20px -10px;
 }
+
+.jobsTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20vh;
+  background-color: rgba(0, 0, 255, 0.534);
+}
+
+.searchHeader {
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.jobsSection {
+  flex: 5;
+  height: 70vh;
+  width: 100%;
+
+}
+
+.jobsMiddle {
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.jobsFilter {
+  padding: 20px;
+  margin-right: 40px;
+  flex: 1;
+  width: 100%;
+  border: 1px solid #e0dede;
+  box-shadow: 0 2px 6px rgb(0 0  7%);
+  height: 30%;
+}
+
+.catSelect {
+  width: 100%;
+    height: 45px;
+    background: #f7f5f5;
+    border-radius: 0px;
+    padding: 11px 19px 11px 10px;
+    color: #616875;
+    line-height: 20px;
+    border: 1px solid #dfdddd;
+    
+}
+
+.category select {
+ margin-top: 15px;
+ margin-bottom: 25px;
+}
+
+.container {
+  display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #666666;
+    font-size: 16px;
+}
+
+.container input {
+  position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.jobsInfo {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-around; */
+  padding: 35px;
+  height: 20vh;
+  /* margin-right: 37%; */
+  /* margin-left: 25%; */
+  /* margin-top: 3vh; */
+  margin-bottom: 5vh;
+}
+
+.jobsInfo:hover {
+  box-shadow: 0 2px 20px rgb(0 0 15%);
+}
+
+.jobInfoDown {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.jobsInfo > h2 {
+  margin-left: 14%;
+  margin-bottom: 27px;
+}
+
+.jobInfoDown > span {
+  color: #bbbbbb;
+}
+
+.jobsLogo {
+  margin-top: 20px;
+  position: absolute;
+  display: inline-block;
+  width: 4%;
+  height: 7%; 
+  border: 1px solid black;
+  text-align: center;
+  
+  
+}
+
 

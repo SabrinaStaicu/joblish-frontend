@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -25,10 +25,6 @@ const JobCard = (props) => {
     const history = useHistory();
     const classes = useStyles();
 
-    useEffect(() => {
-        console.log(props.job)
-    }, [])
-
     const goToJob = () => {
         history.push({
             pathname: `/job/${props.job.id}`,
@@ -36,16 +32,12 @@ const JobCard = (props) => {
         })
     }
 
-    const apply = () => {
-        history.push(`/apply/${props.job.id}`)
-    }
-
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image="https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"
+                    image={props.picture ? props.picture : "https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
@@ -55,9 +47,13 @@ const JobCard = (props) => {
                     <Typography variant="body2" color="textSecondary" component="p">
                         <strong>{props.job.category}</strong>
                     </Typography>
-                    <Typography variant="body2" component="h7">
-                        {props.job.company_name}
-                    </Typography>
+                    {
+                        props.job.company_name ? (
+                            <Typography variant="body2" component="h7">
+                                props.job.company_name
+                            </Typography>
+                        ) : ("")
+                    }
                     <br/>
                     <Typography variant="body2" color="textSecondary" component="h7">
                         Type: {props.job.job_type}

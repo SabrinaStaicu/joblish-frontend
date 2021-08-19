@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 function Copyright() {
+
+
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
@@ -48,6 +50,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
     const classes = useStyles();
+    const credentials = ["job", "1234"];
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
+    const getEmail = (event) => {
+        setEmail(event.target.value);
+    }
+
+    const getPassword = (event) => {
+        setPassword(event.target.value)
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -70,6 +83,7 @@ export default function SignIn() {
                         name="email"
                         autoComplete="email"
                         autoFocus
+                        onChange={getEmail}
                     />
                     <TextField
                         variant="outlined"
@@ -81,6 +95,7 @@ export default function SignIn() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        onChange={getPassword}
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}

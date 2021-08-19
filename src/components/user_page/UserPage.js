@@ -50,10 +50,12 @@ export default function UserPage() {
     // useEffect will query directly to the users/id and get the exact user 
 
     return (
-        <div className="user-page" style={userPageStyle}>
+        <>
             <NavBar />
-            <UserDetails userData={userData} />
-        </div>
+            <div className="user-page" style={userPageStyle}>
+                <UserDetails userData={userData} />
+            </div>
+        </>
     )
 }
 

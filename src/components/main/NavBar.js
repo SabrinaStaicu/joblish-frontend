@@ -40,7 +40,6 @@ const NavBar = ({color, homePosition}) => {
 
 
     const loggedIn = !!(localStorage.getItem("joblishUser"))
-    // const loggedIn = false;
 
     return (
         <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3"}}>

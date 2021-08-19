@@ -65,7 +65,6 @@ const CompanyCard = (props) => {
                                 job => <JobCard picture={props.picture} job={job}/>
                             )
                         }
-
                 </Collapse>
             </React.Fragment>
 

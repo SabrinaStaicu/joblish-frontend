@@ -39,7 +39,8 @@ const NavBar = ({color, homePosition}) => {
       },[])
 
 
-    const loggedIn = true;
+    const loggedIn = !!(localStorage.getItem("joblishUser"))
+    // const loggedIn = false;
 
     return (
         <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3"}}>
@@ -54,7 +55,7 @@ const NavBar = ({color, homePosition}) => {
                         <li><Link to="/user-applications">Applications</Link></li>
                         <li><Link to="/companies">Companies</Link></li>
                         <li><Link to="/login">Login</Link></li>
-                        <li><Link to="#">Logout</Link></li>
+                        <li><Link to="/" onClick={() => {localStorage.clear()}}>Logout</Link></li>
                     </ul>
                 ) : (
                     <ul>

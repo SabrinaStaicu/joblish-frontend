@@ -17,7 +17,7 @@ const NavBar = ({color, homePosition}) => {
                 setPosition("fixed")
             }
             else {
-                setPosition("sticky")     
+                setPosition("fixed")     
             }
            setStickyColor("white")
         }

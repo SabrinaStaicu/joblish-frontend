@@ -339,6 +339,7 @@ header::before {
   justify-content: space-evenly;
 }
 
+
 .jobsSection {
   flex: 5;
   height: 70vh;
@@ -443,6 +444,10 @@ header::before {
   text-align: center;
   
   
+}
+
+.type{
+margin-bottom: 10px;
 }
 
 

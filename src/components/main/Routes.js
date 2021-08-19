@@ -10,6 +10,7 @@ import Jobs from '../job/Jobs';
 
 import Login from "../login/Login";
 import Companies from "../company/Companies";
+import Footer from './Footer';
 
 
 const Routes = () => {
@@ -27,6 +28,7 @@ const Routes = () => {
                     <Route path={"/companies"} component={Companies}/>
                 </Switch>
             </Router>
+            <Footer/>
         </>
     );
 };

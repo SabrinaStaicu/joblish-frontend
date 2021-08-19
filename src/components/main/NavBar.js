@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import { useEffect, useState } from 'react';
 
 
+
 const NavBar = ({ color, homePosition }) => {
 
     const [position, setPosition] = useState("static")
@@ -30,6 +31,7 @@ const NavBar = ({ color, homePosition }) => {
                 setPosition("static")
             }
             setStickyColor(color)
+            setStickyBorder("transparent")
         }
     }
 

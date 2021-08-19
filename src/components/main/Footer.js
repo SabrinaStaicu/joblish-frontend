@@ -8,29 +8,27 @@ const FooterPage = () => {
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>About</h6>
-            <p style={{color:"white"}} class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+            <p style={{color:"white"}} class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
+          <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-              <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-              <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-              <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-              <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-              <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+              <li><a href="/">About Us</a></li>
+              <li><a href="/">Contact Us</a></li>
+              <li><a href="/">Contribute</a></li>
+              <li><a href="/">Privacy Policy</a></li>
+             
             </ul>
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
+          <h6>Contact</h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">About Us</a></li>
-              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+              <li><a href="/">Address</a></li>
+              <li><a href="/">Email</a></li>
+              <li><a href="/">Phone</a></li>
+              <li><a href="/">Fax</a></li>
             </ul>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import {CardMedia} from "@material-ui/core";
+import {CardMedia, Collapse} from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
@@ -37,7 +37,7 @@ const CompanyCard = (props) => {
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
-                            image="https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"
+                            image={props.picture ? props.picture : "https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
@@ -50,18 +50,22 @@ const CompanyCard = (props) => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" variant="contained" color="primary" onClick={toggleJobs}>
+                        <Button size="small" variant="contained" color="primary" onClick={toggleJobs} aria-controls="example-collapse-text" aria-expanded={showJobs}>
                             Jobs
                         </Button>
                     </CardActions>
                 </Card>
-                {
-                    showJobs ? (
-                        props.company.jobs.map(
-                            job => <JobCard job={job}/>
-                        )
-                    ) : ("")
-                }
+                <Collapse in={showJobs}>
+                    <div id="example-collapse-text">
+                        Jobs from {props.company.name}
+                        {
+                            props.company.jobs.map(
+                                job => <JobCard picture={props.picture} job={job}/>
+                            )
+                        }
+                    </div>
+
+                </Collapse>
             </React.Fragment>
 
         );

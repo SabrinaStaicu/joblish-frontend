@@ -23,13 +23,9 @@ const Header = () => {
             JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
         } else if (!searchInput && categoryInput) {
             // if there is only a category input - search by category
-            JobService.getJobsByCategory(categoryInput).then(response => {
-                setJobs(response.data.jobs)
-            })
+            JobService.getJobsByCategory(categoryInput).then(response => {setJobs(response.data.jobs)})
         } else {
-            JobService.getJobsBySearchInput(searchInput).then(r => {
-                setJobs(r.data.jobs);
-            })
+            JobService.getJobsBySearchInput(searchInput).then(r => {setJobs(r.data.jobs);})
         }
 
     }
@@ -62,7 +58,7 @@ const Header = () => {
                 </div>
                     <button className="searchButton" onClick={search}>Search Job</button>
             </div>
-            <img className="malePhoto" src={malePhoto} />
+            <img className="malePhoto" src={malePhoto}  alt=""/>
         </header>
     )
 }

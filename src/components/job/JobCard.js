@@ -25,10 +25,6 @@ const JobCard = (props) => {
     const history = useHistory();
     const classes = useStyles();
 
-    useEffect(() => {
-        console.log(props.job)
-    }, [])
-
     const goToJob = () => {
         history.push({
             pathname: `/job/${props.job.id}`,
@@ -36,16 +32,12 @@ const JobCard = (props) => {
         })
     }
 
-    const apply = () => {
-        history.push(`/apply/${props.job.id}`)
-    }
-
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image="https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"
+                    image={props.picture ? props.picture : "https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"}
                     title="Contemplative Reptile"
                 />
                 <CardContent>

@@ -15,7 +15,8 @@ import Footer from './Footer';
 
 const Routes = () => {
     return (
-        <>
+        <div >
+            <div style={{display:"flex", flexDirection:"column"}}>
             <Router>
                 <Switch>
                     <Route path={"/"} exact component={HomePage} />
@@ -28,8 +29,12 @@ const Routes = () => {
                     <Route path={"/companies"} component={Companies}/>
                 </Switch>
             </Router>
-            <Footer/>
-        </>
+            </div>
+            <div>
+                <Footer/>
+            </div>
+
+        </div>
     );
 };
 

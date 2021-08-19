@@ -48,7 +48,7 @@ const NavBar = ({ color, homePosition }) => {
     // , borderBottom: (stickyColor !== "rgba(0, 0, 255, 0.534)" ? "1px solid rgba(0, 0, 255, 0.534)" : "none" )
 
     return (
-        <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3", borderBottom: stickyBorder }}>
+        <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3", borderBottom: stickyBorder, display:"flex" }}>
         <div className="logo">
         <Link to="/" style={{display:"inline-block"}}><img src={logo} style={{zIndex:"2", width:"50px",display:"inline-block"}}  alt="joblish logo"/>joblish</Link>
         </div>

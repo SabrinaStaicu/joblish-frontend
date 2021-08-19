@@ -1,5 +1,4 @@
 import React from 'react';
-// import './UserPageStyleCSS.css';
 import UserDetails from './UserDetails';
 import NavBar from "../main/NavBar";
 
@@ -52,7 +51,10 @@ export default function UserPage() {
     return (
         <>
             <div className="user-page" style={userPageStyle}>
-                <NavBar color={"transparent"} />
+                <NavBar color={"rgba(0, 0, 255, 0.534)"} />
+                <div className="jobsTop">
+                    <h1 style={{color:"white"}}>Test user profile</h1>
+                </div>
                 <UserDetails userData={userData} />
             </div>
         </>
@@ -62,7 +64,7 @@ export default function UserPage() {
 const userPageStyle = {
     height: '100%',
     width: '100%',
-    backgroundImage: 'linear-gradient(to right bottom, #46c2ee, #35a2e2, #4681cf, #5e5db2, #6e358b)',
+    // backgroundImage: 'linear-gradient(to right bottom, #46c2ee, #35a2e2, #4681cf, #5e5db2, #6e358b)',
     display: 'grid'
 }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
 import UserAvatar from './UserAvatar';
-import UserPageNav from './UserPageNav';
 import UserPageContent from './UserPageContent';
 
 export default function UserDetails({ userData }) {
@@ -9,7 +8,7 @@ export default function UserDetails({ userData }) {
         <>
             <Card style={cardStyle}>
                 <UserAvatar userAvatar={userData.avatar} />
-                <br></br>
+                <br/>
                 <Card.Body>
                     <Card.Text style={{ textAlign: 'center' }}>
                         <h5>{userData.first_name} {userData.last_name}</h5>
@@ -17,7 +16,6 @@ export default function UserDetails({ userData }) {
                         <strong>Intro:</strong><br />
                         {userData.intro}
                     </Card.Text>
-                    {/*<UserPageNav />*/}
                     <UserPageContent userData={userData} />
                 </Card.Body>
             </Card>

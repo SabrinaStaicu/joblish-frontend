@@ -15,9 +15,10 @@ import './company.scss';
 
 const useStyles = makeStyles({
     root: {
+        // height: "280px",
         width: "250px",
         marginLeft:"60px",
-        marginTop:"30px"
+        marginTop:"30px",
     },
     media: {
         height: 140,

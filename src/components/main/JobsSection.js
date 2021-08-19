@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import JobCard from '../job/JobCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAtom } from 'jotai';

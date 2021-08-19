@@ -4,24 +4,24 @@ import logo from './logo.svg';
 import { useEffect, useState } from 'react';
 
 
-const NavBar = ({color, homePosition}) => {
+const NavBar = ({ color, homePosition }) => {
 
     const [position, setPosition] = useState("static")
     const [stickyColor, setStickyColor] = useState(color)
 
-    const handleScroll=() => {
-        const offset=window.scrollY;
-        if(offset > 90){
-            if(window.location.pathname === "/") {
+    const handleScroll = () => {
+        const offset = window.scrollY;
+        if (offset > 90) {
+            if (window.location.pathname === "/") {
                 setPosition("fixed")
             }
             else {
-                setPosition("sticky")     
+                setPosition("sticky")
             }
-           setStickyColor("white")
+            setStickyColor("white")
         }
-        else{
-            if(window.location.pathname === "/") {
+        else {
+            if (window.location.pathname === "/") {
                 setPosition(homePosition)
             }
             else {
@@ -29,17 +29,17 @@ const NavBar = ({color, homePosition}) => {
             }
             setStickyColor(color)
         }
-      }
+    }
 
-      useEffect(() => {
-        if(window.location.pathname === "/") {
+    useEffect(() => {
+        if (window.location.pathname === "/") {
             setPosition(homePosition)
         }
-        window.addEventListener('scroll',handleScroll)
-      },[])
+        window.addEventListener('scroll', handleScroll)
+    }, [])
 
 
-    const loggedIn = true;
+    const loggedIn = !!(localStorage.getItem("joblishUser"))
 
     return (
         <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3", borderBottom: (stickyColor !== "transparent" ? "1px solid purple" : "none") }}>
@@ -54,7 +54,7 @@ const NavBar = ({color, homePosition}) => {
                         <li><Link to="/user-applications">Applications</Link></li>
                         <li><Link to="/companies">Companies</Link></li>
                         <li><Link to="/login">Login</Link></li>
-                        <li><Link to="#">Logout</Link></li>
+                        <li><Link to="/" onClick={() => { localStorage.clear() }}>Logout</Link></li>
                     </ul>
                 ) : (
                     <ul>
@@ -63,7 +63,7 @@ const NavBar = ({color, homePosition}) => {
                     </ul>
                 )
             }
-        </nav>
+        </nav >
     )
 };
 

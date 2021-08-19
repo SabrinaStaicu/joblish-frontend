@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import NavBar from '../main/NavBar';
+import {useHistory} from "react-router-dom";
+
 
 function Copyright() {
 
@@ -50,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+    const history = useHistory();
     const classes = useStyles();
     const credentials = ["job", "1234"];
     const [email, setEmail] = useState();
@@ -61,6 +64,15 @@ export default function SignIn() {
 
     const getPassword = (event) => {
         setPassword(event.target.value)
+    }
+
+    const login = () => {
+        if (email === credentials[0] && password === credentials[1]) {
+            localStorage.setItem("joblishUser", email);
+            history.push("/")
+        } else {
+            alert("Invalid credentials!")
+        }
     }
 
     return (
@@ -100,16 +112,13 @@ export default function SignIn() {
                         autoComplete="current-password"
                         onChange={getPassword}
                     />
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    />
                     <Button
                         type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={login}
                     >
                         Sign In
                     </Button>

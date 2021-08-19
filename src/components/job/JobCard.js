@@ -50,7 +50,7 @@ const JobCard = (props) => {
                     {
                         props.job.company_name ? (
                             <Typography variant="body2" component="h7">
-                                props.job.company_name
+                                {props.job.company_name}
                             </Typography>
                         ) : ("")
                     }

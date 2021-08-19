@@ -2,15 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
 import NavBar from "../main/NavBar";
 import Button from "@material-ui/core/Button";
-
 import SendIcon from '@material-ui/icons/Send';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-
-import Header from "../main/Header"
-
 import Modal from 'react-modal';
-
-
 import {useHistory} from "react-router-dom/cjs/react-router-dom";
 import {Form} from "react-bootstrap";
 
@@ -69,7 +63,7 @@ const JobDetails = () => {
                 <h1>{job.title}</h1>
                 <h3>{job.company_name}</h3>
                 <p>{job.publication_date}</p>
-                <div onClick={apply} className="apply"><SendIcon /><h5>Apply</h5></div>
+                <div onClick={openModal} className="apply"><SendIcon /><h5>Apply</h5></div>
 
             </div>
             <div style={{display:"flex"}}>
@@ -84,7 +78,7 @@ const JobDetails = () => {
                 </div>
             </div>
             <div className="jobDescription" dangerouslySetInnerHTML={{ __html:job.description}}/>
-            {/* <Button color="primary" variant="contained">Apply</Button> */}</div>
+            </div>
                 <div style={{flex:"0.8", marginTop:"25px"}}>
                     <div className="ab">
                         <img src="https://img.ejobs.ro/img/webcore/no-logo.jpg"/>
@@ -108,11 +102,9 @@ const JobDetails = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="ef">asd</div>
+                    <div className="ef">Number of applicants...</div>
                 </div>
             </div>
-            <Button color="primary" variant="contained" onClick={openModal}>Apply</Button>
-
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}

@@ -50,10 +50,12 @@ export default function UserPage() {
     // useEffect will query directly to the users/id and get the exact user 
 
     return (
-        <div className="user-page" style={userPageStyle}>
-            <NavBar color={"transparent"} />
-            <UserDetails userData={userData} />
-        </div>
+        <>
+            <div className="user-page" style={userPageStyle}>
+                <NavBar color={"transparent"} />
+                <UserDetails userData={userData} />
+            </div>
+        </>
     )
 }
 
@@ -61,7 +63,6 @@ const userPageStyle = {
     height: '100%',
     width: '100%',
     backgroundImage: 'linear-gradient(to right bottom, #46c2ee, #35a2e2, #4681cf, #5e5db2, #6e358b)',
-    display: 'flex',
-    flexDirection: 'row',
+    display: 'grid'
 }
 

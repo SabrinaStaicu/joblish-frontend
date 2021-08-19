@@ -38,6 +38,7 @@ const NavBar = ({color, homePosition}) => {
         window.addEventListener('scroll',handleScroll)
       },[])
 
+
     const loggedIn = true;
 
     return (

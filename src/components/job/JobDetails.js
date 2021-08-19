@@ -1,15 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
 import NavBar from "../main/NavBar";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from "@material-ui/core/Button";
+
 import SendIcon from '@material-ui/icons/Send';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 import Header from "../main/Header"
 
-import {useHistory} from "react-router-dom/cjs/react-router-dom";
+import Modal from 'react-modal';
 
+
+import {useHistory} from "react-router-dom/cjs/react-router-dom";
+import {Form} from "react-bootstrap";
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+};
+
+Modal.setAppElement('#root');
 
 
 
@@ -17,13 +33,34 @@ const JobDetails = () => {
     const location = useLocation();
     const job = location.state.job;
     const history = useHistory();
+    const [applicantName, setApplicantName] = useState();
+    const [applicantEmail, setApplicantEmail] = useState();
+
+    const getApplicantName = (event) => {
+        setApplicantName(event.target.value)
+    }
+
+    const getApplicantEmail = (event) => {
+        setApplicantEmail(event.target.value)
+    }
 
     useEffect(() => {
         console.log(job)
     })
 
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
     const apply = () => {
         history.push(`/apply/${job.id}`)
+    }
+
+
+    function closeModal() {
+        setIsOpen(false);
     }
 
     return (
@@ -75,6 +112,38 @@ const JobDetails = () => {
                     <div className="ef">asd</div>
                 </div>
             </div>
+            <Button color="primary" variant="contained" onClick={openModal}>Apply</Button>
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
+            >
+                <Button variant="contained" color="secondary" onClick={closeModal}>
+                    X
+                </Button>
+                <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <br/>
+                        <Form.Label>Full name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter full name" onChange={getApplicantName}/>
+                        <br/>
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" onChange={getApplicantEmail}/>
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                        <br/>
+                        <br/>
+                        <Form.Label>Notes</Form.Label>
+                        <Form.Control type="text" placeholder="Note for the recruiter"/>
+                    </Form.Group>
+                    <Button variant="contained" color="primary" type="submit" onClick={apply}>
+                        Apply
+                    </Button>
+                </Form>
+            </Modal>
         </div>
     );
 };

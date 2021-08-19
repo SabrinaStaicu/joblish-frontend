@@ -44,7 +44,7 @@ const UserApplications = () => {
                                 <div className="card p-3 mb-2">
                                     <div className="d-flex justify-content-between">
                                         <div className="d-flex flex-row align-items-center">
-                                            <div className="icon"><i className="bx bxl-dribbble"></i></div>
+                                            <div className="icon"><i className="bx bxl-mailchimp"></i></div>
                                             <div className="ms-2 c-details">
                                                 <h6 className="mb-0">{application.company}</h6> <span>{application.date}</span>
                                             </div>

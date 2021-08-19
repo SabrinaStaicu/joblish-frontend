@@ -56,14 +56,15 @@ const CompanyCard = (props) => {
                     </CardActions>
                 </Card>
                 <Collapse in={showJobs}>
-                    <div id="example-collapse-text">
-                        Jobs from {props.company.name}
+                        <br/>
+                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", margin: "10px"}}>
+                            <h5>Jobs from {props.company.name}</h5>
+                        </div>
                         {
                             props.company.jobs.map(
                                 job => <JobCard picture={props.picture} job={job}/>
                             )
                         }
-                    </div>
 
                 </Collapse>
             </React.Fragment>

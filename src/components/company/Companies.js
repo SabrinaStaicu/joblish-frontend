@@ -55,7 +55,6 @@ const Companies = () => {
             <div style={{display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", margin: "10px"}}>
                 <h3>Companies with job listings</h3>
             </div>
-            {/*<div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>*/}
                 <div style={{display:"flex",flexWrap: "wrap"}}>
                     {
                         companies.map(
@@ -63,7 +62,6 @@ const Companies = () => {
                         )
                     }
                 </div>
-            {/*</div>*/}
         </div>
     );
 };

@@ -5,8 +5,12 @@ import JobDetails from "../job/JobDetails";
 import Application from "../application/Application";
 import UserPage from '../user_page/UserPage';
 import UserApplications from "../application/UserApplications";
+
+import Jobs from '../Jobs_page/Jobs';
+
 import Login from "../login/Login";
 import Companies from "../company/Companies";
+
 
 const Routes = () => {
     return (
@@ -14,6 +18,7 @@ const Routes = () => {
             <Router>
                 <Switch>
                     <Route path={"/"} exact component={HomePage} />
+                    <Route path={"/jobs"} component={Jobs} />
                     <Route path={"/apply/:jobId"} component={Application}/>
                     <Route path={"/job/:id"} component={JobDetails} />
                     <Route path={"/account"} component={UserPage} />

@@ -6,6 +6,10 @@ const HomePage = () => {
     return (
         <>
             <Header />
+
+            {/* <FilterSection /> */}
+
+
             <JobsSection />
         </>
     );

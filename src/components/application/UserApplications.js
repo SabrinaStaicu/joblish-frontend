@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import NavBar from "../main/NavBar";
+import Footer from '../main/Footer'
 
 const UserApplications = () => {
     const [applications, setApplications] = useState([{
@@ -72,6 +73,7 @@ const UserApplications = () => {
                     }
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

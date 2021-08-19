@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import NavBar from '../main/NavBar';
 import {useHistory} from "react-router-dom";
+import Footer from '../main/Footer'
 
 
 function Copyright() {
@@ -135,6 +136,7 @@ export default function SignIn() {
                 <Copyright />
             </Box>
         </Container>
+        <Footer />
         </div>
     );
 }

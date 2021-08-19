@@ -14,6 +14,7 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import JobService from '../../service/JobService';
 import JobPageCard from './JobPageCard';
 import Button from '@material-ui/core/Button';
+import Footer from '../main/Footer'
 
 const Jobs = () => {
     const [state, setState] = useState({
@@ -148,6 +149,7 @@ const Jobs = () => {
                     {jobs.map(job => <JobPageCard job={job} />)}
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

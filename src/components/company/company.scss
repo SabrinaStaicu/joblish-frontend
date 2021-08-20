@@ -6,7 +6,7 @@ $main-yellow-rgb-015: rgba(189, 187, 73, 0.1) !default;
 $main-red: #bd150b !default;
 $main-red-rgb-015: rgba(189, 21, 11, 0.1) !default;
 $main-blue: #7372fa !default;
-$main-blue-rgb-015: rgba(0, 118, 189, 0.1) !default;
+$main-blue-rgb-015: rgba(0, 0, 255, 0.1) !default;
 
 /* This pen */
 
@@ -79,7 +79,7 @@ a, a:hover {
   .postcard__img {
     max-height: 180px;
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
     position: relative;
   }
 

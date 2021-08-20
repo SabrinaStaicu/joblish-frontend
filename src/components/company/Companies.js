@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import NavBar from "../main/NavBar";
 import CompanyCard from "./CompanyCard";
+import Footer from '../main/Footer'
 
 const Companies = () => {
     const [companies, setCompanies] = useState([{
@@ -80,6 +81,7 @@ const Companies = () => {
                     )
                 }
             </div>
+            <Footer />
         </div>
     );
 };

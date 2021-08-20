@@ -1,6 +1,7 @@
 import React from 'react';
 import UserDetails from './UserDetails';
 import NavBar from "../main/NavBar";
+import Footer from '../main/Footer'
 
 export default function UserPage() {
 
@@ -57,6 +58,7 @@ export default function UserPage() {
                 </div>
                 <UserDetails userData={userData} />
             </div>
+            <Footer/>
         </>
     )
 }

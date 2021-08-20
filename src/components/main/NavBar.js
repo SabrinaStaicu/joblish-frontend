@@ -59,7 +59,6 @@ const NavBar = ({ color, homePosition }) => {
                         <li><Link to="/account">My profile</Link></li>
                         <li><Link to="/user-applications">Applications</Link></li>
                         <li><Link to="/companies">Companies</Link></li>
-                        <li><Link to="/login">Login</Link></li>
                         <li><Link to="/" onClick={() => { localStorage.clear() }}>Logout</Link></li>
                     </ul>
                 ) : (

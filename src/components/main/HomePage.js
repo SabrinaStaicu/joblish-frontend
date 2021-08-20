@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 import Header from './Header';
 import JobsSection from './JobsSection';
 
@@ -7,6 +8,7 @@ const HomePage = () => {
         <>
             <Header />
             <JobsSection />
+            <Footer />
         </>
     );
 };

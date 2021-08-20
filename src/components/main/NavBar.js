@@ -4,10 +4,12 @@ import logo from './logo.svg';
 import { useEffect, useState } from 'react';
 
 
+
 const NavBar = ({ color, homePosition }) => {
 
     const [position, setPosition] = useState("static")
     const [stickyColor, setStickyColor] = useState(color)
+    const [stickyBorder, setStickyBorder] = useState("transparent")
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -19,6 +21,7 @@ const NavBar = ({ color, homePosition }) => {
                 setPosition("sticky")
             }
             setStickyColor("white")
+            setStickyBorder("1px solid rgba(0, 0, 255, 0.534)")
         }
         else {
             if (window.location.pathname === "/") {
@@ -28,6 +31,7 @@ const NavBar = ({ color, homePosition }) => {
                 setPosition("static")
             }
             setStickyColor(color)
+            setStickyBorder("transparent")
         }
     }
 
@@ -41,10 +45,12 @@ const NavBar = ({ color, homePosition }) => {
 
     const loggedIn = !!(localStorage.getItem("joblishUser"))
 
+    // , borderBottom: (stickyColor !== "rgba(0, 0, 255, 0.534)" ? "1px solid rgba(0, 0, 255, 0.534)" : "none" )
+
     return (
-        <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3"/*, borderBottom: (stickyColor !== "transparent" ? "1px solid purple" : "none")*/ }}>
+        <nav style={{backgroundColor:"" + stickyColor, position:"" + position, zIndex:"3", borderBottom: stickyBorder }}>
         <div className="logo">
-        <Link to="/" style={{display:"inline-block"}}><img src={logo} style={{zIndex:"2", width:"50px",display:"inline-block"}}  alt="logo image"/>joblish</Link>
+        <Link to="/" style={{display:"inline-block"}}><img src={logo} style={{zIndex:"2", width:"50px",display:"inline-block"}}  alt="joblish logo"/>joblish</Link>
         </div>
             {
                 loggedIn ? (

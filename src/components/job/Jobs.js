@@ -15,6 +15,7 @@ import JobService from '../../service/JobService';
 import JobPageCard from './JobPageCard';
 import Button from '@material-ui/core/Button';
 import Footer from '../main/Footer'
+import { mockData } from '../main/MockData';
 
 const Jobs = () => {
     const [state, setState] = useState({
@@ -56,20 +57,13 @@ const Jobs = () => {
 
 
     useEffect(() => {
-        JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
+        JobService.getAllJobs().then(response => {setJobs(response.data)})
     },[])
 
     const filter = (e) => {
-        setFilterInputs({...filterInputs, ...state})
-        if(!filterInputs.category && !filterInputs.location && !filterInputs.checkedA && !filterInputs.checkedB) {
-            // if there is no filters - search all jobs
-            JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
-        } else if (filterInputs.category && !filterInputs.location && !filterInputs.checkedA && !filterInputs.checkedB) {
-            // if there is only a category input - search by category
-            JobService.getJobsByCategory(filterInputs.category).then(response => {setJobs(response.data.jobs)})
-        } else if ((!filterInputs.category && !filterInputs.location && (filterInputs.checkedA || filterInputs.checkedB))) {
-            JobService.getJobsBySearchInput(filterInputs.checkedA ? filterInputs.checkedA : filterInputs.checkedB).then(r => {setJobs(r.data.jobs);})
-        }
+        console.log(filterInputs.location);
+        JobService.filterJobs(filterInputs.category, filterInputs.location).then(r => {setJobs(r.data);})
+        // filterInputs.checkedA ? filterInputs.checkedA : filterInputs.checkedB
     }
 
     console.log(jobs)
@@ -149,7 +143,7 @@ const Jobs = () => {
                     {jobs.map(job => <JobPageCard job={job} />)}
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

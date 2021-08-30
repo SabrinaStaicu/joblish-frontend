@@ -60,20 +60,20 @@ const JobDetails = () => {
         <div>
             <NavBar color={"rgba(0, 0, 255, 0.534)"} />
             <div className="jobDetails">
-                <h1>{job.title}</h1>
-                <h3>{job.company_name}</h3>
-                <p>{job.publication_date}</p>
+                <h1>{job.name}</h1>
+                <h3>{job.company.name}</h3>
+                <p>{job.date}</p>
                 <div onClick={openModal} className="apply"><SendIcon /><h5>Apply</h5></div>
 
             </div>
             <div style={{display:"flex"}}>
             <div style={{flex:"2"}}><div className="jobInfo">
                 <div>
-                    <h5>Location : <p style={{display:"inline-block"}}>{job.candidate_required_location}</p></h5>
+                    <h5>Location : <p style={{display:"inline-block"}}>{job.country}, {job.city}</p></h5>
                     <h5>Department : <p style={{display:"inline-block"}}>{job.category}</p></h5>
                 </div>
                 <div>
-                    <h5>Job Type : <p style={{display:"inline-block"}}>{job.job_type}</p></h5>
+                    <h5>Job Type : <p style={{display:"inline-block"}}>{job.jobType}</p></h5>
                     <h5>Salary : <span style={{display:"inline-block"}}>{job.salary}</span></h5>
                 </div>
             </div>

@@ -81,7 +81,7 @@ const Companies = () => {
                     )
                 }
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

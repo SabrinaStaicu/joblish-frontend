@@ -10,7 +10,7 @@ const JobsSection = () => {
         return (
             <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
                 {
-                    jobs ? (
+                    jobs && (
                         <div className="jobSection">
                             {
                                 jobs.map(
@@ -18,7 +18,7 @@ const JobsSection = () => {
                                 )
                             }
                         </div>
-                    ) : ("")
+                    ) 
                 }
             </div>
         )

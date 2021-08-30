@@ -73,7 +73,7 @@ const UserApplications = () => {
                     }
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

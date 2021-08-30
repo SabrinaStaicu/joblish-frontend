@@ -58,7 +58,7 @@ export default function UserPage() {
                 </div>
                 <UserDetails userData={userData} />
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </>
     )
 }

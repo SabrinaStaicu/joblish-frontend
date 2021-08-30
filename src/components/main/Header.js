@@ -18,17 +18,9 @@ const Header = () => {
 
 
     const search = () => {
-        // if(!searchInput && !categoryInput) {
-        //     // if there is no search input - search all jobs
-        //     JobService.getAllJobs().then(response => {setJobs(response.data.jobs)})
-        // } else if (!searchInput && categoryInput) {
-        //     // if there is only a category input - search by category
-        //     JobService.getJobsByCategory(categoryInput).then(response => {setJobs(response.data.jobs)})
-        // } else {
-        //     JobService.getJobsBySearchInput(searchInput).then(r => {setJobs(r.data.jobs);})
-        // }
-        setJobs(mockData)
-
+        JobService.searchJobs(searchInput, categoryInput).then(r => {
+            console.log(r)
+            setJobs(r.data);})
     }
 
 

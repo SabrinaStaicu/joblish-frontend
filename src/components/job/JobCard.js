@@ -56,7 +56,7 @@ const JobCard = (props) => {
                     }
                     <br/>
                     <Typography variant="body2" color="textSecondary" component="h7">
-                        Type: {props.job.job_type}
+                        Type: {props.job.jobType}
                     </Typography>
                 </CardContent>
             </CardActionArea>

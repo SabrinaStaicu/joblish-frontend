@@ -136,7 +136,7 @@ export default function SignIn() {
                 <Copyright />
             </Box>
         </Container>
-        <Footer />
+        {/* <Footer /> */}
         </div>
     );
 }

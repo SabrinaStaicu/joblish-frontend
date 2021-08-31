@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core/styles";
 import JobCard from "../job/JobCard";
 import './company.scss';
+import JobService from "../../service/JobService";
 
 
 
@@ -35,7 +36,7 @@ const CompanyCard = ({company}) => {
     }
 
 	useEffect(() => {
-
+		JobService.getAllByCompanyId(company.id).then(res => setJobs(res.data))
 	}, [])
 
         return (
@@ -60,16 +61,16 @@ const CompanyCard = ({company}) => {
 				</ul>
 			</div>
 		</article>
-                {/*<Collapse in={showJobs}>*/}
-                {/*    <h4 style={{textAlign:"center"}}>Jobs from {props.company.name}</h4>*/}
-                {/*    <div className="companiesJobsSection">*/}
-                {/*    {*/}
-                {/*        props.company.jobs.map(*/}
-                {/*            job => <JobCard picture={props.picture} job={job}/>*/}
-                {/*        )*/}
-                {/*    }*/}
-                {/*    </div>*/}
-                {/*</Collapse>*/}
+                <Collapse in={showJobs}>
+                    <h4 style={{textAlign:"center"}}>Jobs from {company.name}</h4>
+                    <div className="companiesJobsSection">
+                    {
+                        jobs.map(
+                            job => <JobCard picture={company.logo} job={job}/>
+                        )
+                    }
+                    </div>
+                </Collapse>
             </div>
 
         );

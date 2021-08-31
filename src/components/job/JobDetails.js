@@ -7,6 +7,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Modal from 'react-modal';
 import {useHistory} from "react-router-dom/cjs/react-router-dom";
 import {Form} from "react-bootstrap";
+import JobService from "../../service/JobService";
 
 const customStyles = {
     content: {
@@ -28,6 +29,7 @@ const JobDetails = () => {
     const history = useHistory();
     const [applicantName, setApplicantName] = useState();
     const [applicantEmail, setApplicantEmail] = useState();
+    const [jobsByCurrentCompany, setJobsByCurrentCompany] = useState([])
 
     const getApplicantName = (event) => {
         setApplicantName(event.target.value)
@@ -39,6 +41,7 @@ const JobDetails = () => {
 
     useEffect(() => {
         console.log(job)
+        JobService.getAllByCompanyId(job.company.id).then(res => setJobsByCurrentCompany(res.data))
     })
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -83,7 +86,7 @@ const JobDetails = () => {
                     <div className="ab">
                         <img src={job.company.logo ? job.company.logo : "https://img.ejobs.ro/img/webcore/no-logo.jpg"}/>
                         <span>{job.company_name}</span>
-                        <span style={{color:"grey"}}>1 active job</span>
+                        <span style={{color:"grey"}}>{jobsByCurrentCompany.length} active job</span>
                     </div>
                     <div className="cd">
                         <div className="topSection">

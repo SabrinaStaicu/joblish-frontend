@@ -28,6 +28,10 @@ class JobService {
         return axios.get(`${JOBS_API_URL}/filter?category=${category}&country=${"USA"}`)
     }
 
+    getAllByCompanyId(id) {
+        return axios.get(`${JOBS_API_URL}/filter-by-company/${id}`)
+    }
+
 }
 
 export default new JobService();

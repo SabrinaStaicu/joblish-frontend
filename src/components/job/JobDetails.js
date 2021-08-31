@@ -81,7 +81,7 @@ const JobDetails = () => {
             </div>
                 <div style={{flex:"0.8", marginTop:"25px"}}>
                     <div className="ab">
-                        <img src="https://img.ejobs.ro/img/webcore/no-logo.jpg"/>
+                        <img src={job.company.logo ? job.company.logo : "https://img.ejobs.ro/img/webcore/no-logo.jpg"}/>
                         <span>{job.company_name}</span>
                         <span style={{color:"grey"}}>1 active job</span>
                     </div>

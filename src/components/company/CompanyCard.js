@@ -15,7 +15,6 @@ import './company.scss';
 
 const useStyles = makeStyles({
     root: {
-        // height: "280px",
         width: "250px",
         marginLeft:"60px",
         marginTop:"30px",
@@ -26,46 +25,51 @@ const useStyles = makeStyles({
 });
 
 
-const CompanyCard = (props) => {
+const CompanyCard = ({company}) => {
     const classes = useStyles();
+	const [jobs, setJobs] = useState([]);
     const [showJobs, setShowJobs] = useState(false);
 
     const toggleJobs = () => {
         setShowJobs(!showJobs);
     }
 
+	useEffect(() => {
+
+	}, [])
+
         return (
             <div>
-                <article class="postcard light blue">
-			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src={props.company.picture} alt="Image Title" />
+                <article className="postcard light blue">
+			<a className="postcard__img_link" href="#">
+				<img className="postcard__img" src={company.logo} alt="Image Title" />
 			</a>
-			<div class="postcard__text t-dark">
-				<h1 class="postcard__title blue"><a className="postcard__title blue" href="#">{props.company.name}</a></h1>
-				<div class="postcard__subtitle small">
+			<div className="postcard__text t-dark">
+				<h1 className="postcard__title blue"><a className="postcard__title blue" href="#">{company.name}</a></h1>
+				<div className="postcard__subtitle small">
 					<time datetime="2020-05-25 12:00:00">
-						<i class="fas fa-calendar-alt mr-2"></i>{props.company.category}
+						<i class="fas fa-calendar-alt mr-2"></i>{company.category}
 					</time>
 				</div>
-				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt">{props.company.description}</div>
-				<ul class="postcard__tagbox">
-					<li class="tag__item play blue" onClick={toggleJobs}>
-						<div style={{cursor:"pointer"}} ><i class="fas fa-play mr-2"></i>See Jobs</div>
+				<div className="postcard__bar"></div>
+				<div className="postcard__preview-txt">{company.description}</div>
+				<ul className="postcard__tagbox">
+					<li className="tag__item play blue" onClick={toggleJobs}>
+						<div style={{cursor:"pointer"}} ><i className="fas fa-play mr-2"></i>See Jobs</div>
 					</li>
 				</ul>
 			</div>
 		</article>
-                <Collapse in={showJobs}>
-                    <h4 style={{textAlign:"center"}}>Jobs from {props.company.name}</h4>
-                    <div className="companiesJobsSection">
-                    {
-                        props.company.jobs.map(
-                            job => <JobCard picture={props.picture} job={job}/>
-                        )
-                    }
-                    </div>
-                </Collapse>
+                {/*<Collapse in={showJobs}>*/}
+                {/*    <h4 style={{textAlign:"center"}}>Jobs from {props.company.name}</h4>*/}
+                {/*    <div className="companiesJobsSection">*/}
+                {/*    {*/}
+                {/*        props.company.jobs.map(*/}
+                {/*            job => <JobCard picture={props.picture} job={job}/>*/}
+                {/*        )*/}
+                {/*    }*/}
+                {/*    </div>*/}
+                {/*</Collapse>*/}
             </div>
 
         );

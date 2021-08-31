@@ -9,10 +9,7 @@ const ApplicationCard = ({application, modalIsOpen, closeModal, customStyles, op
     const [applicationsForThisJob, setApplicationsForThisJob] = useState([])
 
     useEffect(() => {
-        ApplicationsService.getAllByJobId(application.job.id).then(res => {
-            console.log(res.data)
-            setApplicationsForThisJob(res.data)
-        })
+        ApplicationsService.getAllByJobId(application.job.id).then(res => {setApplicationsForThisJob(res.data)})
     }, [])
 
     return (

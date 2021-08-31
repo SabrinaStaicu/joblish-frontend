@@ -38,6 +38,9 @@ const JobDetails = () => {
     const [applicationsForThisJob, setApplicationsForThisJob] = useState([])
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState("");
+    const [userHasAppliedToJob, setUserHasAppliedToJob] = useState(false);
+
+
 
     const getApplicantName = (event) => {
         setApplicantName(event.target.value)
@@ -55,6 +58,7 @@ const JobDetails = () => {
         console.log(job)
         JobService.getAllByCompanyId(job.company.id).then(res => setJobsByCurrentCompany(res.data))
         ApplicationsService.getAllByJobId(job.id).then(res => setApplicationsForThisJob(res.data))
+        ApplicationsService.userHasAlreadyApplied(3, job.title, job.company.name).then(res => setUserHasAppliedToJob(res.data))
     }, [])
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -95,7 +99,7 @@ const JobDetails = () => {
                 <h1>{job.title}</h1>
                 <h3>{job.company.name}</h3>
                 <p>{job.date}</p>
-                <div onClick={openModal} className="apply"><SendIcon /><h5>Apply</h5></div>
+                {userHasAppliedToJob ? <Button disabled variant="contained">Already applied</Button> : <div onClick={openModal} className="apply"><SendIcon /><h5>Apply</h5></div>}
 
             </div>
             <div style={{display:"flex"}}>
@@ -106,7 +110,7 @@ const JobDetails = () => {
                 </div>
                 <div>
                     <h5>Job Type : <p style={{display:"inline-block"}}>{job.jobType}</p></h5>
-                    <h5>Salary : <span style={{display:"inline-block"}}>{job.salary}</span></h5>
+                    <h5>Salary : <span style={{display:"inline-block"}}>${job.salary}</span></h5>
                 </div>
             </div>
             <div className="jobDescription" dangerouslySetInnerHTML={{ __html:job.description}}/>
@@ -115,7 +119,7 @@ const JobDetails = () => {
                     <div className="ab">
                         <img src={job.company.logo ? job.company.logo : "https://img.ejobs.ro/img/webcore/no-logo.jpg"}/>
                         <span>{job.company_name}</span>
-                        <span style={{color:"grey"}}>{jobsByCurrentCompany.length} active job</span>
+                        <span style={{color:"grey"}}>{jobsByCurrentCompany.length} active job(s)</span>
                     </div>
                     <div className="cd">
                         <div className="topSection">

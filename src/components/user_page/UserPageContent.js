@@ -4,7 +4,7 @@ import CvContentList from './CvContentList'
 export default function UserPageContent({userData}) {
     console.log(userData);
     return (
-        <div class="square border border-primary" style={userPageContentStyle}>
+        <div className="square border border-primary" style={userPageContentStyle}>
             <div style={contentContainer}>
                 
                 <div style={containerItem}>

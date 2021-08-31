@@ -21,6 +21,10 @@ class ApplicationsService {
     getAllByJobId(id) {
         return axios.get(`${APPLICATIONS_API_URL}/filter-by-job/${id}`)
     }
+
+    userHasAlreadyApplied(userId, jobTitle, companyName) {
+        return axios.get(`${APPLICATIONS_API_URL}/user-has-applied/${userId}/${jobTitle}/${companyName}`)
+    }
 }
 
 export default new ApplicationsService()

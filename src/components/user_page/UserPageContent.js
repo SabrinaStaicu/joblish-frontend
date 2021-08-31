@@ -20,7 +20,7 @@ export default function UserPageContent({userData}) {
                     </div>
                 </div>
 
-                <hr style={breakLine}></hr>
+                <hr style={breakLine}/>
 
                 <div style={containerItem}>
                     <div style={containerItemTitle}>Education:</div>
@@ -29,7 +29,7 @@ export default function UserPageContent({userData}) {
                     </div>
                 </div>
 
-                <hr style={breakLine}></hr>
+                <hr style={breakLine}/>
 
                 <div style={containerItem}>
                     <div style={containerItemTitle}>Experience:</div>
@@ -38,7 +38,7 @@ export default function UserPageContent({userData}) {
                     </div>
                 </div>
 
-                <hr style={breakLine}></hr>
+                <hr style={breakLine}/>
 
                 <div>
                     <div style={containerItemTitle}>Skills:</div>

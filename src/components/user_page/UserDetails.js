@@ -1,13 +1,12 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-import UserAvatar from './UserAvatar';
 import UserPageContent from './UserPageContent';
 
 export default function UserDetails({ userData }) {
     return (
         <>
             <Card style={cardStyle}>
-                <UserAvatar userAvatar={userData.avatar} />
+                <img src={userData.avatar} alt="user's personal avatar" style={avatarStyle}/>
                 <br/>
                 <Card.Body>
                     <Card.Text style={{ textAlign: 'center' }}>
@@ -29,4 +28,15 @@ const cardStyle = {
     padding: '2%',
     margin: '5%',
     backgroundColor: '#f7f5f5'
+}
+
+const avatarStyle = {
+    display: 'block',
+    marginLeft: '42.5%',
+    marginRight: 'auto',
+    verticalAlign: 'middle',
+    AlignItems: 'center',
+    width: '15%',
+    height: 'auto',
+    borderRadius: '50%'
 }

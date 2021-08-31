@@ -14,22 +14,6 @@ import NavBar from '../main/NavBar';
 import {useHistory} from "react-router-dom";
 import Footer from '../main/Footer'
 
-
-function Copyright() {
-
-
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Joblish
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -130,9 +114,6 @@ export default function SignIn() {
                     </Grid>
                 </form>
             </div>
-            <Box mt={8}>
-                <Copyright />
-            </Box>
         </Container>
         {/* <Footer /> */}
         </div>

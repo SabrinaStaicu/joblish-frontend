@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {useLocation} from "react-router-dom";
 import NavBar from "../main/NavBar";
 import Button from "@material-ui/core/Button";
@@ -6,8 +6,11 @@ import SendIcon from '@material-ui/icons/Send';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Modal from 'react-modal';
 import {useHistory} from "react-router-dom/cjs/react-router-dom";
-import {Form} from "react-bootstrap";
+import CheckButton from "react-validation/build/button";
 import JobService from "../../service/JobService";
+import Input from "react-validation/build/input";
+import Form from "react-validation/build/form";
+
 
 const customStyles = {
     content: {
@@ -21,15 +24,18 @@ const customStyles = {
 };
 
 Modal.setAppElement('#root');
-
-
 const JobDetails = () => {
+    const form = useRef();
+    const checkBtn = useRef();
     const location = useLocation();
     const job = location.state.job;
     const history = useHistory();
     const [applicantName, setApplicantName] = useState();
     const [applicantEmail, setApplicantEmail] = useState();
+    const [notes, setNotes] = useState();
     const [jobsByCurrentCompany, setJobsByCurrentCompany] = useState([])
+    const [successful, setSuccessful] = useState(false);
+    const [message, setMessage] = useState("");
 
     const getApplicantName = (event) => {
         setApplicantName(event.target.value)
@@ -37,6 +43,10 @@ const JobDetails = () => {
 
     const getApplicantEmail = (event) => {
         setApplicantEmail(event.target.value)
+    }
+
+    const getNotes = (event) => {
+        setNotes(event.target.value)
     }
 
     useEffect(() => {
@@ -58,6 +68,12 @@ const JobDetails = () => {
     function closeModal() {
         setIsOpen(false);
     }
+
+    const submitForm = e => {
+        e.preventDefault();
+    }
+
+
 
     return (
         <div>
@@ -112,30 +128,54 @@ const JobDetails = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
             >
-                <Button variant="contained" color="secondary" onClick={closeModal}>
-                    X
-                </Button>
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                <div style={{textAlign: "right"}}>
+                    <Button variant="contained" color="secondary" onClick={closeModal}>X</Button>
+                </div>
+                {message && (
+                    <div className="form-group">
+                        <div
+                            className={
+                                successful ? "alert alert-success" : "alert alert-danger"
+                            }
+                            role="alert"
+                        >
+                            {message}
+                        </div>
+                    </div>
+                )}
+                <Form onSubmit={submitForm} ref={form}>
                         <br/>
-                        <Form.Label>Full name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter full name" onChange={getApplicantName}/>
+                        <label>Full name</label>
+                        <Input
+                            className="form-control"
+                            type="text"
+                            placeholder="Enter full name"
+                            onChange={getApplicantName}/>
                         <br/>
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={getApplicantEmail}/>
+                        <label>Email address</label>
+                        <Input
+                            className="form-control"
+                            type="email"
+                            placeholder="Enter email"
+                            onChange={getApplicantEmail}/>
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
                         <br/>
                         <br/>
-                        <Form.Label>Notes</Form.Label>
-                        <Form.Control type="text" placeholder="Note for the recruiter"/>
-                    </Form.Group>
-                    <Button variant="contained" color="primary" type="submit" onClick={apply}>
-                        Apply
-                    </Button>
+                        <label>Notes</label>
+                        <Input
+                            className = "form-control"
+                            type="text"
+                            placeholder="Note for the recruiter"
+                            onChange={getNotes}
+                        />
+                        <br/>
+                    <div style={{textAlign: "center"}}>
+                        <Button variant="contained" color="primary" type="submit" onClick={apply}>Apply</Button>
+                    </div>
+                    <CheckButton style={{ display: "none" }} ref={checkBtn} />
                 </Form>
             </Modal>
         </div>

@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import NavBar from "../main/NavBar";
-import Footer from '../main/Footer'
 import ApplicationsService from "../../service/ApplicationsService";
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from "@material-ui/core/Button";
-import { makeStyles } from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton';
 import Modal from 'react-modal';
 
@@ -19,36 +17,7 @@ const customStyles = {
     },
 };
 
-
 const UserApplications = () => {
-    // const [applications, setApplications] = useState([{
-    //     company: "Codecool",
-    //     jobTitle: "Cobol developer",
-    //     category: "Education",
-    //     type: "Full-time",
-    //     status: "Denied",
-    //     date: "12/05/2021",
-    //     location: "Bucharest",
-    //     picture: "https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/589/original/codecool-logo-symbol.png"
-    // }, {
-    //     company: "Codecool",
-    //     jobTitle: "Mentor",
-    //     category: "Education",
-    //     type: "Full-time",
-    //     status: "Not seen",
-    //     date: "11/05/2021",
-    //     location: "Bucharest",
-    //     picture: "https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/589/original/codecool-logo-symbol.png"
-    // }, {
-    //     company: "Codecool",
-    //     jobTitle: "Python developer",
-    //     category: "Education",
-    //     type: "Part-time",
-    //     status: "Accepted",
-    //     date: "14/05/2021",
-    //     location: "Bucharest",
-    //     picture: "https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/589/original/codecool-logo-symbol.png"
-    //     }])
     const [applications, setApplications] = useState([])
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -62,11 +31,14 @@ const UserApplications = () => {
 
     const cancelApplication = (id) => {
         ApplicationsService.cancelApplication(id).then(r => console.log(r.data));
+        setApplications(applications.filter((item) => item.id !== id))
         closeModal();
     }
 
     useEffect(() => {
-        ApplicationsService.getAllByUserId(3).then(res => {setApplications(res.data)})
+        ApplicationsService.getAllByUserId(3).then(res => {
+            setApplications(res.data)
+        })
     }, [])
 
     return (
@@ -79,6 +51,7 @@ const UserApplications = () => {
                 <br/>
                 <div className="row">
                     {
+                        applications.length > 0 ? (
                         applications.map(
                             application =>  <div className="col-md-4">
                                 <div className="card p-3 mb-2">
@@ -99,7 +72,6 @@ const UserApplications = () => {
                                         onRequestClose={closeModal}
                                         style={customStyles}
                                     >
-
                                             <div className="modal-dialog modal-confirm">
                                                 <div className="modal-content">
                                                     <div className="modal-header justify-content-center">
@@ -133,7 +105,7 @@ const UserApplications = () => {
                                     </div>
                                 </div>
                             </div>
-                        )
+                        )) : (<div style={{textAlign: "center"}}><h3>You do not have any current applications.</h3></div>)
                     }
                 </div>
             </div>

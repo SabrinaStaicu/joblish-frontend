@@ -42,8 +42,9 @@ const NavBar = ({ color, homePosition }) => {
         window.addEventListener('scroll', handleScroll)
     }, [])
 
-
+//ask
     const loggedIn = !!(localStorage.getItem("joblishUser"))
+    const loggedInComp = !!(localStorage.getItem("joblisComp"))
 
     // , borderBottom: (stickyColor !== "rgba(0, 0, 255, 0.534)" ? "1px solid rgba(0, 0, 255, 0.534)" : "none" )
 
@@ -53,6 +54,11 @@ const NavBar = ({ color, homePosition }) => {
         <Link to="/" style={{display:"inline-block"}}><img src={logo} style={{zIndex:"2", width:"50px",display:"inline-block"}}  alt="joblish logo"/>joblish</Link>
         </div>
             {
+                loggedInComp ? (<ul>
+                    <li><Link to="/jobs">Jobs</Link></li>
+                    <li><Link to="/" onClick={() => { localStorage.clear() }}>Logout</Link></li>
+                </ul>) : (
+                
                 loggedIn ? (
                     <ul>
                         <li><Link to="/jobs">Jobs</Link></li>
@@ -67,7 +73,7 @@ const NavBar = ({ color, homePosition }) => {
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/register">Register</Link></li>
                     </ul>
-                )
+                ))
             }
         </nav >
     )

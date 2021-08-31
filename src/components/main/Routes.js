@@ -10,6 +10,7 @@ import Jobs from '../job/Jobs';
 import Login from "../login/Login";
 import Companies from "../company/Companies";
 import Footer from './Footer';
+import DashBoard from '../company/DashBoard';
 
 
 const Routes = () => {
@@ -24,6 +25,7 @@ const Routes = () => {
                     <Route path={"/user-applications"} component={UserApplications}/>
                     <Route path={"/login"} component={Login} />
                     <Route path={"/companies"} component={Companies}/>
+                    <Route path={"/dash-board"} component={DashBoard}/>
                 </Switch>
             </Router>
             <Footer/>

@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
 import malePhoto from './malePhoto.svg'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
 import JobService from "../../service/JobService";
 import {searchAtom, jobsAtom} from './Atoms'
@@ -15,6 +15,11 @@ const Header = () => {
     const getSearchInput = (event) => {
         setSearch(event.target.value);
     }
+
+
+    useEffect(() => {
+        JobService.getAllJobs().then(response => {setJobs(response.data)})
+    },[])
 
 
     const search = () => {

@@ -423,6 +423,7 @@ header::before {
   /* margin-left: 25%; */
   /* margin-top: 3vh; */
   margin-bottom: 5vh;
+  cursor: pointer;
 }
 
 .jobsInfo:hover {
@@ -450,8 +451,9 @@ header::before {
   display: inline-block;
   width: 4%;
   height: 7%; 
-  border: 1px solid black;
+  border: 0.5px solid rgb(170, 168, 168);
   text-align: center;
+  object-fit: contain;
   
   
 }

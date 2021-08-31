@@ -77,13 +77,13 @@ const JobDetails = () => {
         setSuccessful(false);
         form.current.validateAll();
         if (checkBtn.current.context._errors.length === 0) {
-            ApplicationsService.addApplication(notes, 3, job.id).then(
+            ApplicationsService.addApplication(notes, 279, job.id).then(
                 res => {
                     setMessage(`Thank you for applying for a ${job.title} position at ${job.company.name}.`);
                     setSuccessful(true);
                     setTimeout(() => {
                         history.push("/user-applications");
-                    }, 2000);
+                    }, 200);
                 }, error => {
                     setMessage(`Something went from with your application.`);
                     setSuccessful(false);

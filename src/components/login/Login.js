@@ -38,6 +38,7 @@ export default function SignIn() {
     const history = useHistory();
     const classes = useStyles();
     const credentials = ["job", "1234"];
+    const credentialsC = ["comp", "1234"];
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
@@ -50,7 +51,15 @@ export default function SignIn() {
     }
 
     const login = () => {
-        if (email === credentials[0] && password === credentials[1]) {
+        if (email === credentialsC[0]) {
+            if (email === credentialsC[0] && password === credentialsC[1]) {
+                localStorage.setItem("joblisComp", email);
+                history.push("/")
+            } else {
+                alert("Invalid credentials!")
+            }
+        }
+        else if (email === credentials[0] && password === credentials[1]) {
             localStorage.setItem("joblishUser", email);
             history.push("/")
         } else {

@@ -61,9 +61,9 @@ const Jobs = () => {
     },[])
 
     const filter = (e) => {
-        console.log(filterInputs.location);
-        JobService.filterJobs(filterInputs.category, filterInputs.location).then(r => {setJobs(r.data);})
-        // filterInputs.checkedA ? filterInputs.checkedA : filterInputs.checkedB
+        const jobType = filterInputs.checkedA ? filterInputs.checkedAValue : filterInputs.checkedBValue
+        console.log(filterInputs)
+        JobService.filterJobs(filterInputs.category, filterInputs.location, filterInputs.checkedA ? filterInputs.checkedAValue : "undefined", filterInputs.checkedB ? filterInputs.checkedBValue : "undefined").then(r => {setJobs(r.data);})
     }
 
     console.log(jobs)
@@ -113,6 +113,7 @@ const Jobs = () => {
                         <select onChange={handleLocation} className="catSelect">
                         <option default selected>Location</option>
                             <option>USA</option>
+                            <option>Romania</option>
                             <option>Anywhere</option>
                         </select>
                     </div>

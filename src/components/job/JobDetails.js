@@ -13,7 +13,6 @@ import Form from "react-validation/build/form";
 import ApplicationsService from "../../service/ApplicationsService";
 import {required, validEmail, nameValidation} from "../../util/Validations";
 
-
 const customStyles = {
     content: {
         top: '50%',
@@ -36,6 +35,7 @@ const JobDetails = () => {
     const [applicantEmail, setApplicantEmail] = useState();
     const [notes, setNotes] = useState();
     const [jobsByCurrentCompany, setJobsByCurrentCompany] = useState([])
+    const [applicationsForThisJob, setApplicationsForThisJob] = useState([])
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState("");
 
@@ -54,6 +54,7 @@ const JobDetails = () => {
     useEffect(() => {
         console.log(job)
         JobService.getAllByCompanyId(job.company.id).then(res => setJobsByCurrentCompany(res.data))
+        ApplicationsService.getAllByJobId(job.id).then(res => setApplicationsForThisJob(res.data))
     }, [])
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -70,13 +71,11 @@ const JobDetails = () => {
         e.preventDefault();
         setMessage("");
         setSuccessful(false);
-
         form.current.validateAll();
-
         if (checkBtn.current.context._errors.length === 0) {
             ApplicationsService.addApplication(notes, 3, job.id).then(
                 res => {
-                    setMessage(`Thank you for applying for the ${job.name} position at ${job.company.name}.`);
+                    setMessage(`Thank you for applying for a ${job.title} position at ${job.company.name}.`);
                     setSuccessful(true);
                     setTimeout(() => {
                         history.push("/user-applications");
@@ -93,7 +92,7 @@ const JobDetails = () => {
         <div>
             <NavBar color={"rgba(0, 0, 255, 0.534)"} />
             <div className="jobDetails">
-                <h1>{job.name}</h1>
+                <h1>{job.title}</h1>
                 <h3>{job.company.name}</h3>
                 <p>{job.date}</p>
                 <div onClick={openModal} className="apply"><SendIcon /><h5>Apply</h5></div>
@@ -135,7 +134,7 @@ const JobDetails = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="ef">Number of applicants...</div>
+                    <div className="ef">Current number of applicants: {applicationsForThisJob.length}</div>
                 </div>
             </div>
             <Modal

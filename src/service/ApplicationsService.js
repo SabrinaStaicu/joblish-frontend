@@ -17,6 +17,10 @@ class ApplicationsService {
             notes: notes
         });
     }
+
+    getAllByJobId(id) {
+        return axios.get(`${APPLICATIONS_API_URL}/filter-by-job/${id}`)
+    }
 }
 
 export default new ApplicationsService()

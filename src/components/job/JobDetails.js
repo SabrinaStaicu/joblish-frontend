@@ -55,10 +55,9 @@ const JobDetails = () => {
     }
 
     useEffect(() => {
-        console.log(job)
         JobService.getAllByCompanyId(job.company.id).then(res => setJobsByCurrentCompany(res.data))
         ApplicationsService.getAllByJobId(job.id).then(res => setApplicationsForThisJob(res.data))
-        ApplicationsService.userHasAlreadyApplied(3, job.title, job.company.name).then(res => setUserHasAppliedToJob(res.data))
+        ApplicationsService.userHasAlreadyApplied(284, job.title, job.company.name).then(res => setUserHasAppliedToJob(res.data))
     }, [])
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -77,7 +76,7 @@ const JobDetails = () => {
         setSuccessful(false);
         form.current.validateAll();
         if (checkBtn.current.context._errors.length === 0) {
-            ApplicationsService.addApplication(notes, 279, job.id).then(
+            ApplicationsService.addApplication(notes, 289, job.id).then(
                 res => {
                     setMessage(`Thank you for applying for a ${job.title} position at ${job.company.name}.`);
                     setSuccessful(true);

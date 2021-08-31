@@ -98,7 +98,7 @@ const JobDetails = () => {
                 <h1>{job.title}</h1>
                 <h3>{job.company.name}</h3>
                 <p>{job.date}</p>
-                {userHasAppliedToJob ? <Button disabled variant="contained">Already applied</Button> : <div onClick={openModal} className="apply"><SendIcon /><h5>Apply</h5></div>}
+                {userHasAppliedToJob ? <Button disabled variant="contained">Already applied</Button> : <div onClick={openModal} className="apply"><SendIcon /><h5 className="btn-title">Apply</h5></div>}
 
             </div>
             <div style={{display:"flex"}}>

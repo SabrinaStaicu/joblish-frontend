@@ -24,9 +24,9 @@ class JobService {
         return axios.get(`${JOBS_API_URL}/search?name=${name}&category=${category}`)
     }
 
-    filterJobs(category, location, jobTypeA,jobTypeB, experienceLevel) {
+    filterJobs(category, location, jobTypeA,jobTypeB, experienceTypeC, experienceTypeD, experienceTypeE, experienceTypeF) {
         console.log(jobTypeA)
-        return axios.get(`${JOBS_API_URL}/filter?category=${category}&country=${location}&jobType=${jobTypeA}&jobType=${jobTypeB}`)
+        return axios.get(`${JOBS_API_URL}/filter?category=${category}&country=${location}&jobType=${jobTypeA}&jobType=${jobTypeB}&experienceType=${experienceTypeC}&experienceType=${experienceTypeD}&experienceType=${experienceTypeE}&experienceType=${experienceTypeF}`)
     }
 
     getAllByCompanyId(id) {

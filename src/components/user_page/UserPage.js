@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import UserDetails from './UserDetails';
 import NavBar from "../main/NavBar";
 import Footer from '../main/Footer'
 
 export default function UserPage() {
 
-    const [userData, setUserData] = React.useState({
+    const [userData, setUserData] = useState({
 
         id: 1,
         first_name: 'TestFirstName1',

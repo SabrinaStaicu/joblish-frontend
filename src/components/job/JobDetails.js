@@ -10,6 +10,8 @@ import CheckButton from "react-validation/build/button";
 import JobService from "../../service/JobService";
 import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
+import ApplicationsService from "../../service/ApplicationsService";
+import {required, validEmail, nameValidation} from "../../util/Validations";
 
 
 const customStyles = {
@@ -52,7 +54,7 @@ const JobDetails = () => {
     useEffect(() => {
         console.log(job)
         JobService.getAllByCompanyId(job.company.id).then(res => setJobsByCurrentCompany(res.data))
-    })
+    }, [])
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -60,20 +62,32 @@ const JobDetails = () => {
         setIsOpen(true);
     }
 
-    const apply = () => {
-        history.push(`/apply/${job.id}`)
-    }
-
-
     function closeModal() {
         setIsOpen(false);
     }
 
     const submitForm = e => {
         e.preventDefault();
+        setMessage("");
+        setSuccessful(false);
+
+        form.current.validateAll();
+
+        if (checkBtn.current.context._errors.length === 0) {
+            ApplicationsService.addApplication(notes, 3, job.id).then(
+                res => {
+                    setMessage(`Thank you for applying for the ${job.name} position at ${job.company.name}.`);
+                    setSuccessful(true);
+                    setTimeout(() => {
+                        history.push("/user-applications");
+                    }, 2000);
+                }, error => {
+                    setMessage(`Something went from with your application.`);
+                    setSuccessful(false);
+                }
+            )
+        }
     }
-
-
 
     return (
         <div>
@@ -151,18 +165,20 @@ const JobDetails = () => {
                             className="form-control"
                             type="text"
                             placeholder="Enter full name"
-                            onChange={getApplicantName}/>
+                            onChange={getApplicantName}
+                            value={applicantName}
+                            validations={[required, nameValidation]}
+                        />
                         <br/>
                         <label>Email address</label>
                         <Input
                             className="form-control"
                             type="email"
                             placeholder="Enter email"
-                            onChange={getApplicantEmail}/>
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                        <br/>
+                            onChange={getApplicantEmail}
+                            validations={[required, validEmail]}
+                            value={applicantEmail}
+                        />
                         <br/>
                         <label>Notes</label>
                         <Input
@@ -170,10 +186,12 @@ const JobDetails = () => {
                             type="text"
                             placeholder="Note for the recruiter"
                             onChange={getNotes}
+                            value={notes}
+                            validations={[required]}
                         />
                         <br/>
                     <div style={{textAlign: "center"}}>
-                        <Button variant="contained" color="primary" type="submit" onClick={apply}>Apply</Button>
+                        <Button variant="contained" color="primary" type="submit">Apply</Button>
                     </div>
                     <CheckButton style={{ display: "none" }} ref={checkBtn} />
                 </Form>

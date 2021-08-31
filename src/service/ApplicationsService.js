@@ -10,6 +10,13 @@ class ApplicationsService {
     cancelApplication(id) {
         return axios.delete(`${APPLICATIONS_API_URL}/delete/${id}`)
     }
+
+    addApplication(notes, userId, jobId) {
+        return axios.post(`${APPLICATIONS_API_URL}/add/${userId}/${jobId}`, {
+            status: "Pending",
+            notes: notes
+        });
+    }
 }
 
 export default new ApplicationsService()

@@ -6,7 +6,7 @@ import UserPage from '../user_page/UserPage';
 import UserApplications from "../application/UserApplications";
 
 import Jobs from '../job/Jobs';
-
+import Register from "../login/Register";
 import Login from "../login/Login";
 import Companies from "../company/Companies";
 import Footer from './Footer';
@@ -26,6 +26,7 @@ const Routes = () => {
                     <Route path={"/login"} component={Login} />
                     <Route path={"/companies"} component={Companies}/>
                     <Route path={"/dash-board"} component={DashBoard}/>
+                    <Route path={"/register"} component={Register}/>
                 </Switch>
             </Router>
             <Footer/>

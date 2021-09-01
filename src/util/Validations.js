@@ -4,9 +4,9 @@ import React from "react";
 export const required = (value) => {
     if (!value) {
         return (
-            <div className="alert alert-danger" role="alert">
+            <span style={{color:"red"}}>
                 This field is required!
-            </div>
+            </span>
         );
     }
 };
@@ -15,9 +15,9 @@ export const required = (value) => {
 export const nameValidation = value => {
     if (value.length < 3 && value.length > 15) {
         return (
-            <div className="alert alert-danger" role="alert">
+            <span style={{color:"red"}}>
                 Name must be between 3 and 15 characters long.
-            </div>
+            </span>
         );
     }
 }
@@ -25,9 +25,9 @@ export const nameValidation = value => {
 export const validEmail = (value) => {
     if (!isEmail(value)) {
         return (
-            <div className="alert alert-danger" role="alert">
+            <span style={{color:"red"}}>
                 This is not a valid email.
-            </div>
+            </span>
         );
     }
 };

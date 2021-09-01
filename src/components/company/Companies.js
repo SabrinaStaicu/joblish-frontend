@@ -26,12 +26,9 @@ const Companies = () => {
                     )): (<div style={{margin:"auto"}}><h3>None of the companies are listing jobs.</h3></div>)
                 }
             </div>
-<<<<<<< Updated upstream
-=======
             </div>
             </div>
             {/* <Footer /> */}
->>>>>>> Stashed changes
         </div>
     );
 };

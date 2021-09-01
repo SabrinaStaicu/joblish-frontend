@@ -184,7 +184,7 @@ const JobDetails = () => {
                         </div>
                     </div>
                 )}
-                <Form onSubmit={submitForm} ref={form}>
+                <Form noValidate onSubmit={submitForm} ref={form}>
                         <br/>
                         <label>Full name</label>
                         <Input

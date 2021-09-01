@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import NavBar from '../main/NavBar';
 import {useHistory} from "react-router-dom";
 import Footer from '../main/Footer'
+import {useForm} from 'react-hook-form';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -41,6 +42,13 @@ export default function SignIn() {
     const credentialsC = ["comp", "1234"];
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const { register, handleSubmit, formState: {errors} } = useForm();
+
+
+    const eventHandler = () => {
+        history.push("/login")
+    }
+  
 
     const getEmail = (event) => {
         setEmail(event.target.value);
@@ -79,7 +87,10 @@ export default function SignIn() {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} noValidate onSubmit={
+                        handleSubmit((data) => {
+                            console.log(data)
+                        })}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -87,23 +98,25 @@ export default function SignIn() {
                         fullWidth
                         id="email"
                         label="Email Address"
-                        name="email"
+                        {...register("email", {required: true})}
                         autoComplete="email"
                         autoFocus
                         onChange={getEmail}
                     />
+                    {errors.email && <span style={{color:"red"}}>This field is required!</span>}
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
-                        name="password"
+                        {...register("password", {required: true})}
                         label="Password"
                         type="password"
                         id="password"
                         autoComplete="current-password"
                         onChange={getPassword}
                     />
+                    {errors.password && <span style={{color:"red"}}>This field is required!</span>}
                     <Button
                         type="submit"
                         fullWidth
@@ -116,7 +129,7 @@ export default function SignIn() {
                     </Button>
                     <Grid container>
                         <Grid item>
-                            <Link href="/register" variant="body2">
+                            <Link href="/register" variant="body2" onClick={eventHandler}>
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>

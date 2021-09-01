@@ -4,6 +4,10 @@ import JobCard from "../job/JobCard";
 
 export default function UserPageContent({user}) {
 
+    useEffect(() => {
+        console.log(user);
+    }, [])
+
 
     return (
         <div className="square border border-primary" style={userPageContentStyle}>
@@ -42,12 +46,23 @@ export default function UserPageContent({user}) {
 
                 <hr style={breakLine}/>
 
-                {/*<div>*/}
-                {/*    <div style={containerItemTitle}>Skills:</div>*/}
-                {/*    <div>*/}
-                {/*    {userData.resume.skills}*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+                <div>
+                    <div style={containerItemTitle}>Skills:</div>
+                    <div>
+                        <ul className="nav">
+                            {user.skills.map(skill => (
+                                <li className="active">
+                                    <button
+                                        className="btn btn-primary"
+                                        style={{margin: "2px"}}
+                                    >
+                                        <i className="glyphicon glyphicon-home">{skill}</i>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
 
         </div>

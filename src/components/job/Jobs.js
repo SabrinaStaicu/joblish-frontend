@@ -114,7 +114,6 @@ const Jobs = () => {
                         <option default selected>Location</option>
                             <option>USA</option>
                             <option>Romania</option>
-                            <option>Anywhere</option>
                         </select>
                     </div>
                     <div className="type">

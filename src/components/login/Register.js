@@ -17,20 +17,6 @@ import {useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import LoginService from '../../service/LoginService';
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="joblish">
-        Joblish
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -131,12 +117,6 @@ export default function Register() {
               />
               {errors.password && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
             </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
           </Grid>
           <Button
             type="submit"
@@ -149,16 +129,13 @@ export default function Register() {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="#" variant="body2" onClick={eventHandler}>
+              <Link href="/login" variant="body2" onClick={eventHandler}>
                 Already have an account? Sign in
               </Link>
             </Grid>
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
     </Container>
     </div>
   );

@@ -32,11 +32,15 @@ const CompanyCard = ({company}) => {
 				</div>
 				<div className="postcard__bar"></div>
 				<div className="postcard__preview-txt">{company.description}</div>
-				<ul className="postcard__tagbox">
-					<li className="tag__item play blue" onClick={toggleJobs}>
-						<div style={{cursor:"pointer"}} ><i className="fas fa-play mr-2"></i>See Jobs</div>
-					</li>
-				</ul>
+				{
+					jobs.length > 0 && (
+						<ul className="postcard__tagbox">
+							<li className="tag__item play blue" onClick={toggleJobs}>
+								<div style={{cursor:"pointer"}} ><i className="fas fa-play mr-2"></i>See Jobs</div>
+							</li>
+						</ul>
+					)
+				}
 			</div>
 		</article>
                 <Collapse in={showJobs}>

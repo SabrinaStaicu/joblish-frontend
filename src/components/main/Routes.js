@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import HomePage from "./HomePage";
 import JobDetails from "../job/JobDetails";
-import UserPage from '../user_page/UserPage';
+import UserPage from '../user/UserPage';
 import UserApplications from "../application/UserApplications";
 
 import Jobs from '../job/Jobs';

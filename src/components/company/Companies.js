@@ -24,7 +24,6 @@ const Companies = () => {
                     )
                 }
             </div>
-            {/* <Footer /> */}
         </div>
     );
 };

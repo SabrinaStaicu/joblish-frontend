@@ -22,7 +22,6 @@ const JobsSection = () => {
                 }
             </div>
         )
-
 }
 
 export default JobsSection

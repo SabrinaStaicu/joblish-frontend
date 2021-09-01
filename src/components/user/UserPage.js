@@ -10,7 +10,7 @@ export default function UserPage() {
 
     useEffect(() => {
         UserService.getUserById(3).then(res => setUser(res.data));
-    })
+    }, [])
 
     return (
         <>

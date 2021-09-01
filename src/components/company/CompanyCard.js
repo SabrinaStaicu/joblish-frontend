@@ -1,33 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import {CardMedia, Collapse} from "@material-ui/core";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
-import {makeStyles} from "@material-ui/core/styles";
 import JobCard from "../job/JobCard";
 import './company.scss';
 import JobService from "../../service/JobService";
 
 
-
-
-const useStyles = makeStyles({
-    root: {
-        width: "250px",
-        marginLeft:"60px",
-        marginTop:"30px",
-    },
-    media: {
-        height: 140,
-    },
-});
-
-
 const CompanyCard = ({company}) => {
-    const classes = useStyles();
 	const [jobs, setJobs] = useState([]);
     const [showJobs, setShowJobs] = useState(false);
 
@@ -40,7 +18,7 @@ const CompanyCard = ({company}) => {
 	}, [])
 
         return (
-            <div>
+            <div style={{margin: "auto"}}>
                 <article className="postcard light blue">
 			<a className="postcard__img_link" href="#">
 				<img className="postcard__img" src={company.logo} alt="Image Title" />

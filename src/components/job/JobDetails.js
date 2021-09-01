@@ -40,8 +40,6 @@ const JobDetails = () => {
     const [message, setMessage] = useState("");
     const [userHasAppliedToJob, setUserHasAppliedToJob] = useState(false);
 
-
-
     const getApplicantName = (event) => {
         setApplicantName(event.target.value)
     }
@@ -57,7 +55,7 @@ const JobDetails = () => {
     useEffect(() => {
         JobService.getAllByCompanyId(job.company.id).then(res => setJobsByCurrentCompany(res.data))
         ApplicationsService.getAllByJobId(job.id).then(res => setApplicationsForThisJob(res.data))
-        ApplicationsService.userHasAlreadyApplied(284, job.title, job.company.name).then(res => setUserHasAppliedToJob(res.data))
+        ApplicationsService.userHasAlreadyApplied(3, job.title, job.company.name).then(res => setUserHasAppliedToJob(res.data))
     }, [])
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -76,7 +74,7 @@ const JobDetails = () => {
         setSuccessful(false);
         form.current.validateAll();
         if (checkBtn.current.context._errors.length === 0) {
-            ApplicationsService.addApplication(notes, 289, job.id).then(
+            ApplicationsService.addApplication(notes, 3, job.id).then(
                 res => {
                     setMessage(`Thank you for applying for a ${job.title} position at ${job.company.name}.`);
                     setSuccessful(true);
@@ -132,7 +130,7 @@ const JobDetails = () => {
                                 <li>
                                     <i><CheckCircleIcon className="greenCheck" /></i>
                                     <span style={{fontWeight:"500"}}>Verified ad</span>
-                                    <p style={{transform:"translateX(-18px)", marginTop:"20px"}} class="Saftey__description">The text of this ad has been verified by the Joblish team to eliminate possible errors or discriminatory content.</p>
+                                    <p style={{transform:"translateX(-18px)", marginTop:"20px"}} className="Saftey__description">The text of this ad has been verified by the Joblish team to eliminate possible errors or discriminatory content.</p>
                                 </li>
                             </ul>
                         </div>

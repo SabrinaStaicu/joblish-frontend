@@ -23,9 +23,14 @@ const ApplicationCard = ({application, modalIsOpen, closeModal, customStyles, op
                         </div>
                     </div>
                     <div className="badge"><span>{application.job.category}</span></div>
-                    <IconButton aria-label="delete" onClick={openModal}>
-                        <DeleteIcon />
-                    </IconButton>
+                    {
+                        application.status === "Not_seen" && (
+                            <IconButton aria-label="delete" onClick={openModal}>
+                                <DeleteIcon />
+                            </IconButton>
+                        )
+                    }
+
                 </div>
                 <Modal
                     isOpen={modalIsOpen}
@@ -52,8 +57,8 @@ const ApplicationCard = ({application, modalIsOpen, closeModal, customStyles, op
 
                 <div className="mt-5">
                     <h3 className="heading">{application.job.title}<br/>{application.job.city}</h3>
-                    <p>{application.job.jobType}</p>
-                    <span>{application.status}</span>
+                    <p>{(application.job.jobType).replace("_", " ")}</p>
+                    <span>{(application.status).replace("_", " ")}</span>
                     <div className="mt-5">
                         <div className="progress">
                             <div className="progress-bar" role="progressbar" style={{width: `${applicationsForThisJob.length * 2}%`}}

@@ -33,7 +33,7 @@ const UserApplications = () => {
     }
 
     useEffect(() => {
-        ApplicationsService.getAllByUserId(279).then(res => {setApplications(res.data)})
+        ApplicationsService.getAllByUserId(3).then(res => {setApplications(res.data)})
     }, [])
 
     return (

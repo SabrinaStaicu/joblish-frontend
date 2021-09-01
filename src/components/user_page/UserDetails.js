@@ -2,41 +2,23 @@ import React from 'react'
 import { Card } from 'react-bootstrap';
 import UserPageContent from './UserPageContent';
 
-export default function UserDetails({ userData }) {
+export default function UserDetails({ user }) {
     return (
         <>
-            <Card style={cardStyle}>
-                <img src={userData.avatar} alt="user's personal avatar" style={avatarStyle}/>
+            <Card className="user-card">
+                <img className="user-profile-picture" src={user.picture} alt="user's personal avatar" />
                 <br/>
                 <Card.Body>
                     <Card.Text style={{ textAlign: 'center' }}>
-                        <h5>{userData.first_name} {userData.last_name}</h5>
-                        {userData.country}, {userData.county}<br />
-                        <strong>Intro:</strong><br />
-                        {userData.intro}
+                        <h5>{user.firstName} {user.lastName}</h5>
+                        {user.country} {user.city} <br />
+                        {/*<strong>Intro:</strong><br />*/}
+                        {/*{userData.intro}*/}
+                        <h5 style={{margin: "10px"}}>{user.lookingForJob ? "OPEN TO WORK" : "NOT LOOKING FOR A JOB"}</h5>
                     </Card.Text>
-                    <UserPageContent userData={userData} />
+                    <UserPageContent user={user} />
                 </Card.Body>
             </Card>
         </>
     )
-}
-
-const cardStyle = {
-    width: '90%',
-    height: '90%',
-    padding: '2%',
-    margin: '5%',
-    backgroundColor: '#f7f5f5'
-}
-
-const avatarStyle = {
-    display: 'block',
-    marginLeft: '42.5%',
-    marginRight: 'auto',
-    verticalAlign: 'middle',
-    AlignItems: 'center',
-    width: '15%',
-    height: 'auto',
-    borderRadius: '50%'
 }

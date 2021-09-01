@@ -788,3 +788,24 @@ body {
 .btn-title {
   margin-top: 5%;
 }
+
+/*user img*/
+
+.user-card {
+  width: 90%;
+  height: 90%;
+  padding: 2%;
+  margin: 5%;
+  background-color: #f7f5f5;
+}
+
+.user-profile-picture {
+  display: block;
+  margin-left: 42.5%;
+  margin-right: auto;
+  vertical-align: middle;
+  align-items: center;
+  width: 15%;
+  height: auto;
+  border-radius: 50%;
+}

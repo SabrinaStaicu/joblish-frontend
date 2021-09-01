@@ -13,7 +13,7 @@ class ApplicationsService {
 
     addApplication(notes, userId, jobId) {
         return axios.post(`${APPLICATIONS_API_URL}/add/${userId}/${jobId}`, {
-            status: "Pending",
+            status: "Not_seen",
             notes: notes
         });
     }

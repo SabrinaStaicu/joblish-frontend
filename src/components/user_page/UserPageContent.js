@@ -1,8 +1,6 @@
 import React from 'react'
-import CvContentList from './CvContentList'
 
-export default function UserPageContent({userData}) {
-    console.log(userData);
+export default function UserPageContent({user}) {
     return (
         <div className="square border border-primary" style={userPageContentStyle}>
             <div style={contentContainer}>
@@ -12,40 +10,40 @@ export default function UserPageContent({userData}) {
                     <div>
 
                     <strong>Phone number:</strong><br />
-                    {userData.phone_number}<br/>
+                    {user.phone}<br/>
 
                     <strong>Email:</strong><br />
-                    {userData.email}<br/>
+                    {user.email}<br/>
                         
                     </div>
                 </div>
 
-                <hr style={breakLine}/>
+                {/*<hr style={breakLine}/>*/}
 
-                <div style={containerItem}>
-                    <div style={containerItemTitle}>Education:</div>
-                    <div>
-                        <CvContentList resumeData={userData.resume.education}/>
-                    </div>
-                </div>
+                {/*<div style={containerItem}>*/}
+                {/*    <div style={containerItemTitle}>Education:</div>*/}
+                {/*    <div>*/}
+                {/*        <CvContentList resumeData={userData.resume.education}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <hr style={breakLine}/>
 
                 <div style={containerItem}>
                     <div style={containerItemTitle}>Experience:</div>
                     <div>
-                        <CvContentList resumeData={userData.resume.experience}/>
+                        <p>{user.experience}</p>
                     </div>
                 </div>
 
                 <hr style={breakLine}/>
 
-                <div>
-                    <div style={containerItemTitle}>Skills:</div>
-                    <div>
-                    {userData.resume.skills}
-                    </div>
-                </div>
+                {/*<div>*/}
+                {/*    <div style={containerItemTitle}>Skills:</div>*/}
+                {/*    <div>*/}
+                {/*    {userData.resume.skills}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         </div>
     )

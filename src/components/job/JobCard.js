@@ -32,12 +32,14 @@ const JobCard = (props) => {
         })
     }
 
+    console.log(props)
+
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image={props.picture ? props.picture : "https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"}
+                    image={props.job.company.logo ? props.job.company.logo : "https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"}
                     title="Contemplative Reptile"
                 />
                 <CardContent>

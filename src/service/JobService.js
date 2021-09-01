@@ -32,7 +32,6 @@ class JobService {
     getAllByCompanyId(id) {
         return axios.get(`${JOBS_API_URL}/filter-by-company/${id}`)
     }
-
     addJobToFavorites(userId, jobId) {
         return axios.get(`${JOBS_API_URL}/add-favorites/${userId}/${jobId}`);
     }
@@ -47,6 +46,7 @@ class JobService {
     getSavedJobs(userId) {
         return axios.get(`${JOBS_API_URL}/get-favorite-jobs/${userId}`)
     }
+
 
 
 }

@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 import { useEffect, useState } from 'react';
+import SendIcon from '@material-ui/icons/Send';
 
 
 
-const NavBar = ({ color, homePosition }) => {
+const NavBar = ({ color, homePosition, userHasApplied, applyBtn }) => {
 
     const [position, setPosition] = useState("static")
     const [stickyColor, setStickyColor] = useState(color)
@@ -66,6 +67,11 @@ const NavBar = ({ color, homePosition }) => {
                         <li><Link to="/user-applications">Applications</Link></li>
                         <li><Link to="/companies">Companies</Link></li>
                         <li><Link to="/" onClick={() => { localStorage.clear() }}>Logout</Link></li>
+                        {!userHasApplied  && position == "sticky" && window.location.pathname.match("/job/") ? (
+                        <li> <div onClick={applyBtn} className="apply-nav"><SendIcon /><h5 className="btn-title">Apply</h5></div></li>
+                        ) : (
+                            ""
+                        )}
                     </ul>
                 ) : (
                     <ul>

@@ -10,7 +10,11 @@ export default function UserPage() {
 
     useEffect(() => {
         UserService.getUserById(3).then(res => setUser(res.data));
+<<<<<<< Updated upstream:src/components/user/UserPage.js
     }, [])
+=======
+    },[])
+>>>>>>> Stashed changes:src/components/user_page/UserPage.js
 
     return (
         <>

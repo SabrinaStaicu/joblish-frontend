@@ -17,13 +17,21 @@ const Companies = () => {
             <div className="jobsTop">
                 <h1 style={{color:"white"}}>Companies with job listings</h1>
             </div>
+            <div className="container-fluid mt-5 mb-3">
+                <br/>
+                <div className="row">
             <div style={{display:"flex", flexDirection:"row",flexWrap: "wrap"}}>
-                {
-                    companies.map(
+                { companies.length > 0 ? (companies.map(
                         company => <CompanyCard company={company}/>
-                    )
+                    )): (<div style={{margin:"auto"}}><h3>None of the companies are listing jobs.</h3></div>)
                 }
             </div>
+<<<<<<< Updated upstream
+=======
+            </div>
+            </div>
+            {/* <Footer /> */}
+>>>>>>> Stashed changes
         </div>
     );
 };

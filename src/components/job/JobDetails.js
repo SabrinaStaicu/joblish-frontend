@@ -103,13 +103,12 @@ const JobDetails = () => {
 
     return (
         <div>
-            <NavBar color={"rgba(0, 0, 255, 0.534)"} />
+            <NavBar color={"rgba(0, 0, 255, 0.534)"} userHasApplied={userHasAppliedToJob} applyBtn={openModal} />
             <div className="jobDetails">
                 <h1>{job.title}</h1>
                 <h3>{job.company.name}</h3>
                 <p>{job.date}</p>
-                <p>{jobIsSaved ? <Button onClick={removeFromFavorites}><FavoriteIcon /></Button> : <Button onClick={addJobToFavorites}><FavoriteBorderIcon /></Button>}</p>
-                {userHasAppliedToJob ? <Button disabled variant="contained">Already applied</Button> : <div onClick={openModal} className="apply"><SendIcon /><h5 className="btn-title">Apply</h5></div>}
+                {userHasAppliedToJob ? <div className="apply-disabled" ><h6 style={{margin:"auto"}}>ALLREADY APPLIED</h6></div> : <div onClick={openModal} className="apply"><SendIcon /><h5 className="btn-title">Apply</h5></div>}
 
             </div>
             <div style={{display:"flex"}}>
@@ -149,7 +148,20 @@ const JobDetails = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="ef">Current number of applicants: {applicationsForThisJob.length}</div>
+                    <div className="ef">
+                        <div className="topSection-ef">
+                            <div className="progress">
+                                <div className="progress-bar" role="progressbar" style={{width: `${applicationsForThisJob.length * 2}%`}}
+                                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div className="mt-3"><span className="text1">{applicationsForThisJob.length} Applied <span className="text2">of 50 capacity</span></span>
+                            </div>
+                        </div>
+                        <div className="middleSection-ef">
+                        <span style={{fontWeight:"500"}}>Save it to favorites!</span>
+                        <span>{jobIsSaved ? <Button  onClick={removeFromFavorites}><FavoriteIcon fontSize="large" /></Button> : <Button onClick={addJobToFavorites}><FavoriteBorderIcon /></Button>}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <Modal

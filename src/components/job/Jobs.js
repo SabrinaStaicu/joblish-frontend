@@ -144,7 +144,7 @@ const Jobs = () => {
                         jobs.length > 0 ? (
                             jobs.map(job => <JobPageCard job={job} />)
                         ) : (
-                            <h3>No results found for your search.</h3>
+                            <h3 style={{marginLeft:"15%"}}>No results found for your search.</h3>
                         )
                     }
                 </div>

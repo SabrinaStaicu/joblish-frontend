@@ -103,6 +103,21 @@ nav ul li a {
    border-radius: 5px;
 }
 
+.apply-nav {
+  margin-left: 27.55%;
+  top: 25%;
+  cursor: pointer;
+  /* position: relative; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 150px;
+  position:absolute;
+   height: 50px;
+   background: rgb(30, 209, 170);
+   border-radius: 5px; 
+}
+
 .apply:hover {
   background-color:rgb(29, 154, 126) ;
   box-shadow: black 1px 1px 10px;
@@ -283,6 +298,19 @@ header::before {
   margin-bottom: 12px;
 }
 
+.topSection-ef {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 12px;
+}
+
+.middleSection-ef {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .topSection div {
   display: inline-block;
     width: 100%;
@@ -325,10 +353,10 @@ header::before {
 }
 
 .ef{
+  padding: 3%;
   background-color: white;
   border-radius: 7px;
   box-shadow: 0 2px 6px rgb(0 0  15%);
-
   margin-top: 60px;
   margin-left: 60px;
   width: 40%;
@@ -536,14 +564,17 @@ body {
 }
 
 .text2 {
-  color: #a5aec0
+  color: grey
 }
 
 .site-footer
 {
+  position: relative;
+  width: 100%;
+  top: 160px;
   margin-top: 5%;
   background-color: rgba(0, 0, 255, 0.534);
-  padding:45px 0 20px;
+  padding: 10px 10px 0px 10px;
   font-size:15px;
   line-height:24px;
   color:#737373;
@@ -810,6 +841,7 @@ body {
   border-radius: 50%;
 }
 
+<<<<<<< Updated upstream
 .break-line {
   width: 100%;
   text-align: center;
@@ -833,4 +865,20 @@ body {
   margin: 2.5%;
   border-radius: 25px;
   width: 95%;
+=======
+.apply-disabled {
+  cursor: default;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 150px;
+  position: absolute;
+  margin-left: 58%;
+  bottom: 100px;
+  /* display: inline-block; */
+  height: 50px;
+  background: rgba(114, 111, 111, 0.493);
+  border-radius: 5px;
+>>>>>>> Stashed changes
 }

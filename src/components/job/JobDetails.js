@@ -12,6 +12,8 @@ import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
 import ApplicationsService from "../../service/ApplicationsService";
 import {required, validEmail, nameValidation} from "../../util/Validations";
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 const customStyles = {
     content: {
@@ -39,6 +41,7 @@ const JobDetails = () => {
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState("");
     const [userHasAppliedToJob, setUserHasAppliedToJob] = useState(false);
+    const [jobIsSaved, setJobIsSaved] = useState(false);
 
     const getApplicantName = (event) => {
         setApplicantName(event.target.value)
@@ -56,6 +59,7 @@ const JobDetails = () => {
         JobService.getAllByCompanyId(job.company.id).then(res => setJobsByCurrentCompany(res.data))
         ApplicationsService.getAllByJobId(job.id).then(res => setApplicationsForThisJob(res.data))
         ApplicationsService.userHasAlreadyApplied(3, job.title, job.company.name).then(res => setUserHasAppliedToJob(res.data))
+        JobService.jobIsSaved(3, job.id).then(res => setJobIsSaved(res.data))
     }, [])
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -66,6 +70,14 @@ const JobDetails = () => {
 
     function closeModal() {
         setIsOpen(false);
+    }
+
+    const addJobToFavorites = () => {
+        JobService.addJobToFavorites(3, job.id).then(res => setJobIsSaved(true));
+    }
+
+    const removeFromFavorites = () => {
+        JobService.removeJobFromFavorites(3, job.id).then(res => setJobIsSaved(false));
     }
 
     const submitForm = e => {
@@ -96,6 +108,7 @@ const JobDetails = () => {
                 <h1>{job.title}</h1>
                 <h3>{job.company.name}</h3>
                 <p>{job.date}</p>
+                <p>{jobIsSaved ? <Button onClick={removeFromFavorites}><FavoriteIcon /></Button> : <Button onClick={addJobToFavorites}><FavoriteBorderIcon /></Button>}</p>
                 {userHasAppliedToJob ? <Button disabled variant="contained">Already applied</Button> : <div onClick={openModal} className="apply"><SendIcon /><h5 className="btn-title">Apply</h5></div>}
 
             </div>
@@ -106,13 +119,14 @@ const JobDetails = () => {
                     <h5>Department : <p style={{display:"inline-block"}}>{job.category}</p></h5>
                 </div>
                 <div>
-                    <h5>Job Type : <p style={{display:"inline-block"}}>{job.jobType}</p></h5>
+                    <h5>Job Type : <p style={{display:"inline-block"}}>{(job.jobType).replace("_", " ")}</p></h5>
                     <h5>Salary : <span style={{display:"inline-block"}}>${job.salary}</span></h5>
                 </div>
             </div>
             <div className="jobDescription" dangerouslySetInnerHTML={{ __html:job.description}}/>
             </div>
                 <div style={{flex:"0.8", marginTop:"25px"}}>
+
                     <div className="ab">
                         <img src={job.company.logo ? job.company.logo : "https://img.ejobs.ro/img/webcore/no-logo.jpg"}/>
                         <span>{job.company_name}</span>

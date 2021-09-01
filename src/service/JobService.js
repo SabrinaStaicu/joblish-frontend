@@ -33,6 +33,22 @@ class JobService {
         return axios.get(`${JOBS_API_URL}/filter-by-company/${id}`)
     }
 
+    addJobToFavorites(userId, jobId) {
+        return axios.get(`${JOBS_API_URL}/add-favorites/${userId}/${jobId}`);
+    }
+
+    removeJobFromFavorites(userId, jobId) {
+        return axios.get(`${JOBS_API_URL}/remove-favorites/${userId}/${jobId}`);
+    }
+    jobIsSaved(userId, jobId) {
+        return axios.get(`${JOBS_API_URL}/favorites-contain-job/${userId}/${jobId}`);
+    }
+
+    getSavedJobs(userId) {
+        return axios.get(`${JOBS_API_URL}/get-favorite-jobs/${userId}`)
+    }
+
+
 }
 
 export default new JobService();

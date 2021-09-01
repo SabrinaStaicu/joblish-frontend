@@ -19,7 +19,7 @@ const JobPageCard = ({job}) => {
             <div className="jobInfoDown">
                 <span style={{fontWeight:"500"}}>{job.company.name}</span>
                 <span>{job.category}</span>
-                <span>Salary</span>
+                <span>${job.salary}/month</span>
             </div>
         </div>
     )

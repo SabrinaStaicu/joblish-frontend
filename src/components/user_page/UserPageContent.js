@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import JobService from "../../service/JobService";
+import JobCard from "../job/JobCard";
 
 export default function UserPageContent({user}) {
+
+
     return (
         <div className="square border border-primary" style={userPageContentStyle}>
             <div style={contentContainer}>
@@ -45,6 +49,7 @@ export default function UserPageContent({user}) {
                 {/*    </div>*/}
                 {/*</div>*/}
             </div>
+
         </div>
     )
 }

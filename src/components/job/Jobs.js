@@ -141,7 +141,13 @@ const Jobs = () => {
                     </Button>
                 </div>
                 <div className="jobsSection">
-                    {jobs.map(job => <JobPageCard job={job} />)}
+                    {
+                        jobs.length > 0 ? (
+                            jobs.map(job => <JobPageCard job={job} />)
+                        ) : (
+                            <h3>No results found for your search.</h3>
+                        )
+                    }
                 </div>
             </div>
             {/* <Footer /> */}

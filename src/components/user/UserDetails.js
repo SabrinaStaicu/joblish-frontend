@@ -22,7 +22,7 @@ export default function UserDetails({ user }) {
                         {user.country} {user.city} <br />
                         <h5 style={{margin: "10px"}}>{user.lookingForJob ? "OPEN TO WORK" : "NOT LOOKING FOR A JOB"}</h5>
                     </Card.Text>
-                    <UserPageContent user={user} />
+                    <UserPageContent />
                 </Card.Body>
                 <div style={{alignText: "center", margin: "auto"}}><h5>Jobs saved to favorites:</h5></div>
                 <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"row"}}>

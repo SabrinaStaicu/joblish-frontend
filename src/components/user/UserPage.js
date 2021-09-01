@@ -21,7 +21,6 @@ export default function UserPage() {
                 </div>
                 <UserDetails user={user} />
             </div>
-            {/* <Footer/> */}
         </>
     )
 }

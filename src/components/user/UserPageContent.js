@@ -1,20 +1,23 @@
 import React, {useEffect, useState} from 'react'
-import JobService from "../../service/JobService";
-import JobCard from "../job/JobCard";
+import UserService from "../../service/UserService";
 
-export default function UserPageContent({user}) {
+export default function UserPageContent() {
+    const [user, setUser] = useState({})
+    const [skills, setSkills] = useState([user.skills])
 
     useEffect(() => {
-        console.log(user);
+        UserService.getUserById(3).then(res => {
+            setUser(res.data)
+            setSkills(res.data.skills)
+        });
     }, [])
 
-
     return (
-        <div className="square border border-primary" style={userPageContentStyle}>
-            <div style={contentContainer}>
+        <div className="square border border-primary" id="user-page-content-style">
+            <div className="content-container">
                 
-                <div style={containerItem}>
-                    <div style={containerItemTitle}>Contact info:</div>
+                <div className="container-item">
+                    <div style={{width: "20%"}}>Contact info:</div>
                     <div>
 
                     <strong>Phone number:</strong><br />
@@ -35,22 +38,22 @@ export default function UserPageContent({user}) {
                 {/*    </div>*/}
                 {/*</div>*/}
 
-                <hr style={breakLine}/>
+                <hr className="break-line"/>
 
-                <div style={containerItem}>
-                    <div style={containerItemTitle}>Experience:</div>
+                <div className="container-item">
+                    <div style={{width: "20%"}}>Experience:</div>
                     <div>
                         <p>{user.experience}</p>
                     </div>
                 </div>
 
-                <hr style={breakLine}/>
+                <hr className="break-line"/>
 
                 <div>
-                    <div style={containerItemTitle}>Skills:</div>
+                    <div style={{width: "20%"}}>Skills:</div>
                     <div>
                         <ul className="nav">
-                            {user.skills.map(skill => (
+                            {skills.map(skill => (
                                 <li className="active">
                                     <button
                                         className="btn btn-primary"
@@ -67,36 +70,4 @@ export default function UserPageContent({user}) {
 
         </div>
     )
-}
-
-const userPageContentStyle = {
-    display: 'flex',
-    // padding: '5%',
-    margin: '2.5%',
-    // width: '90%',
-    // height: '90%'
-    borderRadius: '25px',
-    width: '95%'
-}
-
-const contentContainer = {
-    flexDirections: 'column',
-    padding: '5%',
-    width: '100%'
-}
-
-const containerItem = {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%'
-}
-
-const containerItemTitle = {
-    width: '20%'
-}
-
-const breakLine = {
-    width:'100%',
-    textAlign:'center',
-    marginLeft:0
 }

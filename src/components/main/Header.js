@@ -44,7 +44,7 @@ const Header = () => {
                     <option value="Education">Education</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Sales">Sales</option>
-                    <option value="Software">Software</option>
+                    <option value="IT">IT</option>
                     <option value="Finance">Finance</option>
                     <option value="Healthcare">Healthcare</option>
                 </select>

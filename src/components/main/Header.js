@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
 import JobService from "../../service/JobService";
 import {searchAtom, jobsAtom} from './Atoms'
-import {mockData} from "./MockData"
 
 const Header = () => {
     const [searchInput, setSearch] = useAtom(searchAtom);
@@ -16,25 +15,19 @@ const Header = () => {
         setSearch(event.target.value);
     }
 
-
     useEffect(() => {
         JobService.getAllJobs().then(response => {setJobs(response.data)})
     },[])
 
-
     const search = () => {
         JobService.searchJobs(searchInput, categoryInput).then(r => {
-            console.log(r)
+            console.log(r.data)
             setJobs(r.data);})
     }
-
-
-    
 
     const getCategory = (event) => {
         setCategoryInput(event.target.value)
     }
-
 
     return (
         <header>

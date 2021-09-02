@@ -9,21 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import {useHistory} from "react-router-dom";
 import {CardMedia} from "@material-ui/core";
 
-
-const useStyles = makeStyles({
-    root: {
-        width: "250px",
-        marginLeft:"60px",
-        marginTop:"30px"
-    },
-    media: {
-        height: 140,
-    },
-});
-
 const JobCard = (props) => {
     const history = useHistory();
-    const classes = useStyles();
 
     const goToJob = () => {
         history.push({
@@ -33,10 +20,10 @@ const JobCard = (props) => {
     }
 
     return (
-        <Card className={classes.root}>
+        <Card className="card-wrapper">
             <CardActionArea>
                 <CardMedia
-                    className={classes.media}
+                    className="job-card-media"
                     image={props.job.company.logo ? props.job.company.logo : "https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png"}
                     title="Contemplative Reptile"
                 />

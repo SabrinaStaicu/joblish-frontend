@@ -16,20 +16,30 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import UserService from "../../service/UserService";
+import {useHistory} from "react-router-dom";
 import FormLabel from '@material-ui/core/FormLabel';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { modalStyling } from '../../util/ModalStyling';
 
-export default function UserDetails({user}) {
+export default function UserDetails() {
 
     const [savedJobs, setSavedJobs] = useState([]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [edit, setEdit] = React.useState(false);
-    const [updatedUser, setUser] = useState(user);
+    const [updatedUser, setUser] = useState({});
+    const openToWork1 = updatedUser.jobPreferences?.openToWork
+    const history = useHistory()
 
     useEffect(() => {
         JobService.getSavedJobs(3).then(res => setSavedJobs(res.data));
+
     }, [])
+
+    useEffect(() => {
+        UserService.getUserById(3).then(res => setUser(res.data));
+    }, [])
+
+    const user = updatedUser;
 
 
     const [state, setState] = React.useState({
@@ -76,6 +86,8 @@ export default function UserDetails({user}) {
       }));
 
 
+
+
       const editClasses = useEditStyles();
 
     function openModal() {
@@ -106,8 +118,10 @@ export default function UserDetails({user}) {
     });
     const classes = useStyles();
 
+    
 
-    // console.log(updatedUser)
+
+    // console.log(user.jobPreferences?.openToWork)
 
     return (
         <>
@@ -121,7 +135,7 @@ export default function UserDetails({user}) {
                         <div style={{width:"24%", maxWidth:"none", minWidth:"auto", marginLeft:"38%", marginTop:"2%", position:"relative"}}>
                             <div style={{margin:"0 .8rem", height:"8vh"}}>
                                 <section style={{borderRadius:"14px", backgroundColor:"#e9e5df", height:"100%", display:"flex", justifyContent:"space-between", flexDirection:"column"}}>
-                                    {state.checkedB ? (<a onClick={openModal} style={{margin:"7px", cursor:"pointer"}}>
+                                    {openToWork1 ? (<a onClick={openModal} style={{margin:"7px", cursor:"pointer"}}>
                                         <EditOutlinedIcon onClick={openModal} className={classes.root} />
                                         <h3 style={{padding:"0", margin:"0", fontSize:"20px", display:"inline-block"}}>Open to work</h3>
                                         <p style={{padding:"0", margin:"0" , width:"100%", textOverflow:"ellipsis", overflow:"hidden", whiteSpace:"nowrap"}}>Junior Developer · Marketing Specialist · System Administrator </p>
@@ -142,6 +156,8 @@ export default function UserDetails({user}) {
                             UserService.updateJobPreferences(3, state.checkedB)
                             editHandler();
                             UserService.getUserById(3).then(res => setUser(res.data));
+                            window.location.reload();
+                            
                         })
                     } noValidate>
                         <div style={{display:"flex", flexDirection:"column", position:"relative", height:"700px"}}>

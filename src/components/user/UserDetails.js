@@ -96,6 +96,7 @@ export default function UserDetails() {
 
     function closeModal() {
         setIsOpen(false);
+        setEdit(false);
     }
 
     const editHandler = () => {
@@ -110,7 +111,7 @@ export default function UserDetails() {
         root: {
             position:"absolute",
             marginLeft:"52%",
-            zIndex:"0"
+            zIndex:"0",
         },
         media: {
             height: 140,
@@ -135,11 +136,11 @@ export default function UserDetails() {
                         <div style={{width:"24%", maxWidth:"none", minWidth:"auto", marginLeft:"38%", marginTop:"2%", position:"relative"}}>
                             <div style={{margin:"0 .8rem", height:"8vh"}}>
                                 <section style={{borderRadius:"14px", backgroundColor:"#e9e5df", height:"100%", display:"flex", justifyContent:"space-between", flexDirection:"column"}}>
-                                    {openToWork1 ? (<a onClick={openModal} style={{margin:"7px", cursor:"pointer"}}>
+                                    {openToWork1 ? (<a style={{color:"#3a3a3a", margin:"8px", cursor:"pointer"}} onClick={openModal}>
                                         <EditOutlinedIcon onClick={openModal} className={classes.root} />
                                         <h3 style={{padding:"0", margin:"0", fontSize:"20px", display:"inline-block"}}>Open to work</h3>
                                         <p style={{padding:"0", margin:"0" , width:"100%", textOverflow:"ellipsis", overflow:"hidden", whiteSpace:"nowrap"}}>Junior Developer · Marketing Specialist · System Administrator </p>
-                                        <p style={{color:"blue"}}>see all details</p>
+                                        <p style={{color:"#0a66c2"}}>see all details</p>
                                     </a>):(<a onClick={openModal} style={{margin:"7px", cursor:"pointer"}}><EditOutlinedIcon onClick={openModal} className={classes.root} /><h3 style={{padding:"0", margin:"0", fontSize:"20px", display:"inline-block"}}>Not open to work!</h3></a>)}
                                 </section>
                             </div>
@@ -289,11 +290,63 @@ export default function UserDetails() {
                                 <ul style={{listStyle:"none", marginTop:"30px"}}>
                                     <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
                                         <h3 style={{ fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job titles</h3>
-                                        <p>Junior Developer · Marketing Specialist · System Administrator</p>
+                                        {/* <p>Junior Developer · Marketing Specialist · System Administrator</p> */}
+                                        <ul className="nav">
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Junior Developer</i>
+                                                    </button>
+                                                </li>
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Marketing Specialist</i>
+                                                    </button>
+                                                </li>
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">System Administrator</i>
+                                                    </button>
+                                                </li>
+                                        </ul>
                                     </li>
                                     <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
                                         <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job locations</h3>
-                                        <p>Bucharest, Bucharest, Romania</p>
+                                        {/* <p>Bucharest, Bucharest, Romania</p> */}
+                                        <ul className="nav">
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Bucharest</i>
+                                                    </button>
+                                                </li>
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Bucharest</i>
+                                                    </button>
+                                                </li>
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Romania</i>
+                                                    </button>
+                                                </li>
+                                        </ul>
                                     </li>
                                     <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
                                         <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Start date</h3>
@@ -301,7 +354,33 @@ export default function UserDetails() {
                                     </li>
                                     <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
                                         <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job types</h3>
-                                        <p>Full-time · Remote · Part-time</p>
+                                        {/* <p>Full-time · Remote · Part-time</p> */}
+                                        <ul className="nav">
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Full-time</i>
+                                                    </button>
+                                                </li>
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Remote</i>
+                                                    </button>
+                                                </li>
+                                                <li className="active">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        style={{margin: "2px"}}
+                                                    >
+                                                        <i className="glyphicon glyphicon-home">Part-time</i>
+                                                    </button>
+                                                </li>
+                                        </ul>
                                     </li>
 
                                 </ul>

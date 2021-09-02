@@ -80,7 +80,7 @@ const Jobs = () => {
                         <option value="Education">Education</option>
                         <option value="Marketing">Marketing</option>
                         <option value="Sales">Sales</option>
-                        <option value="Software">Software</option>
+                        <option value="IT">Software</option>
                         <option value="Finance">Finance</option>
                         <option value="Healthcare">Healthcare</option>
                         </select>

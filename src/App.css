@@ -822,6 +822,17 @@ body {
 
 /*user img*/
 
+.profileLink {
+  color: #3a3a3a;
+  margin:"7px";
+  cursor:"pointer";
+}
+
+.profileLink:hover {
+  color: #3a3a3a;
+  text-decoration:overline
+}
+
 .user-card {
   width: 90%;
   height: 90%;
@@ -900,3 +911,35 @@ body {
   margin-left: 60px;
   margin-top: 30px;
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: rgba(0, 0, 255, 0.534)!important;
+  border-color: rgba(0, 0, 255, 0.534)!important;
+  border-radius: 40px!important;
+}
+
+.btn-primary:hover {
+  background-color: rgb(10, 102, 194)!important;
+}
+
+.job-card-media {
+  background-size: contain!important;
+}
+
+/* .MuiSvgIcon-root {
+    cursor: pointer;
+    margin: 2px 0px;
+    padding: 10px;
+    box-sizing: content-box;
+    border-radius: 100%;
+
+ } 
+
+ .MuiSvgIcon-root:hover {
+   background-image: radial-gradient(circle at center, #a7a2a205 0, #a5a4a40c, #c5c2c223 10%);
+  box-shadow: 0px 2px 1px -1px #a7a2a205, 0px 1px 1px 0px #a7a2a205, 0px 1px 3px 0px rgb(0 0 0 / 5%);
+  animation: fadein 500ms;
+ } */
+
+

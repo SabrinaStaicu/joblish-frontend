@@ -42,10 +42,10 @@ export default function UserPageContent() {
                     <div>
                         <p>{user.experience}</p>
                     </div>
-                    <button className="btn btn-secondary" onClick={() => history.push({
+                    <Button variant="contained" color="primary" onClick={() => history.push({
                         pathname: "/update-profile",
                         state: {user: user}
-                    })}>Update</button>
+                    })}>Update</Button>
                 </div>
                 <hr className="break-line"/>
                 <div>

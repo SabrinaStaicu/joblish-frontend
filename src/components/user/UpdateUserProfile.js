@@ -1,16 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import NavBar from "../main/NavBar";
 import {useStyles} from "../../util/FormStyling";
 import {useHistory, useLocation} from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Avatar from "@material-ui/core/Avatar";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
-import LoginService from "../../service/LoginService";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import {useForm} from "react-hook-form";
 import UserService from "../../service/UserService";
@@ -19,7 +15,6 @@ const UpdateUserProfile = () => {
     const location = useLocation();
     const classes = useStyles();
     const history = useHistory()
-    const [user, setUser] = useState(location.state.user);
     const [preloadedValues, setPreloadedValues] = useState({
         firstName: location.state.user.firstName,
         lastName: location.state.user.lastName,
@@ -44,8 +39,8 @@ const UpdateUserProfile = () => {
                     </Typography>
                     <form className={classes.form} onSubmit={
                         handleSubmit((data) => {
-                            LoginService.addUser(data)
-                            history.push("/login")
+                            UserService.updateUser(data, 3)
+                            history.push("/account")
                         })
                     } noValidate>
                         <Grid container spacing={2}>

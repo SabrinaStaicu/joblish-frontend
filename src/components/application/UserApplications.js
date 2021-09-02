@@ -3,6 +3,7 @@ import NavBar from "../main/NavBar";
 import ApplicationsService from "../../service/ApplicationsService";
 import ApplicationCard from "./ApplicationCard";
 import {modalStyling} from "../../util/ModalStyling";
+import Button from "@material-ui/core/Button";
 
 const UserApplications = () => {
     const [applications, setApplications] = useState([])
@@ -26,12 +27,26 @@ const UserApplications = () => {
         ApplicationsService.getAllByUserId(3).then(res => {setApplications(res.data)})
     }, [])
 
+    const filterByStatus = event => {
+        ApplicationsService.filterByStatus(3, event.target.value).then(res => setApplications(res.data));
+    }
+
     return (
         <div>
             <NavBar color={"rgba(0, 0, 255, 0.534)"} />
             <div className="jobsTop">
                 <h1 style={{color:"white"}}>Current job applications</h1>
             </div>
+            <div style={{width: "300px", marginTop: "30px", marginLeft: "70px"}}>
+                <p>Filter by application status</p>
+                <select className="form-select" aria-label="Default select example" style={{width: "200px"}} onChange={filterByStatus}>
+                    <option value="Any_status">Any status</option>
+                    <option value="Accepted">Accepted</option>
+                    <option value="Denied">Denied</option>
+                    <option value="Not_seen">Not seen</option>
+                </select>
+            </div>
+
             <div className="container mt-5 mb-3">
                 <br/>
                 <div className="row">

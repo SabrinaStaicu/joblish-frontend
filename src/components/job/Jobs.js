@@ -66,9 +66,6 @@ const Jobs = () => {
         JobService.filterJobs(filterInputs.category, filterInputs.location, filterInputs.checkedA ? filterInputs.checkedAValue : "undefined", filterInputs.checkedB ? filterInputs.checkedBValue : "undefined", filterInputs.checkedC ? filterInputs.checkedCValue : "undefined", filterInputs.checkedD ? filterInputs.checkedDValue : "undefined", filterInputs.checkedE ? filterInputs.checkedEValue : "undefined", filterInputs.checkedF ? filterInputs.checkedFValue : "undefined").then(r => {setJobs(r.data);})
     }
 
-    console.log(jobs)
-
-
 
 
     return (

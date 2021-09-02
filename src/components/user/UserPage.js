@@ -7,8 +7,9 @@ export default function UserPage() {
     const [user, setUser] = useState({});
 
     useEffect(() => {
-        UserService.getUserById(3).then(res => setUser(res.data));
-    }, [])
+        UserService.getUserById(3).then(res => {
+            setUser(res.data)});
+    },[])
 
     return (
         <>

@@ -840,6 +840,15 @@ body {
   border-radius: 50%;
 }
 
+.profile-picture-modal {
+  /* display: block; */
+  /* margin-right: auto; */
+  vertical-align: middle;
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+}
+
 .break-line {
   width: 100%;
   text-align: center;

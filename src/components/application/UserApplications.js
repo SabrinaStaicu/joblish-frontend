@@ -2,17 +2,7 @@ import React, {useState, useEffect} from 'react';
 import NavBar from "../main/NavBar";
 import ApplicationsService from "../../service/ApplicationsService";
 import ApplicationCard from "./ApplicationCard";
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
+import {modalStyling} from "../../util/ModalStyling";
 
 const UserApplications = () => {
     const [applications, setApplications] = useState([])
@@ -52,7 +42,7 @@ const UserApplications = () => {
                                                 application={application}
                                                 modalIsOpen={modalIsOpen}
                                                 closeModal={closeModal}
-                                                customStyles={customStyles}
+                                                customStyles={modalStyling}
                                                 openModal={openModal}
                                                 cancelApplication={cancelApplication}
                                             />

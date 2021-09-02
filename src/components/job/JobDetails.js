@@ -14,17 +14,7 @@ import ApplicationsService from "../../service/ApplicationsService";
 import {required, validEmail, nameValidation} from "../../util/Validations";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
+import {modalStyling} from "../../util/ModalStyling";
 
 Modal.setAppElement('#root');
 const JobDetails = () => {
@@ -167,7 +157,7 @@ const JobDetails = () => {
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
-                style={customStyles}
+                style={modalStyling}
             >
                 <div style={{textAlign: "right"}}>
                     <Button variant="contained" color="secondary" onClick={closeModal}>X</Button>

@@ -42,7 +42,7 @@ export default function UserPageContent() {
                     <div>
                         <p>{user.experience}</p>
                     </div>
-                    <Button variant="contained" color="primary" onClick={() => history.push({
+                    <Button variant="contained" color="primary" style={{display: "block", marginLeft: "auto", marginRight: "0"}} onClick={() => history.push({
                         pathname: "/update-profile",
                         state: {user: user}
                     })}>Update</Button>
@@ -65,9 +65,7 @@ export default function UserPageContent() {
                         </ul>
                     </div>
                 </div>
-
             </div>
-
         </div>
     )
 }

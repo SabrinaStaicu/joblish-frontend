@@ -14,7 +14,8 @@ class UserService {
             email: data.email,
             city: data.city,
             experience: data.experience,
-            phone: data.phone
+            phone: data.phone,
+            // lookingForJob: data.lookingForJob
         })
     }
 }

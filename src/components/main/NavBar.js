@@ -4,8 +4,6 @@ import logo from './logo.svg';
 import { useEffect, useState } from 'react';
 import SendIcon from '@material-ui/icons/Send';
 
-
-
 const NavBar = ({ color, homePosition, userHasApplied, applyBtn }) => {
 
     const [position, setPosition] = useState("static")

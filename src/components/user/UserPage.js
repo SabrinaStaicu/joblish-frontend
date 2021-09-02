@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import UserDetails from './UserDetails';
 import NavBar from "../main/NavBar";
-import Footer from '../main/Footer'
 import UserService from "../../service/UserService";
-import Button from "@material-ui/core/Button";
 
 export default function UserPage() {
-
     const [user, setUser] = useState({});
 
     useEffect(() => {
@@ -15,7 +12,7 @@ export default function UserPage() {
 
     return (
         <>
-            <div className="user-page" style={userPageStyle}>
+            <div className="user-page" style={{height: '100%', width: '100%', display: 'grid'}}>
                 <NavBar color={"rgba(0, 0, 255, 0.534)"} />
                 <div className="jobsTop">
                     <h1 style={{color:"white"}}>User profile</h1>
@@ -24,11 +21,5 @@ export default function UserPage() {
             </div>
         </>
     )
-}
-
-const userPageStyle = {
-    height: '100%',
-    width: '100%',
-    display: 'grid'
 }
 

@@ -32,8 +32,6 @@ const JobCard = (props) => {
         })
     }
 
-    console.log(props)
-
     return (
         <Card className={classes.root}>
             <CardActionArea>
@@ -63,9 +61,6 @@ const JobCard = (props) => {
                 </CardContent>
             </CardActionArea>
             <CardActions style={{justifyContent: 'center'}}>
-                {/* <Button size="small" color="primary">
-                   Apply
-                </Button> */}
                 <Button size="small" variant="outlined" color="primary" onClick={goToJob}>
                     Details
                 </Button>

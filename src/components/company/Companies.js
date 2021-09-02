@@ -19,8 +19,8 @@ const Companies = () => {
             </div>
             <div className="container-fluid mt-5 mb-3">
                 <br/>
-                <div className="row">
-            <div style={{display:"flex", flexDirection:"row",flexWrap: "wrap"}}>
+                <div className="row" style={{width:"100%", margin:"auto"}}>
+            <div style={{display:"flex", flexDirection:"row",flexWrap: "wrap", width:"70%", margin:"auto"}}>
                 { companies.length > 0 ? (companies.map(
                         company => <CompanyCard company={company}/>
                     )): (<div style={{margin:"auto"}}><h3>None of the companies are listing jobs.</h3></div>)

@@ -3,6 +3,7 @@ import UserDetails from './UserDetails';
 import NavBar from "../main/NavBar";
 import Footer from '../main/Footer'
 import UserService from "../../service/UserService";
+import Button from "@material-ui/core/Button";
 
 export default function UserPage() {
 

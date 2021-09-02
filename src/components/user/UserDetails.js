@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap';
 import UserPageContent from './UserPageContent';
 import JobService from "../../service/JobService";
 import JobCard from "../job/JobCard";
+import Button from "@material-ui/core/Button";
 
 export default function UserDetails({ user }) {
     const [savedJobs, setSavedJobs] = useState([]);
@@ -25,6 +26,7 @@ export default function UserDetails({ user }) {
                     <UserPageContent />
                 </Card.Body>
                 <div style={{alignText: "center", margin: "auto"}}><h5>Jobs saved to favorites:</h5></div>
+
                 <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"row"}}>
                     {
                         savedJobs.length > 0 ? (

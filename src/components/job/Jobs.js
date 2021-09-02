@@ -100,11 +100,11 @@ const Jobs = () => {
                     <div className="type">
                         <h4>Job Type</h4>
                         <FormControlLabel
-                            control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" value="full_time" />}
+                            control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" value="FULL_TIME" />}
                             label="Full time"
                         />
                         <FormControlLabel
-                            control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" value="part_time" />}
+                            control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" value="PART_TIME" />}
                             label="Part time"
                         />
                     </div>
@@ -120,15 +120,15 @@ const Jobs = () => {
                         <h4>Experience Level</h4>
                         <FormControlLabel
                             control={<Checkbox checked={state.checkedC} onChange={handleChange} name="checkedC" value="JUNIOR"/>}
-                            label="Entry-Level (< 2 Ani)"
+                            label="Entry-Level (< 2 years)"
                         />
                         <FormControlLabel
                             control={<Checkbox checked={state.checkedD} onChange={handleChange} name="checkedD" value="MID" />}
-                            label="Mid-Level (2-5 Ani)"
+                            label="Mid-Level (2-5 years)"
                         />
                         <FormControlLabel
                             control={<Checkbox checked={state.checkedE} onChange={handleChange} name="checkedE" value="SENIOR" />}
-                            label="Senior-Level (> 5 Ani)"
+                            label="Senior-Level (> 5 years)"
                         />
                         <FormControlLabel
                             control={<Checkbox checked={state.checkedF} onChange={handleChange} name="checkedF" value="MANAGER" />}

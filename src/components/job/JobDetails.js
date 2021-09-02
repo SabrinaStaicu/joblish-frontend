@@ -108,7 +108,7 @@ const JobDetails = () => {
                     <h5>Department : <p style={{display:"inline-block"}}>{job.category}</p></h5>
                 </div>
                 <div>
-                    <h5>Job Type : <p style={{display:"inline-block"}}>{(job.jobType).replace("_", " ")}</p></h5>
+                    <h5>Job Type : <p style={{display:"inline-block"}}>{(job.jobType).replace("_", " ").toLowerCase()}</p></h5>
                     <h5>Salary : <span style={{display:"inline-block"}}>${job.salary}</span></h5>
                 </div>
             </div>

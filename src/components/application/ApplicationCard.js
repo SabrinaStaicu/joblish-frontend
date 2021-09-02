@@ -57,7 +57,7 @@ const ApplicationCard = ({application, modalIsOpen, closeModal, customStyles, op
 
                 <div className="mt-5">
                     <h3 className="heading">{application.job.title}<br/>{application.job.city}</h3>
-                    <p>{(application.job.jobType).replace("_", " ")}</p>
+                    <p>{(application.job.jobType).replace("_", " ").toLowerCase()}</p>
                     <span>{(application.status).replace("_", " ")}</span>
                     <div className="mt-5">
                         <div className="progress">

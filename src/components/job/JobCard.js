@@ -56,7 +56,7 @@ const JobCard = (props) => {
                     }
                     <br/>
                     <Typography variant="body2" color="textSecondary" component="h7">
-                        Type: {(props.job.jobType).replace("_", " ")}
+                        Type: {(props.job.jobType).replace("_", " ").toLowerCase()}
                     </Typography>
                 </CardContent>
             </CardActionArea>

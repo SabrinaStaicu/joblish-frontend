@@ -42,7 +42,7 @@ const NavBar = ({ color, homePosition, userHasApplied, applyBtn }) => {
     }, [])
 
 //ask
-    const loggedIn = !!(localStorage.getItem("joblishUser"))
+    const loggedIn = !!(localStorage.getItem("loggedin"))
     const loggedInComp = !!(localStorage.getItem("joblisComp"))
 
     // , borderBottom: (stickyColor !== "rgba(0, 0, 255, 0.534)" ? "1px solid rgba(0, 0, 255, 0.534)" : "none" )

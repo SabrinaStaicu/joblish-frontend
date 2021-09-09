@@ -12,6 +12,7 @@ import NavBar from '../main/NavBar';
 import {useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import {useStyles} from "../../util/FormStyling";
+import LoginService from '../../service/LoginService';
 
 export default function SignIn() {
     const history = useHistory();
@@ -36,22 +37,22 @@ export default function SignIn() {
         setPassword(event.target.value)
     }
 
-    const login = () => {
-        if (email === credentialsC[0]) {
-            if (email === credentialsC[0] && password === credentialsC[1]) {
-                localStorage.setItem("joblisComp", email);
-                history.push("/")
-            } else {
-                alert("Invalid credentials!")
-            }
-        }
-        else if (email === credentials[0] && password === credentials[1]) {
-            localStorage.setItem("joblishUser", email);
-            history.push("/")
-        } else {
-            alert("Invalid credentials!")
-        }
-    }
+    // const login = () => {
+    //     if (email === credentialsC[0]) {
+    //         if (email === credentialsC[0] && password === credentialsC[1]) {
+    //             localStorage.setItem("joblisComp", email);
+    //             history.push("/")
+    //         } else {
+    //             alert("Invalid credentials!")
+    //         }
+    //     }
+    //     else if (email === credentials[0] && password === credentials[1]) {
+    //         localStorage.setItem("joblishUser", email);
+    //         history.push("/")
+    //     } else {
+    //         alert("Invalid credentials!")
+    //     }
+    // }
 
     return (
         <div>
@@ -67,8 +68,14 @@ export default function SignIn() {
                 </Typography>
                 <form className={classes.form} noValidate onSubmit={
                         handleSubmit((data) => {
-                            console.log(data)
-                        })}>
+                            LoginService.loginUser(data)
+                            if (localStorage.getItem("loggedin")) {
+                                history.push("/")
+                            } else {
+                                    alert("Invalid credentials!")
+                            }
+                        })
+                        }>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -101,7 +108,6 @@ export default function SignIn() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onClick={login}
                     >
                         Sign In
                     </Button>

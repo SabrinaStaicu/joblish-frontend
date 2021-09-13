@@ -11,7 +11,6 @@ import Container from '@material-ui/core/Container';
 import NavBar from '../navigation/NavBar';
 import {useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
-import LoginService from '../../service/LoginService';
 import {useStyles} from "../../util/FormStyling";
 import AuthService from "../../service/AuthService";
 

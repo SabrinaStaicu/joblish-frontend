@@ -3,7 +3,7 @@ import NavBar from "../navigation/NavBar";
 import ApplicationsService from "../../service/ApplicationsService";
 import ApplicationCard from "./ApplicationCard";
 import {modalStyling} from "../../util/ModalStyling";
-import Button from "@material-ui/core/Button";
+import AuthService from "../../service/AuthService";
 
 const UserApplications = () => {
     const [applications, setApplications] = useState([])
@@ -24,11 +24,11 @@ const UserApplications = () => {
     }
 
     useEffect(() => {
-        ApplicationsService.getAllByUserId(3).then(res => {setApplications(res.data)})
+        ApplicationsService.getAllByUserId(AuthService.getCurrentUser().id).then(res => {setApplications(res.data)})
     }, [])
 
     const filterByStatus = event => {
-        ApplicationsService.filterByStatus(3, event.target.value).then(res => setApplications(res.data));
+        ApplicationsService.filterByStatus(AuthService.getCurrentUser().id, event.target.value).then(res => setApplications(res.data));
     }
 
     return (

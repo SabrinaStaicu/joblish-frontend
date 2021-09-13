@@ -20,6 +20,7 @@ import {useHistory} from "react-router-dom";
 import FormLabel from '@material-ui/core/FormLabel';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { modalStyling } from '../../util/ModalStyling';
+import AuthService from "../../service/AuthService";
 
 export default function UserDetails() {
 
@@ -31,12 +32,12 @@ export default function UserDetails() {
     const history = useHistory()
 
     useEffect(() => {
-        JobService.getSavedJobs(3).then(res => setSavedJobs(res.data));
+        JobService.getSavedJobs(AuthService.getCurrentUser().id).then(res => setSavedJobs(res.data));
 
     }, [])
 
     useEffect(() => {
-        UserService.getUserById(3).then(res => setUser(res.data));
+        UserService.getUserById(AuthService.getCurrentUser().id).then(res => setUser(res.data));
     }, [])
 
     const user = updatedUser;
@@ -58,8 +59,7 @@ export default function UserDetails() {
     const [value, setValue] = React.useState('');
 
   const handleChangeRadio = (event) => {
-      console.log(event.target.value)
-    setValue(event.target.value);
+        setValue(event.target.value);
   };
 
 
@@ -119,10 +119,6 @@ export default function UserDetails() {
     });
     const classes = useStyles();
 
-    
-
-
-    // console.log(user.jobPreferences?.openToWork)
 
     return (
         <>
@@ -154,9 +150,9 @@ export default function UserDetails() {
                     >
                         {edit ? (<form className={editClasses.root} onSubmit={
                         handleSubmit((data) => {
-                            UserService.updateJobPreferences(3, state.checkedB)
+                            UserService.updateJobPreferences(AuthService.getCurrentUser().id, state.checkedB)
                             editHandler();
-                            UserService.getUserById(3).then(res => setUser(res.data));
+                            UserService.getUserById(AuthService.getCurrentUser().id).then(res => setUser(res.data));
                             window.location.reload();
                             
                         })
@@ -169,7 +165,7 @@ export default function UserDetails() {
                                 </div>
                             </div>
                             <div >
-                                <div style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"flex-start", alignItems:"center", marginTop:"20px"}}>
+                                <div style={{display:"flex", flexDirection:"row", justifyContent:"flex-start", marginTop:"20px"}}>
                                     <div style={{width:"20%"}}>
                                     <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"} /></a>
                                     </div>
@@ -273,7 +269,7 @@ export default function UserDetails() {
                                 </div>
                             </div>
                             <div >
-                                <div style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"flex-start", alignItems:"center", marginTop:"20px"}}>
+                                <div style={{display:"flex", flexDirection:"row", justifyContent:"flex-start", alignItems:"center", marginTop:"20px"}}>
                                     <div style={{width:"20%"}}>
                                     <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"} /></a>
                                     </div>

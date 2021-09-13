@@ -15,7 +15,6 @@ import LoginService from '../../service/LoginService';
 import {useStyles} from "../../util/FormStyling";
 
 export default function Register() {
-
   const classes = useStyles();
   const history = useHistory()
 
@@ -91,6 +90,31 @@ export default function Register() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+              />
+              {errors.password && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  {...register("phone", {required: true, minLength: 5, maxLength: 30, pattern: /^[0-9\b]+$/ })}
+                  label="Phone number"
+                  id="phone"
+                  autoComplete="phone"
+              />
+              {errors.password && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  {...register("city", {required: true, minLength: 3, maxLength: 30 })}
+                  label="City"
+                  type="city"
+                  id="city"
+                  autoComplete="city"
               />
               {errors.password && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
             </Grid>

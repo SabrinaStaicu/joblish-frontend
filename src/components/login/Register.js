@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import NavBar from '../main/NavBar';
+import NavBar from '../navigation/NavBar';
 import {useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import LoginService from '../../service/LoginService';

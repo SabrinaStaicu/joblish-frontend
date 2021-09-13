@@ -9,7 +9,7 @@ import Jobs from '../job/Jobs';
 import Register from "../login/Register";
 import Login from "../login/Login";
 import Companies from "../company/Companies";
-import Footer from './Footer';
+import Footer from '../navigation/Footer';
 import DashBoard from '../company/DashBoard';
 import UpdateUserProfile from "../user/UpdateUserProfile";
 

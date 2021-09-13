@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import UserDetails from './UserDetails';
-import NavBar from "../main/NavBar";
+import NavBar from "../navigation/NavBar";
 import UserService from "../../service/UserService";
 
 export default function UserPage() {

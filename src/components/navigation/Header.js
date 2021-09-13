@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from './NavBar'
-import malePhoto from './malePhoto.svg'
+import malePhoto from '../../images/malePhoto.svg'
 import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
 import JobService from "../../service/JobService";

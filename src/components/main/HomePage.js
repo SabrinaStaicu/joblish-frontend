@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from './Footer';
-import Header from './Header';
+import Footer from '../navigation/Footer';
+import Header from '../navigation/Header';
 import JobsSection from './JobsSection';
 
 const HomePage = () => {

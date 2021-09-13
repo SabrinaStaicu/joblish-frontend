@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import logo from './logo.svg';
+import logo from '../../images/logo.svg';
 import { useEffect, useState } from 'react';
 import SendIcon from '@material-ui/icons/Send';
 import AuthService from "../../service/AuthService";

@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from "../main/NavBar";
+import NavBar from "../navigation/NavBar";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useState, useEffect } from 'react';

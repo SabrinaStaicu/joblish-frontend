@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import NavBar from "../main/NavBar";
+import NavBar from "../navigation/NavBar";
 import CompanyCard from "./CompanyCard";
-import Footer from '../main/Footer'
+import Footer from '../navigation/Footer'
 import CompanyService from "../../service/CompanyService";
 
 const Companies = () => {

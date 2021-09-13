@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useLocation} from "react-router-dom";
-import NavBar from "../main/NavBar";
+import NavBar from "../navigation/NavBar";
 import Button from "@material-ui/core/Button";
 import SendIcon from '@material-ui/icons/Send';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';

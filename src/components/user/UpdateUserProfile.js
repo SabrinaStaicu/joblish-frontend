@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import NavBar from "../main/NavBar";
+import NavBar from "../navigation/NavBar";
 import {useStyles} from "../../util/FormStyling";
 import {useHistory, useLocation} from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -39,8 +39,7 @@ const UpdateUserProfile = () => {
                     </Typography>
                     <form className={classes.form} onSubmit={
                         handleSubmit((data) => {
-                            UserService.updateUser(data, 3)
-                            history.push("/account")
+                            UserService.updateUser(data, 3).then(res => history.push("/account"))
                         })
                     } noValidate>
                         <Grid container spacing={2}>

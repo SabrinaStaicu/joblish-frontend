@@ -32,7 +32,11 @@ export default function UserDetails() {
     const history = useHistory()
 
     useEffect(() => {
-        JobService.getSavedJobs(AuthService.getCurrentUser().id).then(res => setSavedJobs(res.data));
+        JobService.getSavedJobs(AuthService.getCurrentUser().id).then(res => {
+            console.log(AuthService.getCurrentUser())
+            console.log(res.data)
+            setSavedJobs(res.data)
+        });
 
     }, [])
 

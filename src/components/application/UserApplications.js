@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import NavBar from "../main/NavBar";
+import NavBar from "../navigation/NavBar";
 import ApplicationsService from "../../service/ApplicationsService";
 import ApplicationCard from "./ApplicationCard";
 import {modalStyling} from "../../util/ModalStyling";

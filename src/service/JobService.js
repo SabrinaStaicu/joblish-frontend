@@ -9,7 +9,7 @@ class JobService {
         return axios.get(`${JOBS_API_URL}/all`, {headers: AuthHeader()})
     }
 
-    getJobsByCompanyName(companyName) {
+    getJobsByCompanyName(companyName) { // #Todo delete maybe
         return axios.get(`${JOBS_API_URL}?company_name=${companyName}`, {headers: AuthHeader()})
     }
 
@@ -18,7 +18,7 @@ class JobService {
     }
 
     filterJobs(category, location, jobTypeA,jobTypeB, experienceTypeC, experienceTypeD, experienceTypeE, experienceTypeF) {
-        return axios.get(`${JOBS_API_URL}/filter?category=${category}&country=${location}&jobType=${jobTypeA}&jobType=${jobTypeB}&experienceType=${experienceTypeC}&experienceType=${experienceTypeD}&experienceType=${experienceTypeE}&experienceType=${experienceTypeF}`, {header: AuthHeader()})
+        return axios.get(`${JOBS_API_URL}/filter?category=${category}&country=${location}&jobType=${jobTypeA}&jobType=${jobTypeB}&experienceType=${experienceTypeC}&experienceType=${experienceTypeD}&experienceType=${experienceTypeE}&experienceType=${experienceTypeF}`, {headers: AuthHeader()})
     }
 
     getAllByCompanyId(id) {
@@ -38,9 +38,6 @@ class JobService {
     getSavedJobs(userId) {
         return axios.get(`${JOBS_API_URL}/get-favorite-jobs/${userId}`, {headers: AuthHeader()})
     }
-
-
-
 }
 
 export default new JobService();

@@ -82,7 +82,7 @@ const JobDetails = () => {
                     setSuccessful(true);
                     setTimeout(() => {
                         history.push("/user-applications");
-                    }, 200);
+                    }, 2000);
                 }, error => {
                     setMessage(`Something went from with your application.`);
                     setSuccessful(false);

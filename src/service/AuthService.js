@@ -25,6 +25,17 @@ class AuthService {
         return JSON.parse(localStorage.getItem('user'));
     }
 
+    register(data) {
+        return axios.post(`${API_URL}/register-user`, {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            password: data.password,
+            phoneNumber: data.phone,
+            city: data.city
+        })
+    }
+
 }
 
 export default new AuthService;

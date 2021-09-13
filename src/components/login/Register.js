@@ -13,6 +13,7 @@ import {useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import LoginService from '../../service/LoginService';
 import {useStyles} from "../../util/FormStyling";
+import AuthService from "../../service/AuthService";
 
 export default function Register() {
   const classes = useStyles();
@@ -38,8 +39,7 @@ export default function Register() {
         </Typography>
         <form className={classes.form} onSubmit={
             handleSubmit((data) => {
-                LoginService.addUser(data)
-                history.push("/login")
+                AuthService.register(data).then(res => history.push("/login"))
             })
         } noValidate>
           <Grid container spacing={2}>

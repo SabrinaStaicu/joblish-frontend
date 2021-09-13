@@ -12,45 +12,16 @@ import NavBar from '../main/NavBar';
 import {useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import {useStyles} from "../../util/FormStyling";
+import AuthService from "../../service/AuthService";
 
 export default function SignIn() {
     const history = useHistory();
     const classes = useStyles();
-    const credentials = ["job", "1234"];
-    const credentialsC = ["comp", "1234"];
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
     const { register, handleSubmit, formState: {errors} } = useForm();
 
 
     const eventHandler = () => {
         history.push("/login")
-    }
-  
-
-    const getEmail = (event) => {
-        setEmail(event.target.value);
-    }
-
-    const getPassword = (event) => {
-        setPassword(event.target.value)
-    }
-
-    const login = () => {
-        if (email === credentialsC[0]) {
-            if (email === credentialsC[0] && password === credentialsC[1]) {
-                localStorage.setItem("joblisComp", email);
-                history.push("/")
-            } else {
-                alert("Invalid credentials!")
-            }
-        }
-        else if (email === credentials[0] && password === credentials[1]) {
-            localStorage.setItem("joblishUser", email);
-            history.push("/")
-        } else {
-            alert("Invalid credentials!")
-        }
     }
 
     return (
@@ -67,8 +38,12 @@ export default function SignIn() {
                 </Typography>
                 <form className={classes.form} noValidate onSubmit={
                         handleSubmit((data) => {
-                            console.log(data)
-                        })}>
+                            AuthService.login(data).then(
+                                res => history.push("/"),
+                                error => console.log(error)
+                            )
+                        })
+                        }>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -79,7 +54,7 @@ export default function SignIn() {
                         {...register("email", {required: true})}
                         autoComplete="email"
                         autoFocus
-                        onChange={getEmail}
+                        // onChange={getEmail}
                     />
                     {errors.email && <span style={{color:"red"}}>This field is required!</span>}
                     <TextField
@@ -92,7 +67,7 @@ export default function SignIn() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
-                        onChange={getPassword}
+                        // onChange={getPassword}
                     />
                     {errors.password && <span style={{color:"red"}}>This field is required!</span>}
                     <Button
@@ -101,7 +76,6 @@ export default function SignIn() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onClick={login}
                     >
                         Sign In
                     </Button>

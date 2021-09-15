@@ -82,7 +82,7 @@ export default function UserDetails() {
 
 
 
-      const editClasses = useEditStyles();
+    const editClasses = useEditStyles();
 
     function openModal() {
         setIsOpen(true);

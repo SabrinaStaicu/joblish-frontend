@@ -21,6 +21,10 @@ import FormLabel from '@material-ui/core/FormLabel';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { modalStyling } from '../../util/ModalStyling';
 import AuthService from "../../service/AuthService";
+// import '../../App.css';
+import './userStyle.css';
+import EditUser from './EditUser';
+import JobPreferences from './JobPreferences';
 
 export default function UserDetails() {
 
@@ -133,14 +137,14 @@ export default function UserDetails() {
                     <Card.Text style={{ textAlign: 'center' }}>
                         <h5>{user.firstName} {user.lastName}</h5>
                         {user.country} {user.city} <br />
-                        <div style={{width:"24%", maxWidth:"none", minWidth:"auto", marginLeft:"38%", marginTop:"2%", position:"relative"}}>
-                            <div style={{margin:"0 .8rem", height:"8vh"}}>
-                                <section style={{borderRadius:"14px", backgroundColor:"#e9e5df", height:"100%", display:"flex", justifyContent:"space-between", flexDirection:"column"}}>
-                                    {openToWork1 ? (<a style={{color:"#3a3a3a", margin:"8px", cursor:"pointer"}} onClick={openModal}>
+                        <div class="card-style-1">
+                            <div class="card-style-2">
+                                <section class="card-section-1">
+                                    {openToWork1 ? (<a class=".open-to-work-section-1" onClick={openModal}>
                                         <EditOutlinedIcon onClick={openModal} className={classes.root} />
-                                        <h3 style={{padding:"0", margin:"0", fontSize:"20px", display:"inline-block"}}>Open to work</h3>
-                                        <p style={{padding:"0", margin:"0" , width:"100%", textOverflow:"ellipsis", overflow:"hidden", whiteSpace:"nowrap"}}>Junior Developer · Marketing Specialist · System Administrator </p>
-                                        <p style={{color:"#0a66c2"}}>see all details</p>
+                                        <h3 class="open-to-work-section-h3">Open to work</h3>
+                                        <p class="open-to-work-section-p1">Junior Developer · Marketing Specialist · System Administrator </p>
+                                        <p class="open-to-work-section-p2">see all details</p>
                                     </a>):(<a onClick={openModal} style={{margin:"7px", cursor:"pointer"}}><EditOutlinedIcon onClick={openModal} className={classes.root} /><h3 style={{padding:"0", margin:"0", fontSize:"20px", display:"inline-block"}}>Not open to work!</h3></a>)}
                                 </section>
                             </div>
@@ -152,246 +156,20 @@ export default function UserDetails() {
                         onRequestClose={closeModal}
                         style={userModalStyling}
                     >
-                        {edit ? (<form className={editClasses.root} onSubmit={
-                        handleSubmit((data) => {
-                            UserService.updateJobPreferences(AuthService.getCurrentUser().id, state.checkedB)
-                            editHandler();
-                            UserService.getUserById(AuthService.getCurrentUser().id).then(res => setUser(res.data));
-                            window.location.reload();
-                            
-                        })
-                    } noValidate>
-                        <div style={{display:"flex", flexDirection:"column", position:"relative", height:"700px"}}>
-                            <div style={{display:"flex", justifyContent:"space-between",  borderBottom:"1px solid lightgrey", paddingBottom:"10px"}}>
-                                <h3>Edit job preferences</h3>
-                                <div style={{textAlign: "right"}}>
-                                <Button color="primary" onClick={closeModal}>X</Button>
-                                </div>
-                            </div>
-                            <div >
-                                <div style={{display:"flex", flexDirection:"row", justifyContent:"flex-start", marginTop:"20px"}}>
-                                    <div style={{width:"20%"}}>
-                                    <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"} /></a>
-                                    </div>
-                                    <div>
-                                    <h3 style={{marginTop:"10%"}}>
-                                        <strong style={{fontSize:"24px", color:"grey"}}>{user.firstName} {user.lastName}</strong>
-                                        {state.checkedB ? (<p>is open to work</p>) : (<p>is not open to work</p>)}
-                                        
-                                    </h3>
-                                    </div>
-                                    <div style={{marginLeft:"50%"}}>
-                                    <Switch
-                                        checked={state.checkedB}
-                                        onChange={handleChange}
-                                        color="primary"
-                                        name="checkedB"
-                                        inputProps={{ 'aria-label': 'primary checkbox' }}
-                                    />
-                                    </div>
-                                </div>
-                                <ul style={{listStyle:"none", marginTop:"30px"}}>
-                                    <li style={{paddingBottom:"5px", marginBottom:"5px"}}>
-                                        <Grid container spacing={2}>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    size="small"
-                                                    autoComplete="title"
-                                                    {...register("title", {required: true})}
-                                                    variant="outlined"
-                                                    required
-                                                    fullWidth
-                                                    id="title"
-                                                    label="Title"
-                                                    autoFocus
-                                                />
-                                                {errors.title && <span style={{color:"red"}}>This field is required!</span>}
-                                                </Grid>
-                                        </Grid>
-                                        <h3 style={{ fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job titles</h3>
-                                        <p>Junior Developer · Marketing Specialist · System Administrator</p>
-                                    </li>
-                                    <li style={{paddingBottom:"5px", marginBottom:"5px"}}>
-                                    <Grid container spacing={2}>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    size="small"
-                                                    autoComplete="location"
-                                                    {...register("location", {required: true})}
-                                                    variant="outlined"
-                                                    required
-                                                    fullWidth
-                                                    id="location"
-                                                    label="Location"
-                                                    autoFocus
-                                                />
-                                                {errors.location && <span style={{color:"red"}}>This field is required!</span>}
-                                                </Grid>
-                                        </Grid>
-                                        <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job locations</h3>
-                                        <p>Bucharest, Bucharest, Romania</p>
-                                    </li>
-                                    <li style={{paddingBottom:"5px", marginBottom:"5px"}}>
-                                        <FormControl component="fieldset">
-                                            <RadioGroup aria-label="startDate" name="startDate" value={value} onChange={handleChangeRadio}>
-                                                <FormControlLabel value="Immediately, I’m actively applying" control={<Radio color="primary" />} label="Immediately, I’m actively applying" />
-                                                <FormControlLabel value="Flexible, I’m casually browsing" control={<Radio color="primary" />} label="Flexible, I’m casually browsing" />
-                                            </RadioGroup>
-                                        </FormControl>
-                                        <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a", marginTop:"20px"}}>Start date</h3>
-                                        <p>Immediately, I’m actively applying</p>
-                                    </li>
-                                    <li style={{paddingBottom:"5px", marginBottom:"5px"}}>
-                                    <Grid container spacing={2}>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    size="small"
-                                                    autoComplete="jobType"
-                                                    {...register("jobType", {required: true})}
-                                                    variant="outlined"
-                                                    required
-                                                    fullWidth
-                                                    id="jobType"
-                                                    label="Job type"
-                                                    autoFocus
-                                                />
-                                                {errors.jobType && <span style={{color:"red"}}>This field is required!</span>}
-                                                </Grid>
-                                        </Grid>
-                                        <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job types</h3>
-                                        <p>Full-time · Remote · Part-time</p>
-                                    </li>
-                                </ul>
-                                <Button color="primary" type="submit">Save</Button>
-                            </div>
-                        </div>
-                        </form>):(<div style={{display:"flex", flexDirection:"column", position:"relative"}}>
-                            <div style={{display:"flex", justifyContent:"space-between",  borderBottom:"1px solid lightgrey", paddingBottom:"20px"}}>
-                                <h3>Job preferences</h3>
-                                <div style={{textAlign: "right"}}>
-                                <Button color="primary" onClick={closeModal}>X</Button>
-                                </div>
-                            </div>
-                            <div >
-                                <div style={{display:"flex", flexDirection:"row", justifyContent:"flex-start", alignItems:"center", marginTop:"20px"}}>
-                                    <div style={{width:"20%"}}>
-                                    <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"} /></a>
-                                    </div>
-                                    <div>
-                                    <h3 style={{marginTop:"10%"}}>
-                                        <strong style={{fontSize:"24px", color:"grey"}}>{user.firstName} {user.lastName}</strong>
-                                        {state.checkedB ? (<p>is open to work</p>) : (<p>is not open to work</p>)}
-                                    </h3>
-                                    </div>
-                                    <div>
-                                    <EditOutlinedIcon className={classes.root} onClick={editHandler} />
-                                    </div>
-                                </div>
-                                <ul style={{listStyle:"none", marginTop:"30px"}}>
-                                    <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
-                                        <h3 style={{ fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job titles</h3>
-                                        {/* <p>Junior Developer · Marketing Specialist · System Administrator</p> */}
-                                        <ul className="nav">
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Junior Developer</i>
-                                                    </button>
-                                                </li>
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Marketing Specialist</i>
-                                                    </button>
-                                                </li>
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">System Administrator</i>
-                                                    </button>
-                                                </li>
-                                        </ul>
-                                    </li>
-                                    <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
-                                        <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job locations</h3>
-                                        {/* <p>Bucharest, Bucharest, Romania</p> */}
-                                        <ul className="nav">
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Bucharest</i>
-                                                    </button>
-                                                </li>
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Bucharest</i>
-                                                    </button>
-                                                </li>
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Romania</i>
-                                                    </button>
-                                                </li>
-                                        </ul>
-                                    </li>
-                                    <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
-                                        <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Start date</h3>
-                                        <p>Immediately, I’m actively applying</p>
-                                    </li>
-                                    <li style={{paddingBottom:"5px", marginBottom:"10px"}}>
-                                        <h3 style={{fontSize:"14px", fontWeight:"800", color:"#3a3a3a"}}>Job types</h3>
-                                        {/* <p>Full-time · Remote · Part-time</p> */}
-                                        <ul className="nav">
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Full-time</i>
-                                                    </button>
-                                                </li>
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Remote</i>
-                                                    </button>
-                                                </li>
-                                                <li className="active">
-                                                    <button
-                                                        className="btn btn-primary"
-                                                        style={{margin: "2px"}}
-                                                    >
-                                                        <i className="glyphicon glyphicon-home">Part-time</i>
-                                                    </button>
-                                                </li>
-                                        </ul>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>)}
+                        {edit ? 
+                        <EditUser editClasses={editClasses} handleSubmit={handleSubmit}
+                         editHandler={editHandler} state={state} setUser={setUser} closeModal={closeModal}
+                          user={user} handleChange={handleChange} register={register} errors={errors} 
+                          value={value} handleChangeRadio={handleChangeRadio}/> 
+                          :
+                        <JobPreferences closeModal={closeModal} user={user} classes={classes} editHandler={editHandler} state/>
+                        }
                     </Modal>
                     <UserPageContent />
                 </Card.Body>
-                <div style={{alignText: "center", margin: "auto"}}><h5>Jobs saved to favorites:</h5></div>
+                <div class="div-style-10"><h5>Jobs saved to favorites:</h5></div>
 
-                <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"row"}}>
+                <div class="div-style-11">
                     {
                         savedJobs.length > 0 ? (
                             savedJobs.map(

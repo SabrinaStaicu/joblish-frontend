@@ -50,23 +50,23 @@ export default function SignIn() {
                         fullWidth
                         id="email"
                         label="Email Address"
-                        {...register("email", {required: true})}
+                        {...register("email", {required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/})}
                         autoComplete="email"
                         autoFocus
                     />
-                    {errors.email && <span style={{color:"red"}}>This field is required!</span>}
+                    {errors.email && <span style={{color:"red"}}>Enter a valid email address!</span>}
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
-                        {...register("password", {required: true})}
+                        {...register("password", {required: true, minLength: 5, maxLength: 30})}
                         label="Password"
                         type="password"
                         id="password"
                         autoComplete="current-password"
                     />
-                    {errors.password && <span style={{color:"red"}}>This field is required!</span>}
+                    {errors.password && <span style={{color:"red"}}>Enter your password!</span>}
                     <Button
                         type="submit"
                         fullWidth

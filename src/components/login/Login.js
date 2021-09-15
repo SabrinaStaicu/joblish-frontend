@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,14 +19,9 @@ export default function SignIn() {
     const classes = useStyles();
     const { register, handleSubmit, formState: {errors} } = useForm();
 
-
     const eventHandler = () => {
         history.push("/login")
     }
-
-    useEffect(() => {
-        console.log(AuthService.getCurrentUser())
-    }, [])
 
     return (
         <div>
@@ -58,7 +53,6 @@ export default function SignIn() {
                         {...register("email", {required: true})}
                         autoComplete="email"
                         autoFocus
-                        // onChange={getEmail}
                     />
                     {errors.email && <span style={{color:"red"}}>This field is required!</span>}
                     <TextField
@@ -71,7 +65,6 @@ export default function SignIn() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
-                        // onChange={getPassword}
                     />
                     {errors.password && <span style={{color:"red"}}>This field is required!</span>}
                     <Button

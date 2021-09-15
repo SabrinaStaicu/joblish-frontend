@@ -119,10 +119,6 @@ const UpdateUserProfile = () => {
                                 />
                                 {errors.password && <span style={{color:"red"}}>Please enter a valid phone number!</span>}
                             </Grid>
-                            {/*<Grid item xs={12}>*/}
-                            {/*    <label style={{marginRight: "10px"}}>Looking for a job</label>*/}
-                            {/*    <input name="lookingForJob" id="lookingForJob" {...register("lookingForJob")} type="checkbox"/>*/}
-                            {/*</Grid>*/}
                         </Grid>
                         <Button
                             type="submit"

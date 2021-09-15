@@ -102,7 +102,7 @@ export default function Register() {
                   id="phone"
                   autoComplete="phone"
               />
-              {errors.password && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
+              {errors.phone && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -115,7 +115,7 @@ export default function Register() {
                   id="city"
                   autoComplete="city"
               />
-              {errors.password && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
+              {errors.city && <span style={{color:"red"}}>Password must be between 6-12 characters</span>}
             </Grid>
           </Grid>
           <Button

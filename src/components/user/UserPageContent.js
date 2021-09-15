@@ -28,14 +28,6 @@ export default function UserPageContent() {
                         </div>
 
                 </div>
-                {/*<hr style={breakLine}/>*/}
-
-                {/*<div style={containerItem}>*/}
-                {/*    <div style={containerItemTitle}>Education:</div>*/}
-                {/*    <div>*/}
-                {/*        <CvContentList resumeData={userData.resume.education}/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <hr className="break-line"/>
                 <div className="container-item">
                     <div style={{width: "20%"}}>Experience:</div>

@@ -3,25 +3,13 @@ import { Card } from 'react-bootstrap';
 import UserPageContent from './UserPageContent';
 import JobService from "../../service/JobService";
 import JobCard from "../job/JobCard";
-import Button from "@material-ui/core/Button";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from 'react-modal';
-import Switch from '@material-ui/core/Switch';
 import {useForm} from "react-hook-form";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
 import UserService from "../../service/UserService";
 import {useHistory} from "react-router-dom";
-import FormLabel from '@material-ui/core/FormLabel';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
-import { modalStyling } from '../../util/ModalStyling';
 import AuthService from "../../service/AuthService";
-// import '../../App.css';
 import './userStyle.css';
 import EditUser from './EditUser';
 import JobPreferences from './JobPreferences';
@@ -37,8 +25,6 @@ export default function UserDetails() {
 
     useEffect(() => {
         JobService.getSavedJobs(AuthService.getCurrentUser().id).then(res => {
-            console.log(AuthService.getCurrentUser())
-            console.log(res.data)
             setSavedJobs(res.data)
         });
 
@@ -115,19 +101,6 @@ export default function UserDetails() {
         setEdit(true)
     }
 
-    const useStyles = makeStyles({
-        root: {
-            position:"absolute",
-            marginLeft:"52%",
-            zIndex:"0",
-        },
-        media: {
-            height: 140,
-        }, 
-    });
-    const classes = useStyles();
-
-
     return (
         <>
             <Card className="user-card">
@@ -141,11 +114,11 @@ export default function UserDetails() {
                             <div class="card-style-2">
                                 <section class="card-section-1">
                                     {openToWork1 ? (<a class=".open-to-work-section-1" onClick={openModal}>
-                                        <EditOutlinedIcon onClick={openModal} className={classes.root} />
+                                        <EditOutlinedIcon onClick={openModal} className="classes-root" />
                                         <h3 class="open-to-work-section-h3">Open to work</h3>
                                         <p class="open-to-work-section-p1">Junior Developer · Marketing Specialist · System Administrator </p>
                                         <p class="open-to-work-section-p2">see all details</p>
-                                    </a>):(<a onClick={openModal} style={{margin:"7px", cursor:"pointer"}}><EditOutlinedIcon onClick={openModal} className={classes.root} /><h3 style={{padding:"0", margin:"0", fontSize:"20px", display:"inline-block"}}>Not open to work!</h3></a>)}
+                                    </a>):(<a onClick={openModal} class="open-to-work-section-a"><EditOutlinedIcon onClick={openModal} className="classes-root" /><h3 class="open-to-work-section-h3">Not open to work!</h3></a>)}
                                 </section>
                             </div>
                         </div>
@@ -162,7 +135,7 @@ export default function UserDetails() {
                           user={user} handleChange={handleChange} register={register} errors={errors} 
                           value={value} handleChangeRadio={handleChangeRadio}/> 
                           :
-                        <JobPreferences closeModal={closeModal} user={user} classes={classes} editHandler={editHandler} state/>
+                        <JobPreferences closeModal={closeModal} user={user} editHandler={editHandler} state/>
                         }
                     </Modal>
                     <UserPageContent />

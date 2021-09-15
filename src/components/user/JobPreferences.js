@@ -1,31 +1,9 @@
-import React, {useEffect, useState} from 'react'
-import { Card } from 'react-bootstrap';
-import UserPageContent from './UserPageContent';
-import JobService from "../../service/JobService";
-import JobCard from "../job/JobCard";
+import React from 'react'
 import Button from "@material-ui/core/Button";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from 'react-modal';
-import Switch from '@material-ui/core/Switch';
-import {useForm} from "react-hook-form";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import UserService from "../../service/UserService";
-import {useHistory} from "react-router-dom";
-import FormLabel from '@material-ui/core/FormLabel';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
-import { modalStyling } from '../../util/ModalStyling';
-import AuthService from "../../service/AuthService";
-// import '../../App.css';
 import './userStyle.css';
-import EditUser from './EditUser';
 
-export default function JobPreferences({closeModal, user, classes, editHandler, state}) {
+export default function JobPreferences({closeModal, user, editHandler, state}) {
     return (
 <div class="div-style-6">
                             <div class="div-style-7">
@@ -46,7 +24,7 @@ export default function JobPreferences({closeModal, user, classes, editHandler, 
                                     </h3>
                                     </div>
                                     <div>
-                                    <EditOutlinedIcon className={classes.root} onClick={editHandler} />
+                                    <EditOutlinedIcon className="classes-root" onClick={editHandler} />
                                     </div>
                                 </div>
                                 <ul class="ul-style">

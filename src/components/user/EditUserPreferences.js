@@ -167,6 +167,19 @@ export default function EditUserPreferences({editClasses, editHandler, state, cl
                                         autoFocus
                                         onChange={e => setJobType(e.target.value)}
                                     />
+
+                                    {/*<Select*/}
+                                    {/*    labelId="demo-simple-select-label"*/}
+                                    {/*    id="demo-simple-select"*/}
+                                    {/*    value={age}*/}
+                                    {/*    label="Age"*/}
+                                    {/*    onChange={handleChange}*/}
+                                    {/*>*/}
+                                    {/*    <MenuItem value={10}>Ten</MenuItem>*/}
+                                    {/*    <MenuItem value={20}>Twenty</MenuItem>*/}
+                                    {/*    <MenuItem value={30}>Thirty</MenuItem>*/}
+                                    {/*</Select>*/}
+
                                     <Button color="primary" onClick={addJobType}>+</Button>
                                 </Grid>
                             </Grid>
@@ -182,7 +195,7 @@ export default function EditUserPreferences({editClasses, editHandler, state, cl
                                                     className="btn btn-primary"
                                                     style={{margin: "2px"}}
                                                 >
-                                                    <i className="glyphicon glyphicon-home">{jobType}</i>
+                                                    <i className="glyphicon glyphicon-home">{jobType.toLowerCase().replace("_ ", " ")}</i>
                                                 </button>
                                             </li>
                                         )

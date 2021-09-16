@@ -12,6 +12,11 @@ const ApplicationCard = ({application, modalIsOpen, closeModal, customStyles, op
         ApplicationsService.getAllByJobId(application.job.id).then(res => {setApplicationsForThisJob(res.data)})
     }, [])
 
+    const getFormattedDate = date => {
+        date = date.toString();
+        return date.substring(0, 4) + "-" + date.substring(5,6) + "-" + date.substring(7);
+    }
+
     return (
         <div className="col-md-4">
             <div className="card p-3 mb-2">
@@ -19,7 +24,7 @@ const ApplicationCard = ({application, modalIsOpen, closeModal, customStyles, op
                     <div className="d-flex flex-row align-items-center">
                         <div className="icon"><img src={application.job.company.logo} height="45px" width="45px" alt = "logo"/></div>
                         <div className="ms-2 c-details">
-                            <h6 className="mb-0">{application.job.company.name}</h6> <span>{application.job.date}</span>
+                            <h6 className="mb-0">{application.job.company.name}</h6> <span>{getFormattedDate(application.job.date)}</span>
                         </div>
                     </div>
                     <div className="badge"><span>{application.job.category}</span></div>

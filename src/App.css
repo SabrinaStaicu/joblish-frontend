@@ -1066,6 +1066,7 @@ body {
   margin: 0;
   font-size: 20px;
   display: inline-block;
+  color: black;
 }
 
 .open-to-work-section-p1 {
@@ -1075,10 +1076,11 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  color: black;
 }
 
 .open-to-work-section-p2 {
-  color: #0a66c2;
+  color: black;
 }
 
 .open-to-work-section-a {

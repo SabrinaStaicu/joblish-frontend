@@ -6,7 +6,6 @@ import JobCard from "../job/JobCard";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from 'react-modal';
-import {useForm} from "react-hook-form";
 import UserService from "../../service/UserService";
 import AuthService from "../../service/AuthService";
 import EditUserPreferences from './EditUserPreferences';
@@ -35,14 +34,6 @@ export default function UserDetails() {
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
     };
-
-    // const { register, handleSubmit, formState: {errors} } = useForm();
-
-    // const [value, setValue] = React.useState('');
-
-    // const handleChangeRadio = (event) => {
-    //     setValue(event.target.value);
-    // };
 
     const useEditStyles = makeStyles((theme) => ({
         root: {
@@ -78,7 +69,7 @@ export default function UserDetails() {
                 <img className="user-profile-picture" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"} alt="user's personal avatar" />
                 <br/>
                 <Card.Body>
-                    <Card.Text style={{ textAlign: 'center' }}>
+                    <Card.Text style={{ textAlign: 'center'}}>
                         <h5>{user.firstName} {user.lastName}</h5>
                         {user.country} {user.city} <br />
                         <div className="card-style-1">

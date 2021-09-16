@@ -930,21 +930,6 @@ body {
   background-size: contain!important;
 }
 
-/* .MuiSvgIcon-root {
-    cursor: pointer;
-    margin: 2px 0px;
-    padding: 10px;
-    box-sizing: content-box;
-    border-radius: 100%;
-
- } 
-
- .MuiSvgIcon-root:hover {
-   background-image: radial-gradient(circle at center, #a7a2a205 0, #a5a4a40c, #c5c2c223 10%);
-  box-shadow: 0px 2px 1px -1px #a7a2a205, 0px 1px 1px 0px #a7a2a205, 0px 1px 3px 0px rgb(0 0 0 / 5%);
-  animation: fadein 500ms;
- } */
-
 
 @keyframes gradient {
   0% {
@@ -959,3 +944,191 @@ body {
 }
 
 
+/*user style*/
+
+
+.user-modal-styling {
+  border-radius: 14px;
+  width: 40%;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.div-style-1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 700px;
+}
+
+.div-style-2 {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+}
+
+.div-style-3 {
+  text-align: right;
+}
+
+.div-style-4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.div-style-4-h3 {
+  margin-top: 10%;
+}
+
+.div-style-4-h3-strong {
+  font-size: 24px;
+  color: grey;
+}
+
+.profile-picture-div {
+  width: 20%;
+}
+
+.div-style-5 {
+  margin-left: 50%;
+}
+
+.div-style-6 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.div-style-7 {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 20px;
+}
+
+.div-style-8 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.div-style-10 {
+  text-align: center;
+  margin: auto;
+}
+
+.div-style-11 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.card-style-1 {
+  width: 24%;
+  max-width: none;
+  min-width: auto;
+  margin-left: 38%;
+  margin-top: 2%;
+  position: relative;
+}
+
+.card-style-2 {
+  margin: 0 0.8rem;
+  height: 8vh;
+}
+
+.card-section-1 {
+  border-radius: 14px;
+  background-color: #e9e5df;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.open-to-work-section-1 {
+  color: #3a3a3a;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.open-to-work-section-h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.open-to-work-section-p1 {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.open-to-work-section-p2 {
+  color: #0a66c2;
+}
+
+.open-to-work-section-a {
+  margin: 7px;
+  cursor: pointer;
+}
+
+.ul-style {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.ul-li-style {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.ul-li-style-2 {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.ul-li-h3 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #3a3a3a;
+}
+
+.ul-li-h3-2 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #3a3a3a;
+  margin-top: 20px;
+}
+
+.required-field-error-1 {
+  color: red;
+}
+
+.classes-root {
+  position: absolute;
+  margin-left: 52%;
+  z-index: 0;
+}
+
+.classes-media {
+  height: 140px;
+}
+
+.MuiTextField-root {
+  margin-bottom: 20px;
+  width: 100px;
+}

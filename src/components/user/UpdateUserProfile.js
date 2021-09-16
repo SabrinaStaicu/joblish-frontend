@@ -91,7 +91,7 @@ const UpdateUserProfile = () => {
                                     id="city"
                                     autoComplete="city"
                                 />
-                                {errors.password && <span style={{color:"red"}}>Please enter a valid city name!</span>}
+                                {errors.city && <span style={{color:"red"}}>Please enter a valid city name!</span>}
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -117,7 +117,7 @@ const UpdateUserProfile = () => {
                                     id="phone"
                                     autoComplete="phone"
                                 />
-                                {errors.password && <span style={{color:"red"}}>Please enter a valid phone number!</span>}
+                                {errors.phone && <span style={{color:"red"}}>Please enter a valid phone number!</span>}
                             </Grid>
                         </Grid>
                         <Button

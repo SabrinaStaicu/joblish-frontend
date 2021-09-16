@@ -8,66 +8,41 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from 'react-modal';
 import {useForm} from "react-hook-form";
 import UserService from "../../service/UserService";
-import {useHistory} from "react-router-dom";
 import AuthService from "../../service/AuthService";
-import EditUser from './EditUser';
+import EditUserPreferences from './EditUserPreferences';
 import JobPreferences from './JobPreferences';
+import {modalStyling} from "../../util/ModalStyling";
 
 export default function UserDetails() {
-
     const [savedJobs, setSavedJobs] = useState([]);
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-    const [edit, setEdit] = React.useState(false);
-    const [updatedUser, setUser] = useState({});
-    const openToWork1 = updatedUser.jobPreferences?.openToWork
-    const history = useHistory()
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [edit, setEdit] = useState(false);
+    const [user, setUser] = useState({});
+    const [state, setState] = useState({
+        checkedA: true,
+        checkedB: true,
+    });
+    const openToWork1 = user.jobPreferences?.openToWork
 
     useEffect(() => {
-        JobService.getSavedJobs(AuthService.getCurrentUser().id).then(res => {
-            setSavedJobs(res.data)
-        });
-
+        JobService.getSavedJobs(AuthService.getCurrentUser().id).then(res => setSavedJobs(res.data));
     }, [])
 
     useEffect(() => {
         UserService.getUserById(AuthService.getCurrentUser().id).then(res => setUser(res.data));
     }, [])
 
-    const user = updatedUser;
-
-
-    const [state, setState] = React.useState({
-        checkedA: true,
-        checkedB: true,
-    });
-
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
     };
 
-    const { register, handleSubmit, formState: {errors} } = useForm({
-        // defaultValues: preloadedValues
-    });
+    // const { register, handleSubmit, formState: {errors} } = useForm();
 
-    const [value, setValue] = React.useState('');
+    // const [value, setValue] = React.useState('');
 
-    const handleChangeRadio = (event) => {
-        setValue(event.target.value);
-    };
-
-
-    const userModalStyling = {
-        content: {
-            borderRadius:"14px",
-            width:"40%",
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-        }
-    }
+    // const handleChangeRadio = (event) => {
+    //     setValue(event.target.value);
+    // };
 
     const useEditStyles = makeStyles((theme) => ({
         root: {
@@ -77,9 +52,6 @@ export default function UserDetails() {
             },
         },
     }));
-
-
-
 
     const editClasses = useEditStyles();
 
@@ -121,18 +93,16 @@ export default function UserDetails() {
                                 </section>
                             </div>
                         </div>
-                        {/* <h5 style={{margin: "10px"}}>{user.lookingForJob ? "OPEN TO WORK" : "NOT LOOKING FOR A JOB"}</h5> */}
                     </Card.Text>
                     <Modal
                         isOpen={modalIsOpen}
                         onRequestClose={closeModal}
-                        style={userModalStyling}
+                        style={modalStyling}
                     >
                         {edit ?
-                            <EditUser editClasses={editClasses} handleSubmit={handleSubmit}
-                                      editHandler={editHandler} state={state} setUser={setUser} closeModal={closeModal}
-                                      user={user} handleChange={handleChange} register={register} errors={errors}
-                                      value={value} handleChangeRadio={handleChangeRadio}/>
+                            <EditUserPreferences editClasses={editClasses}
+                                                 editHandler={editHandler} state={state} closeModal={closeModal}
+                                                 user={user} handleChange={handleChange}/>
                             :
                             <JobPreferences closeModal={closeModal} user={user} editHandler={editHandler} state/>
                         }

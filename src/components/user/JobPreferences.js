@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Button from "@material-ui/core/Button";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import UserService from "../../service/UserService";
+import AuthService from "../../service/AuthService";
 
 export default function JobPreferences({closeModal, user, editHandler, state}) {
+
     return (
         <div className="div-style-6">
             <div className="div-style-7">
@@ -14,7 +17,7 @@ export default function JobPreferences({closeModal, user, editHandler, state}) {
             <div >
                 <div className="div-style-8">
                     <div className="profile-picture-div">
-                        <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"} /></a>
+                        <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}  alt="profile-picture"/></a>
                     </div>
                     <div>
                         <h3 className="div-style-4-h3">
@@ -29,96 +32,63 @@ export default function JobPreferences({closeModal, user, editHandler, state}) {
                 <ul className="ul-style">
                     <li className="ul-li-style-2">
                         <h3 className="ul-li-h3">Job titles</h3>
-                        {/* <p>Junior Developer · Marketing Specialist · System Administrator</p> */}
                         <ul className="nav">
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Junior Developer</i>
-                                </button>
-                            </li>
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Marketing Specialist</i>
-                                </button>
-                            </li>
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">System Administrator</i>
-                                </button>
-                            </li>
+                            {
+                                user.jobPreferences.jobTitles.map(
+                                    title => (
+                                        <li className="active">
+                                            <button
+                                                className="btn btn-primary"
+                                                style={{margin: "2px"}}
+                                            >
+                                                <i className="glyphicon glyphicon-home">{title}</i>
+                                            </button>
+                                        </li>
+                                    )
+                                )
+                            }
                         </ul>
                     </li>
                     <li className="ul-li-style-2">
                         <h3 className="ul-li-h3">Job locations</h3>
-                        {/* <p>Bucharest, Bucharest, Romania</p> */}
                         <ul className="nav">
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Bucharest</i>
-                                </button>
-                            </li>
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Bucharest</i>
-                                </button>
-                            </li>
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Romania</i>
-                                </button>
-                            </li>
+                            {
+                                user.jobPreferences.locations.map(
+                                    location => (
+                                        <li className="active">
+                                            <button
+                                                className="btn btn-primary"
+                                                style={{margin: "2px"}}
+                                            >
+                                                <i className="glyphicon glyphicon-home">{location}</i>
+                                            </button>
+                                        </li>
+                                    )
+                                )
+                            }
                         </ul>
                     </li>
-                    <li className="ul-li-style-2">
-                        <h3 className="ul-li-h3">Start date</h3>
-                        <p>Immediately, I’m actively applying</p>
-                    </li>
+                    {/*<li className="ul-li-style-2">*/}
+                    {/*    <h3 className="ul-li-h3">Start date</h3>*/}
+                    {/*    <p>Immediately, I’m actively applying</p>*/}
+                    {/*</li>*/}
                     <li className="ul-li-style-2">
                         <h3 className="ul-li-h3">Job types</h3>
-                        {/* <p>Full-time · Remote · Part-time</p> */}
                         <ul className="nav">
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Full-time</i>
-                                </button>
-                            </li>
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Remote</i>
-                                </button>
-                            </li>
-                            <li className="active">
-                                <button
-                                    className="btn btn-primary"
-                                    style={{margin: "2px"}}
-                                >
-                                    <i className="glyphicon glyphicon-home">Part-time</i>
-                                </button>
-                            </li>
+                            {
+                                user.jobPreferences.jobTypes.map(
+                                    jobType => (
+                                        <li className="active">
+                                            <button
+                                                className="btn btn-primary"
+                                                style={{margin: "2px"}}
+                                            >
+                                                <i className="glyphicon glyphicon-home">{jobType.toLowerCase().replace("_", " ")}</i>
+                                            </button>
+                                        </li>
+                                    )
+                                )
+                            }
                         </ul>
                     </li>
 

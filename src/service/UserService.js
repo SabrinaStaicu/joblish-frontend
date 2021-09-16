@@ -19,12 +19,8 @@ class UserService {
         }, {headers: AuthHeader()})
     }
 
-    updateJobPreferences(id, lookingForJob) {
-        //de pus data
-        console.log(lookingForJob)
-        return axios.put(`${USERS_API_URL}/update-job-preferences/${id}`, {
-            openToWork : lookingForJob,
-        }, {headers: AuthHeader()})
+    updateJobPreferences(id, jobPreference) {
+        return axios.put(`${USERS_API_URL}/update-job-preferences/${id}`, jobPreference, {headers: AuthHeader()})
     }
 }
 

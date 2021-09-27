@@ -8,7 +8,7 @@ const JobsSection = () => {
     const [jobs, setJobs] = useAtom(jobsAtom);
 
         return (
-            <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
+            <div className="div-style-12">
                 {
                     jobs && (
                         <div className="jobSection">

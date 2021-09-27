@@ -28,23 +28,12 @@ const Jobs = () => {
       };
 
       const handleLocation = (event) => {
-        setFilterInputs({...filterInputs, ["location"]: event.target.value})
+        setFilterInputs({...filterInputs, "location": event.target.value})
       }
 
       const handleCategory = (event) => {
-        setFilterInputs({...filterInputs, ["category"]: event.target.value})
+        setFilterInputs({...filterInputs, "category": event.target.value})
       }
-
-    //   const GreenCheckbox = withStyles({
-    //     root: {
-    //       color: green[400],
-    //       '&$checked': {
-    //         color: green[600],
-    //       },
-    //     },
-    //     checked: {},
-    //   })((props) => <Checkbox color="default" {...props} />);
-
 
 
     useEffect(() => {
@@ -137,7 +126,6 @@ const Jobs = () => {
                     }
                 </div>
             </div>
-            {/* <Footer /> */}
         </div>
     )
 }

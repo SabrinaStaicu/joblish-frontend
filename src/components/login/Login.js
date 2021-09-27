@@ -54,7 +54,7 @@ export default function SignIn() {
                         autoComplete="email"
                         autoFocus
                     />
-                    {errors.email && <span style={{color:"red"}}>Enter a valid email address!</span>}
+                    {errors.email && <span className="required-field-error-1">Enter a valid email address!</span>}
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -66,7 +66,7 @@ export default function SignIn() {
                         id="password"
                         autoComplete="current-password"
                     />
-                    {errors.password && <span style={{color:"red"}}>Enter your password!</span>}
+                    {errors.password && <span className="required-field-error-1">Enter your password!</span>}
                     <Button
                         type="submit"
                         fullWidth

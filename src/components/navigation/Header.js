@@ -35,7 +35,7 @@ const Header = () => {
             <h2 className="headerText">Searching for a job?<br></br>Find the <span style={{color:"rgb(30, 209, 170)", fontSize:"30px"}}>best job</span> <br></br> that fits you!</h2>
             <div className="headerSearchBar">
                 <div>
-                <input style={{zIndex:"3", border:"none", width:"100%",height:"100%", alignSelf:"center"}} type="text" placeholder="Looking for a job..." onChange={getSearchInput} />
+                <input className="input-1" placeholder="Looking for a job..." onChange={getSearchInput} />
                 </div>
                 <div>
                 <select style={{border:"none"}} onChange={getCategory}>

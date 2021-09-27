@@ -6,12 +6,8 @@ import SendIcon from '@material-ui/icons/Send';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Modal from 'react-modal';
 import {useHistory} from "react-router-dom/cjs/react-router-dom";
-import CheckButton from "react-validation/build/button";
 import JobService from "../../service/JobService";
-import Input from "react-validation/build/input";
-import Form from "react-validation/build/form";
 import ApplicationsService from "../../service/ApplicationsService";
-import {required, validEmail, nameValidation} from "../../util/Validations";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import {modalStyling} from "../../util/ModalStyling";
@@ -190,58 +186,6 @@ const JobDetails = () => {
                     message={message}
                     form={form}
                 />
-            {/*    <div style={{textAlign: "right"}}>*/}
-            {/*        <Button variant="contained" color="secondary" onClick={closeModal}>X</Button>*/}
-            {/*    </div>*/}
-            {/*    {message && (*/}
-            {/*        <div className="form-group">*/}
-            {/*            <div*/}
-            {/*                className={*/}
-            {/*                    successful ? "alert alert-success" : "alert alert-danger"*/}
-            {/*                }*/}
-            {/*                role="alert"*/}
-            {/*            >*/}
-            {/*                {message}*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    )}*/}
-            {/*    <Form noValidate onSubmit={submitForm} ref={form}>*/}
-            {/*            <br/>*/}
-            {/*            <label>Full name</label>*/}
-            {/*            <Input*/}
-            {/*                className="form-control"*/}
-            {/*                type="text"*/}
-            {/*                placeholder="Enter full name"*/}
-            {/*                onChange={getApplicantName}*/}
-            {/*                value={applicantName}*/}
-            {/*                validations={[required, nameValidation]}*/}
-            {/*            />*/}
-            {/*            <br/>*/}
-            {/*            <label>Email address</label>*/}
-            {/*            <Input*/}
-            {/*                className="form-control"*/}
-            {/*                type="email"*/}
-            {/*                placeholder="Enter email"*/}
-            {/*                onChange={getApplicantEmail}*/}
-            {/*                validations={[required, validEmail]}*/}
-            {/*                value={applicantEmail}*/}
-            {/*            />*/}
-            {/*            <br/>*/}
-            {/*            <label>Notes</label>*/}
-            {/*            <Input*/}
-            {/*                className = "form-control"*/}
-            {/*                type="text"*/}
-            {/*                placeholder="Note for the recruiter"*/}
-            {/*                onChange={getNotes}*/}
-            {/*                value={notes}*/}
-            {/*                validations={[required]}*/}
-            {/*            />*/}
-            {/*            <br/>*/}
-            {/*        <div style={{textAlign: "center"}}>*/}
-            {/*            <Button variant="contained" color="primary" type="submit">Apply</Button>*/}
-            {/*        </div>*/}
-            {/*        <CheckButton style={{ display: "none" }} ref={checkBtn} />*/}
-            {/*    </Form>*/}
             </Modal>
         </div>
     );

@@ -43,9 +43,6 @@ const NavBar = ({ color, homePosition, userHasApplied, applyBtn }) => {
         window.addEventListener('scroll', handleScroll)
     }, [])
 
-    // const loggedIn = !!(localStorage.getItem("loggedin"))
-    // const loggedInComp = !!(localStorage.getItem("joblisComp"))
-
     const logout = () => {
         AuthService.logout();
         history.push("/login");
@@ -57,11 +54,6 @@ const NavBar = ({ color, homePosition, userHasApplied, applyBtn }) => {
         <Link to="/" style={{display:"inline-block"}}><img src={logo} style={{zIndex:"2", width:"50px",display:"inline-block"}}  alt="joblish logo"/>joblish</Link>
         </div>
             {
-                // loggedInComp ? (<ul>
-                //     <li><Link to="/jobs">Jobs</Link></li>
-                //     <li><Link to="/" onClick={() => { localStorage.clear() }}>Logout</Link></li>
-                // </ul>) : (
-                
                 AuthService.getCurrentUser() ? (
                     <ul>
                         <li><Link to="/jobs">Jobs</Link></li>

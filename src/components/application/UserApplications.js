@@ -37,7 +37,7 @@ const UserApplications = () => {
             <div className="jobsTop">
                 <h1 style={{color:"white"}}>Current job applications</h1>
             </div>
-            <div style={{width: "300px", marginTop: "30px", marginLeft: "45%"}}>
+            <div className="div-style-14">
                 <p>Filter by application status</p>
                 <select className="form-select" aria-label="Default select example" style={{width: "200px"}} onChange={filterByStatus}>
                     <option value="Any_status">Any status</option>

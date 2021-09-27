@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {CardMedia, Collapse} from "@material-ui/core";
+import {Collapse} from "@material-ui/core";
 import JobCard from "../job/JobCard";
 import '../../styling/company.scss';
 import JobService from "../../service/JobService";

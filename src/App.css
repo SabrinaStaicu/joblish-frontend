@@ -1126,3 +1126,32 @@ body {
   width: 30%;
   margin-right: 10px;
 }
+
+.input-1 {
+  z-index: 3;
+  border: none;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+}
+
+.div-style-12 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.div-style-13 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+}
+
+.div-style-14 {
+  width: 300px;
+  margin-top: 30px;
+  margin-left: 45%;
+}

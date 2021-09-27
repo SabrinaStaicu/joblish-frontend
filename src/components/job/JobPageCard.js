@@ -14,7 +14,7 @@ const JobPageCard = ({job}) => {
 
     return (
         <div className="jobsInfo" onClick={goToJob}>
-            <img className="jobsLogo" src={job.company.logo}/>
+            <img className="jobsLogo" src={job.company.logo} alt="logo"/>
             <h2 style={{fontWeight:"400"}}>{job.title}</h2>
             <div className="jobInfoDown">
                 <span style={{fontWeight:"500"}}>{job.company.name}</span>

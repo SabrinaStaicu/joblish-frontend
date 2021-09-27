@@ -14,7 +14,7 @@ export default function UserPage() {
 
     return (
         <>
-            <div className="user-page" style={{height: '100%', width: '100%', display: 'grid'}}>
+            <div className="user-page">
                 <NavBar color={"rgba(0, 0, 255, 0.534)"} />
                 <div className="jobsTop">
                     <h1 style={{color:"white"}}>User profile</h1>

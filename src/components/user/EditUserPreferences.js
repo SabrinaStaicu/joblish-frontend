@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import UserService from "../../service/UserService";
 import AuthService from "../../service/AuthService";
 
-export default function EditUserPreferences({editClasses, editHandler, state, closeModal, user, handleChange}) {
+export default function EditUserPreferences({editClasses, state, closeModal, user, handleChange}) {
     const [jobTitles, setJobTitles] = useState([user.jobPreferences.jobTitles][0])
     const [locations, setLocations] = useState([user.jobPreferences.locations][0]);
     const [jobTypes, setJobTypes] = useState([user.jobPreferences.jobTypes][0])
@@ -60,7 +60,7 @@ export default function EditUserPreferences({editClasses, editHandler, state, cl
                 <div >
                     <div className="div-style-4">
                         <div className="profile-picture-div">
-                            <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}  alt="profile-picture"/></a>
+                            <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}  alt="profile"/></a>
                         </div>
                         <div>
                             <h3 className="div-style-4-h3">
@@ -167,18 +167,6 @@ export default function EditUserPreferences({editClasses, editHandler, state, cl
                                         autoFocus
                                         onChange={e => setJobType(e.target.value)}
                                     />
-
-                                    {/*<Select*/}
-                                    {/*    labelId="demo-simple-select-label"*/}
-                                    {/*    id="demo-simple-select"*/}
-                                    {/*    value={age}*/}
-                                    {/*    label="Age"*/}
-                                    {/*    onChange={handleChange}*/}
-                                    {/*>*/}
-                                    {/*    <MenuItem value={10}>Ten</MenuItem>*/}
-                                    {/*    <MenuItem value={20}>Twenty</MenuItem>*/}
-                                    {/*    <MenuItem value={30}>Thirty</MenuItem>*/}
-                                    {/*</Select>*/}
 
                                     <Button color="primary" onClick={addJobType}>+</Button>
                                 </Grid>

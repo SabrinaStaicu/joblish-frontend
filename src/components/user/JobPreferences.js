@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Button from "@material-ui/core/Button";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import UserService from "../../service/UserService";
-import AuthService from "../../service/AuthService";
 
 export default function JobPreferences({closeModal, user, editHandler, state}) {
 
@@ -17,7 +15,7 @@ export default function JobPreferences({closeModal, user, editHandler, state}) {
             <div >
                 <div className="div-style-8">
                     <div className="profile-picture-div">
-                        <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}  alt="profile-picture"/></a>
+                        <a><img className="profile-picture-modal" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"}  alt="profile"/></a>
                     </div>
                     <div>
                         <h3 className="div-style-4-h3">
@@ -68,10 +66,6 @@ export default function JobPreferences({closeModal, user, editHandler, state}) {
                             }
                         </ul>
                     </li>
-                    {/*<li className="ul-li-style-2">*/}
-                    {/*    <h3 className="ul-li-h3">Start date</h3>*/}
-                    {/*    <p>Immediately, I’m actively applying</p>*/}
-                    {/*</li>*/}
                     <li className="ul-li-style-2">
                         <h3 className="ul-li-h3">Job types</h3>
                         <ul className="nav">

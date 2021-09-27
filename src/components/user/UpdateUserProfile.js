@@ -16,7 +16,7 @@ const UpdateUserProfile = () => {
     const location = useLocation();
     const classes = useStyles();
     const history = useHistory()
-    const [preloadedValues, setPreloadedValues] = useState({
+    const [preloadedValues] = useState({
         firstName: location.state.user.firstName,
         lastName: location.state.user.lastName,
         email: location.state.user.email,
@@ -55,7 +55,7 @@ const UpdateUserProfile = () => {
                                     label="First Name"
                                     autoFocus
                                 />
-                                {errors.firstName && <span style={{color:"red"}}>This field is required!</span>}
+                                {errors.firstName && <span className="required-field-error-1">This field is required!</span>}
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -67,7 +67,7 @@ const UpdateUserProfile = () => {
                                     {...register("lastName", {required: true})}
                                     autoComplete="lname"
                                 />
-                                {errors.lastName && <span style={{color:"red"}}>This field is required!</span>}
+                                {errors.lastName && <span className="required-field-error-1">This field is required!</span>}
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -79,7 +79,7 @@ const UpdateUserProfile = () => {
                                     {...register("email", {required: true,  pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
                                     autoComplete="email"
                                 />
-                                {errors.email && <span style={{color:"red"}}>Please enter a valid email!</span>}
+                                {errors.email && <span className="required-field-error-1">Please enter a valid email!</span>}
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -92,7 +92,7 @@ const UpdateUserProfile = () => {
                                     id="city"
                                     autoComplete="city"
                                 />
-                                {errors.city && <span style={{color:"red"}}>Please enter a valid city name!</span>}
+                                {errors.city && <span className="required-field-error-1">Please enter a valid city name!</span>}
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -105,7 +105,7 @@ const UpdateUserProfile = () => {
                                     id="experience"
                                     autoComplete="experience"
                                 />
-                                {errors.password && <span style={{color:"red"}}>Please a description of your professional experience!</span>}
+                                {errors.password && <span className="required-field-error-1">Please a description of your professional experience!</span>}
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -118,7 +118,7 @@ const UpdateUserProfile = () => {
                                     id="phone"
                                     autoComplete="phone"
                                 />
-                                {errors.phone && <span style={{color:"red"}}>Please enter a valid phone number!</span>}
+                                {errors.phone && <span className="required-field-error-1">Please enter a valid phone number!</span>}
                             </Grid>
                         </Grid>
                         <Button

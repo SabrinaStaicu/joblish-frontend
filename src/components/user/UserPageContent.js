@@ -3,7 +3,6 @@ import UserService from "../../service/UserService";
 import Button from "@material-ui/core/Button";
 import {useHistory} from "react-router-dom";
 import AuthService from "../../service/AuthService";
-import JobCard from "../job/JobCard";
 import {Collapse} from "@material-ui/core";
 
 export default function UserPageContent() {
@@ -37,7 +36,7 @@ export default function UserPageContent() {
         <div className="square border border-primary" id="user-page-content-style">
             <div className="content-container">
                 <div className="container-item">
-                    <div style={{width: "20%"}}>Contact info:</div>
+                    <div className="div-width-20-percent">Contact info:</div>
                         <div>
                             <strong>Phone number:</strong><br />
                             {user.phone}<br/>
@@ -48,7 +47,7 @@ export default function UserPageContent() {
                 </div>
                 <hr className="break-line"/>
                 <div className="container-item">
-                    <div style={{width: "20%"}}>Experience:</div>
+                    <div className="div-width-20-percent">Experience:</div>
                     <div>
                         <p>{user.experience}</p>
                     </div>
@@ -59,7 +58,7 @@ export default function UserPageContent() {
                 </div>
                 <hr className="break-line"/>
                 <div>
-                    <div style={{width: "20%"}}>Skills:</div>
+                    <div className="div-width-20-percent">Skills:</div>
                     <div>
                         <ul className="nav">
                             {skills.map(skill => (
@@ -73,12 +72,12 @@ export default function UserPageContent() {
                                 </li>
                             ))}
                         </ul>
-                        <Button variant="contained" color="primary" style={{float: "right"}} onClick={toggleSkillsInput}>Add skill</Button>
+                        <Button variant="contained" color="primary" className="button-float-right" onClick={toggleSkillsInput}>Add skill</Button>
                         <Collapse in={showSkillsInput}>
                             <br/>
                             <p>Enter a new skill</p>
                             <div className="flexed-container">
-                                <input type="text" className="form-control" style={{width: "30%", marginRight: "10px"}} onChange={e => setNewSkill(e.target.value)}/>
+                                <input type="text" className="form-control" onChange={e => setNewSkill(e.target.value)}/>
                                 <Button color="primary" variant="contained" value={newSkill} onClick={addNewSkill}>Add</Button>
                             </div>
                         </Collapse>

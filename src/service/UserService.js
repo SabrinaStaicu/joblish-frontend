@@ -22,6 +22,10 @@ class UserService {
     updateJobPreferences(id, jobPreference) {
         return axios.put(`${USERS_API_URL}/update-job-preferences/${id}`, jobPreference, {headers: AuthHeader()})
     }
+
+    addNewSkill(id, skill) {
+        return axios.get(`${USERS_API_URL}/add-new-skill/${id}/${skill}`, {headers: AuthHeader()});;
+    }
 }
 
 export default new UserService();

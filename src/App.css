@@ -1134,3 +1134,7 @@ body {
   margin-bottom: 20px;
   width: 100px;
 }
+
+.flexed-container {
+  display: flex;
+}

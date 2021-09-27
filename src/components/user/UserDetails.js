@@ -4,13 +4,13 @@ import UserPageContent from './UserPageContent';
 import JobService from "../../service/JobService";
 import JobCard from "../job/JobCard";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import { makeStyles } from '@material-ui/core/styles';
 import Modal from 'react-modal';
 import UserService from "../../service/UserService";
 import AuthService from "../../service/AuthService";
 import EditUserPreferences from './EditUserPreferences';
 import JobPreferences from './JobPreferences';
 import {modalStyling} from "../../util/ModalStyling";
+import {useEditStyles} from "../../styling/UserDtailsStyle";
 
 export default function UserDetails() {
     const [savedJobs, setSavedJobs] = useState([]);
@@ -34,15 +34,6 @@ export default function UserDetails() {
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
     };
-
-    const useEditStyles = makeStyles((theme) => ({
-        root: {
-            '& .MuiTextField-root': {
-                marginBottom : 20,
-                width: 100,
-            },
-        },
-    }));
 
     const editClasses = useEditStyles();
 
@@ -69,7 +60,7 @@ export default function UserDetails() {
                 <img className="user-profile-picture" src={user.picture ? user.picture : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"} alt="user's personal avatar" />
                 <br/>
                 <Card.Body>
-                    <Card.Text style={{ textAlign: 'center'}}>
+                    <Card.Text style={{textAlign: 'center'}}>
                         <h5>{user.firstName} {user.lastName}</h5>
                         {user.country} {user.city} <br />
                         <div className="card-style-1">

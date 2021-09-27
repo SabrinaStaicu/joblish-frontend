@@ -2,18 +2,36 @@ import React, {useEffect, useState} from 'react'
 import UserService from "../../service/UserService";
 import Button from "@material-ui/core/Button";
 import {useHistory} from "react-router-dom";
+import AuthService from "../../service/AuthService";
+import JobCard from "../job/JobCard";
+import {Collapse} from "@material-ui/core";
 
 export default function UserPageContent() {
     const history = useHistory();
     const [user, setUser] = useState({})
     const [skills, setSkills] = useState([user.skills])
+    const [showSkillsInput, setShowSkillsInput] = useState(false);
+    const [newSkill, setNewSkill] = useState("");
 
     useEffect(() => {
-        UserService.getUserById(3).then(res => {
+        UserService.getUserById(AuthService.getCurrentUser().id).then(res => {
             setUser(res.data)
             setSkills(res.data.skills)
         });
     }, [])
+
+    const toggleSkillsInput = () => {
+        setShowSkillsInput(!showSkillsInput);
+    }
+
+    const addNewSkill = () => {
+        if(newSkill.length > 0) {
+            UserService.addNewSkill(AuthService.getCurrentUser().id, newSkill).then(res => {
+                setSkills([...skills, newSkill])
+                setNewSkill("")
+            })
+        }
+    }
 
     return (
         <div className="square border border-primary" id="user-page-content-style">
@@ -55,6 +73,15 @@ export default function UserPageContent() {
                                 </li>
                             ))}
                         </ul>
+                        <Button variant="contained" color="primary" style={{float: "right"}} onClick={toggleSkillsInput}>Add skill</Button>
+                        <Collapse in={showSkillsInput}>
+                            <br/>
+                            <p>Enter a new skill</p>
+                            <div className="flexed-container">
+                                <input type="text" className="form-control" style={{width: "30%", marginRight: "10px"}} onChange={e => setNewSkill(e.target.value)}/>
+                                <Button color="primary" variant="contained" value={newSkill} onClick={addNewSkill}>Add</Button>
+                            </div>
+                        </Collapse>
                     </div>
                 </div>
             </div>

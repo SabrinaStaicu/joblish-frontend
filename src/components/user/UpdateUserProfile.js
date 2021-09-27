@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import {useForm} from "react-hook-form";
 import UserService from "../../service/UserService";
+import AuthService from "../../service/AuthService";
 
 const UpdateUserProfile = () => {
     const location = useLocation();
@@ -39,7 +40,7 @@ const UpdateUserProfile = () => {
                     </Typography>
                     <form className={classes.form} onSubmit={
                         handleSubmit((data) => {
-                            UserService.updateUser(data, 3).then(res => history.push("/account"))
+                            UserService.updateUser(data, AuthService.getCurrentUser().id).then(res => history.push("/account"))
                         })
                     } noValidate>
                         <Grid container spacing={2}>

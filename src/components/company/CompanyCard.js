@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {CardMedia, Collapse} from "@material-ui/core";
 import JobCard from "../job/JobCard";
-import './company.scss';
+import '../../styling/company.scss';
 import JobService from "../../service/JobService";
 
 
@@ -54,7 +54,6 @@ const CompanyCard = ({company}) => {
                     </div>
                 </Collapse>
             </div>
-
         );
 };
 

@@ -9,7 +9,6 @@ import Register from "../login/Register";
 import Login from "../login/Login";
 import Companies from "../company/Companies";
 import Footer from '../navigation/Footer';
-import DashBoard from '../company/DashBoard';
 import UpdateUserProfile from "../user/UpdateUserProfile";
 
 
@@ -25,7 +24,6 @@ const Routes = () => {
                     <Route path="/user-applications" component={UserApplications}/>
                     <Route path="/login" component={Login} />
                     <Route path="/companies" component={Companies}/>
-                    <Route path="/dash-board" component={DashBoard}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/update-profile" component={UpdateUserProfile}/>
                 </Switch>

@@ -43,6 +43,29 @@ Joblish is a recruitment platform web application that is composed of 3 reposito
 
 </ol>
 
+This repo in particular handles the User side frontend.
+
+- We have a homepage with a search bar for jobs.
+  ![Image](/image/path.png)
+
+- A registration form.
+  ![Image](/image/path.png)
+
+- A login form.
+  ![Image](/image/path.png)
+
+- An user details page.
+  ![Image](/image/path.png)
+
+- A job search page with multiple filters.
+  ![Image](/image/path.png)
+
+- A page where we can view our applications.
+  ![Image](/image/path.png)
+
+- A page with companies where we can see the positions they offer.
+  ![Image](/image/path.png)
+
 ### Built With
 
 - React
